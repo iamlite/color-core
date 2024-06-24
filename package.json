@@ -1,0 +1,22 @@
+{
+  "name": "next-color",
+  "version": "0.1.0",
+  "description": "NextJS Color Picker Utility",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamlite/next-color.git"
+  },
+  "keywords": [
+    "nextjs"
+  ],
+  "author": "iamlite",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamlite/next-color/issues"
+  },
+  "homepage": "https://github.com/iamlite/next-color#readme"
+}
