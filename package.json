@@ -1,22 +1,19 @@
 {
   "name": "next-color",
-  "version": "0.1.0",
-  "description": "NextJS Color Picker Utility",
-  "main": "index.tsx",
+  "version": "1.0.0",
+  "description": "Color utility library for Next.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "dev"
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iamlite/next-color.git"
-  },
-  "keywords": [
-    "nextjs"
-  ],
-  "author": "iamlite",
+  "keywords": ["color", "nextjs"],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/iamlite/next-color/issues"
-  },
-  "homepage": "https://github.com/iamlite/next-color#readme"
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "typescript": "^5.1.6"
+  }
 }
