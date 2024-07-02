@@ -1,11 +1,11 @@
-# next-color
+# next-colors
 
 A comprehensive color manipulation library for Next.js and React applications.
 
 ## Installation
 
 ```bash
-npm install next-color
+npm install next-colors
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install next-color
 ### Basic Usage
 
 ```typescript
-import { Color } from 'next-color';
+import { Color } from 'next-colors';
 
 // Create a color from hex
 const color = new Color('#ff0000');
@@ -35,7 +35,7 @@ console.log(color.equals(sameRed));  // true
 ### Using Individual Conversion Functions
 
 ```typescript
-import { hexToRgb, rgbToHsl } from 'next-color';
+import { hexToRgb, rgbToHsl } from 'next-colors';
 
 const rgb = hexToRgb('#00ff00');
 console.log(rgb);  // { r: 0, g: 255, b: 0 }

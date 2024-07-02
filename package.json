@@ -1,19 +1,25 @@
 {
-  "name": "next-color",
-  "version": "1.0.0",
-  "description": "Color utility library for Next.js",
+  "name": "next-colors",
+  "version": "0.1.0",
+  "description": "A comprehensive color manipulation library for Next.js and React applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublishOnly": "npm run build"
   },
-  "keywords": ["color", "nextjs"],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^20.4.2",
-    "typescript": "^5.1.6"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamlite/next-colors.git"
+  },
+  "keywords": [
+    "color",
+    "nextjs",
+    "react"
+  ],
+  "author": "Tariel Davidashvili",
+  "license": "MIT"
 }

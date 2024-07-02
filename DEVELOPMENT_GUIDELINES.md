@@ -1,4 +1,4 @@
-# Development Guidelines for next-color
+# Development Guidelines for next-colors
 
 ## File Structure
 
@@ -40,9 +40,9 @@ export { rgbToHex } from './conversions/rgb-to-hex';
 Users should be able to import functions either individually or all at once:
 
 ```typescript
-import { hexToRgb, rgbToHex } from 'next-color';
-// or
-import * as nextColor from 'next-color';
+import { hexToRgb, rgbToHex } from 'next-colors';
+// ors
+import * as nextColors from 'next-colors';
 ```
 
 ## Testing
@@ -59,6 +59,7 @@ import * as nextColor from 'next-color';
 ## Versioning
 
 Follow Semantic Versioning (SemVer) for version numbers:
+
 - MAJOR version for incompatible API changes,
 - MINOR version for backwards-compatible functionality additions,
 - PATCH version for backwards-compatible bug fixes.
