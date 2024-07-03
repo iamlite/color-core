@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Planned Features
+
+- Color palette generation
+- Color accessibility functions (contrast ratio, WCAG compliance)
+- Color mixing and blending functions
+- Support for additional color spaces (e.g., XYZ, YUV)
+
+## [0.2.0] - 2024-07-02
+
 ### Added
 
 - Color harmony functions:
@@ -16,15 +25,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Tetradic (Rectangle)
   - Split-Complementary
   - Monochromatic
+- Unified Color class for easy color manipulations
+- Demo site showcasing color conversions and harmonies
 
-### Planned Features
+### Changed
 
-- Color palette generation
-- Color accessibility functions (contrast ratio, WCAG compliance)
-- Color mixing and blending functions
-- Support for additional color spaces (e.g., XYZ, YUV)
+- Improved TypeScript typings for better developer experience
+- Enhanced error handling for invalid color inputs
 
-## [0.1.0] - 2024-07-02
+### Fixed
+
+- Edge cases in color conversion algorithms
+
+## [0.1.0] - 2024-07-01
 
 ### Added
 
@@ -36,18 +49,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - RGB to/from CMYK
   - RGB to/from LAB
   - RGB to/from LCH
-- Unified Color class for easy color manipulations
-- TypeScript support with type definitions
+- Basic TypeScript support with type definitions
 - Basic error handling for invalid inputs
 - Test suite for verifying color conversions
 
-### Changed
-
-- Improved performance of color conversion functions
-
-### Fixed
-
-- Edge cases in color conversion algorithms
-
-[Unreleased]: https://github.com/iamlite/next-colors/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/iamlite/next-colors/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/iamlite/next-colors/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/iamlite/next-colors/releases/tag/v0.1.0
