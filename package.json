@@ -33,10 +33,9 @@
   "devDependencies": {
     "@types/node": "^20.14.9",
     "typedoc": "^0.26.3",
-    "typescript": "^5.5.3"
-  },
-  "dependencies": {
+    "typescript": "^5.5.3",
     "typedoc-material-theme": "^1.1.0",
     "typedoc-plugin-missing-exports": "^3.0.0"
-  }
+  },
+  "dependencies": {}
 }
