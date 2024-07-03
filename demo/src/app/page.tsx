@@ -4,7 +4,7 @@ import { Color } from 'next-colors';
 import { useEffect, useState } from 'react';
 import { FiCheck, FiCopy } from 'react-icons/fi';
 
-const FloatingElement: React.FC = () => {
+const InstallElement: React.FC = () => {
 	const [copied, setCopied] = useState(false);
 
 	const handleCopy = () => {
@@ -40,13 +40,13 @@ const ColorSwatch = ({ color, label }: { color: Color; label: string }) => {
 	};
 
 	return (
-		<div className='flex flex-col items-center mb-2'>
+		<div className='flex flex-col items-center m-1'>
 			<div
-				className={`uppercase w-14 h-14 hover:scale-150 transition-transform rounded-3xl shadow-md border border-gray-200 flex items-center justify-center cursor-pointer ${isClicked ? 'animate-pulse' : ''}`}
+				className={`h-16 w-16 mask mask-squircle hover:scale-150 transition-transform shadow-md flex items-center justify-center cursor-pointer ${isClicked ? 'animate-pulse' : ''}`}
 				style={{ backgroundColor: color.toHex() }}
 				onClick={handleCopyColor}>
 				<span
-					className='text-xs'
+					className='text-xs uppercase font-extralight glass p-1 rounded-md'
 					style={{ color: color.toHsl().l > 50 ? '#000' : '#fff' }}>
 					{isClicked ? 'Copied!' : label}
 				</span>
@@ -56,8 +56,8 @@ const ColorSwatch = ({ color, label }: { color: Color; label: string }) => {
 };
 
 const ColorSection = ({ title, colors }: { title: string; colors: Color[] }) => (
-	<div className='mb-4'>
-		<h3 className='text-sm font-semibold mb-2 text-center'>{title}</h3>
+	<div>
+		<h3 className='text-lg font-semibold my-4 text-center'>{title}</h3>
 		<div className='flex flex-wrap justify-center'>
 			{colors.map((color, index) => (
 				<ColorSwatch
@@ -81,7 +81,7 @@ const ConversionSection = ({ color }: { color: Color }) => {
 	};
 
 	return (
-		<div className='grid grid-cols-2 gap-4 text-xs'>
+		<div className='grid grid-cols-3 gap-4 text-xs'>
 			{Object.entries(conversions).map(([key, value]) => (
 				<div
 					key={key}
@@ -126,7 +126,7 @@ export default function Home() {
 		<div
 			className='min-h-screen py-8 justify-center'
 			style={backgroundStyle}>
-			<div className='max-w-[70vw] mx-auto px-4'>
+			<div className='max-w-[90vw] mx-auto px-4'>
 				<div className='relative top-4 right-4 text-right'>
 					<a
 						href='https://github.com/iamlite/next-colors'
@@ -148,16 +148,20 @@ export default function Home() {
 					</a>
 				</div>
 
-				<h1 className='text-2xl font-bold mb-4 text-center text-white'>next-colors Demo</h1>
+				<h1 className='text-2xl font-bold mb-4 text-center text-white'>next-colors demo</h1>
 
-				<div className='mb-4 flex items-center justify-center space-x-2'>
-					<input
-						type='text'
-						value={inputValue}
-						onChange={(e) => handleColorChange(e.target.value)}
-						className='input max-w-xs'
-						placeholder='Enter a color'
-					/>
+				<div className='my-6 flex items-center justify-center space-x-2'>
+					<label className='input input-bordered rounded-2xl flex items-center gap-2'>
+						{'>'}
+						<input
+							type='text'
+							className='grow'
+							value={inputValue}
+							onChange={(e) => handleColorChange(e.target.value)}
+							placeholder='Enter a color'
+						/>
+					</label>
+
 					<input
 						type='color'
 						value={color.toHex()}
@@ -166,6 +170,7 @@ export default function Home() {
 						className='w-10 h-10 mask mask-squircle cursor-pointer shadow'
 					/>
 				</div>
+
 				<p className='text-center text-sm mb-4 text-white'>
 					Enter any valid color format: HEX, RGB, HSL, HSV, CMYK, LAB, or LCH
 				</p>
@@ -176,12 +181,13 @@ export default function Home() {
 							title='Base Color'
 							colors={[color]}
 						/>
+						<div className='py-2' />
 						<ConversionSection color={color} />
 					</div>
 
-					<div className='flex-1 bg-white bg-opacity-90 text-gray-700 shadow-md rounded-lg p-4'>
-						<h2 className='text-lg font-semibold mb-4 text-center'>Color Harmonies</h2>
-						<div className='grid grid-cols-2 gap-4'>
+					<div className='flex-1 bg-white bg-opacity-90 text-gray-700 shadow-md rounded-lg py-4'>
+						<h2 className='text-lg font-semibold my-4 text-center'>Color Harmonies</h2>
+						<div className='grid grid-cols-4 gap-4'>
 							<ColorSection
 								title='Complementary'
 								colors={color.complementary()}
@@ -210,7 +216,7 @@ export default function Home() {
 					</div>
 				</div>
 				<div className='flex justify-center'>
-					<FloatingElement />
+					<InstallElement />
 				</div>
 			</div>
 		</div>

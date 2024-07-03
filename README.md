@@ -1,6 +1,51 @@
-# next-colors
 
-A comprehensive color manipulation library for Next.js and React applications.
+<div align="center">
+<h1>next-colors</h1>
+</div>
+
+---
+
+<div align="center">
+
+<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/next-colors?style=for-the-badge" style='margin: 5px'>
+<img alt="NPM Version" src="https://img.shields.io/npm/v/next-colors?style=for-the-badge&logo=npm" style='margin: 5px'>
+<img alt="NPM License" src="https://img.shields.io/npm/l/next-colors?style=for-the-badge&color=red" style='margin: 5px'>
+<img src="https://img.shields.io/github/last-commit/iamlite/next-colors?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" style="margin: 5px;" />
+<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/next-colors?style=for-the-badge" style='margin: 5px'>
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/next-colors?style=for-the-badge" style='margin: 5px'>
+
+</div>
+
+---
+<div align="center">
+<a href="https://next-colors-demo.vercel.app">
+<img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray" style="margin: 5px" >
+</a>
+
+<a href="https://www.npmjs.com/package/next-colors">
+<img alt="Static Badge" src="https://img.shields.io/badge/NPM-URL%20-%20link?style=for-the-badge&logo=npm" style="margin: 5px;">
+</a>
+
+<a href="https://discord.gg/uYBuFXUmcU">
+<img src="https://img.shields.io/discord/640575167772491786?style=for-the-badge&logo=discord&label=Discord&color=gold" alt="Discord" style="margin: 5px;" />
+</a>
+</div>
+
+---
+
+`next-colors` is a powerful and versatile color manipulation library designed specifically for Next.js and React applications. It provides a comprehensive set of tools for working with colors across various color spaces, making it an essential utility for developers working on projects that require advanced color handling.
+
+This library offers a unified `Color` class that simplifies color conversions, manipulations, and harmony calculations. With support for RGB, HEX, HSL, HSV, CMYK, LAB, and LCH color spaces, next-colors enables developers to effortlessly convert between formats, generate color harmonies, and perform complex color operations.
+
+Key features include:
+
+- Seamless color space conversions
+- Color harmony generation (complementary, analogous, triadic, etc.)
+- A type-safe API with full TypeScript support
+- Efficient and accurate color calculations
+- Easy integration with Next.js and React projects
+
+Whether you're building a design tool, a data visualization app, or simply need robust color management in your Next.js project, next-colors provides the functionality you need with a clean, intuitive API.
 
 ## Installation
 
