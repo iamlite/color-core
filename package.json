@@ -2,14 +2,15 @@
   "name": "next-colors",
   "version": "0.2.0",
   "description": "A comprehensive color manipulation library for Next.js and React applications",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsc",
-    "prepublishOnly": "npm run build"
+  "author": {
+    "name": "Tariel Davidashvili",
+    "email": "hello@tariel.me",
+    "url": "https://tariel.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamlite/next-colors/issues",
+    "email": "hello@tariel.me"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,15 @@
     "nextjs",
     "react"
   ],
-  "author": "Tariel Davidashvili",
-  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
   "devDependencies": {
     "@types/node": "^20.14.9",
     "typedoc": "^0.26.3",
