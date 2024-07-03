@@ -3,8 +3,6 @@
 <h1>next-colors</h1>
 </div>
 
----
-
 <div align="center">
 
 <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/next-colors?style=for-the-badge" style='margin: 5px'>
