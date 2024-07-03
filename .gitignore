@@ -1,4 +1,6 @@
 .DS_Store
+DEVGUIDE.md
+*.tree
 
 # Logs
 logs

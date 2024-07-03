@@ -2,3 +2,6 @@ src
 test-site
 tsconfig.json
 .gitignore
+.DS_Store
+DEVGUIDE.md
+*.tree
