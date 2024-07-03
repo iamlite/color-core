@@ -21,5 +21,9 @@
     "react"
   ],
   "author": "Tariel Davidashvili",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.5.3",
+    "@types/node": "^20.14.9"
+  }
 }

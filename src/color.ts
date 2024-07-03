@@ -20,6 +20,7 @@ import { CMYK, HSL, HSV, LAB, LCH, RGB } from './types';
 
 export class Color {
     private _rgb: RGB;
+    private static PRECISION = 6;
 
     constructor(color: string | RGB | HSL | HSV | CMYK | LAB | LCH) {
         if (typeof color === 'string') {
@@ -39,16 +40,30 @@ export class Color {
         } else {
             throw new Error('Invalid color format');
         }
+        this._rgb = this.roundObject(this._rgb);
+    }
+
+    private roundNumber(num: number): number {
+        return Number(num.toFixed(Color.PRECISION));
+    }
+
+    private roundObject<T extends object>(obj: T): T {
+        return Object.fromEntries(
+            Object.entries(obj).map(([key, value]) => [
+                key,
+                typeof value === 'number' ? this.roundNumber(value) : value
+            ])
+        ) as T;
     }
 
     // Conversion methods
     toRgb(): RGB { return this._rgb; }
     toHex(): string { return rgbToHex(this._rgb); }
-    toHsl(): HSL { return rgbToHsl(this._rgb); }
-    toHsv(): HSV { return rgbToHsv(this._rgb); }
-    toCmyk(): CMYK { return rgbToCmyk(this._rgb); }
-    toLab(): LAB { return rgbToLab(this._rgb); }
-    toLch(): LCH { return rgbToLch(this._rgb); }
+    toHsl(): HSL { return this.roundObject(rgbToHsl(this._rgb)); }
+    toHsv(): HSV { return this.roundObject(rgbToHsv(this._rgb)); }
+    toCmyk(): CMYK { return this.roundObject(rgbToCmyk(this._rgb)); }
+    toLab(): LAB { return this.roundObject(rgbToLab(this._rgb)); }
+    toLch(): LCH { return this.roundObject(rgbToLch(this._rgb)); }
 
     // Harmony methods
     complementary(): [Color, Color] {
@@ -86,6 +101,9 @@ export class Color {
         return rgb1.r === rgb2.r && rgb1.g === rgb2.g && rgb1.b === rgb2.b;
     }
 
+    static setPrecision(precision: number): void {
+        Color.PRECISION = precision;
+    }
     // TODO: Add more utility methods here, such as:
     // - lighten(amount: number): Color
     // - darken(amount: number): Color
