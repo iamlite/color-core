@@ -2,7 +2,8 @@
 
 import { Color } from 'next-colors';
 import { useEffect, useState } from 'react';
-import { FiCheck, FiCopy } from 'react-icons/fi';
+import { FaNpm } from 'react-icons/fa';
+import { FiCheck, FiCopy, FiFileText, FiGithub } from 'react-icons/fi';
 
 const InstallElement: React.FC = () => {
 	const [copied, setCopied] = useState(false);
@@ -10,60 +11,42 @@ const InstallElement: React.FC = () => {
 	const handleCopy = () => {
 		navigator.clipboard.writeText('npm i next-colors');
 		setCopied(true);
-		setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+		setTimeout(() => setCopied(false), 2000);
 	};
 
 	return (
 		<div className='mockup-code w-1/4 my-8'>
-			<span className='text-center'>{copied ? 'Copied!' : ''}</span>
 			<pre data-prefix='$'>
 				<code>npm i next-colors</code>
 				<button
 					onClick={handleCopy}
 					className='text-white px-4 py-2 rounded-full flex items-center space-x-2 absolute top-[40%] right-2'>
 					{copied ? <FiCheck size={20} /> : <FiCopy size={20} />}
+					<span className='text-center'>{copied ? 'Copied!' : ''}</span>
 				</button>
 			</pre>
 		</div>
 	);
 };
 
-const ColorSwatch = ({ color, label }: { color: Color; label: string }) => {
-	const [isClicked, setIsClicked] = useState(false);
-
-	const handleCopyColor = () => {
-		navigator.clipboard.writeText(color.toHex());
-		setIsClicked(true);
-		setTimeout(() => {
-			setIsClicked(false);
-		}, 500);
-	};
-
+const ColorSwatch = ({ color }: { color: Color }) => {
 	return (
-		<div className='flex flex-col items-center m-1'>
-			<div
-				className={`h-16 w-16 mask mask-squircle hover:scale-150 transition-transform shadow-md flex items-center justify-center cursor-pointer ${isClicked ? 'animate-pulse' : ''}`}
-				style={{ backgroundColor: color.toHex() }}
-				onClick={handleCopyColor}>
-				<span
-					className='text-xs uppercase font-extralight glass p-1 rounded-md'
-					style={{ color: color.toHsl().l > 50 ? '#000' : '#fff' }}>
-					{isClicked ? 'Copied!' : label}
-				</span>
-			</div>
-		</div>
+		<div
+			className='relative h-8 w-8 m-1 rounded-lg shadow-md cursor-pointer tooltip tooltip-bottom hover:scale-125 transition-transform duration-500 uppercase'
+			data-tip={color.toHex()}
+			style={{ backgroundColor: color.toHex() }}
+			onClick={() => navigator.clipboard.writeText(color.toHex())}></div>
 	);
 };
 
 const ColorSection = ({ title, colors }: { title: string; colors: Color[] }) => (
-	<div>
-		<h3 className='text-lg font-semibold my-4 text-center'>{title}</h3>
-		<div className='flex flex-wrap justify-center'>
+	<div className='mb-4'>
+		<h3 className='text-sm font-semibold my-2 text-center'>{title}</h3>
+		<div className='flex justify-center'>
 			{colors.map((color, index) => (
 				<ColorSwatch
 					key={index}
 					color={color}
-					label={color.toHex()}
 				/>
 			))}
 		</div>
@@ -78,20 +61,22 @@ const ConversionSection = ({ color }: { color: Color }) => {
 		CMYK: color.toCmyk(),
 		LAB: color.toLab(),
 		LCH: color.toLch(),
+		XYZ: color.toXyz(),
+		YUV: color.toYuv(),
 	};
 
 	return (
-		<div className='grid grid-cols-3 gap-4 text-xs'>
+		<div className='grid grid-cols-2 md:grid-cols-4 gap-4 text-xs'>
 			{Object.entries(conversions).map(([key, value]) => (
 				<div
 					key={key}
-					className='bg-zinc-200 p-2 rounded'>
-					<span className='font-medium block mb-1'>{key}:</span>
+					className='bg-zinc-200 px-6 py-6 rounded flex flex-col items-center'>
+					<span className='block mb-4 text-center w-full'>{key}:</span>
 					{Object.entries(value).map(([subKey, subValue]) => (
 						<div
 							key={subKey}
-							className='pl-2'>
-							<span className='font-medium'>{subKey}: </span>
+							className='pl-2 w-full flex justify-between'>
+							<span className='font-bold'>{subKey}: </span>
 							<span>{typeof subValue === 'number' ? subValue.toFixed(2) : subValue}</span>
 						</div>
 					))}
@@ -129,22 +114,38 @@ export default function Home() {
 			<div className='max-w-[90vw] mx-auto px-4'>
 				<div className='relative top-4 right-4 text-right'>
 					<a
-						href='https://github.com/iamlite/next-colors'
-						className='inline-block'
+						href='https://www.npmjs.com/package/next-colors'
+						className='inline-block mx-2 tooltip tooltip-bottom'
 						target='_blank'
-						rel='noopener noreferrer'>
-						<svg
-							viewBox='0 0 24 24'
-							width='24'
-							height='24'
-							stroke='currentColor'
-							strokeWidth='2'
-							fill='none'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-							className='text-white transition-transform hover:scale-150 duration-500'>
-							<path d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'></path>
-						</svg>
+						rel='noopener noreferrer'
+						data-tip='NPM'>
+						<FaNpm
+							size={24}
+							className='text-white transition-transform hover:scale-150 duration-500'
+						/>
+					</a>
+					<a
+						href='https://github.com/iamlite/next-colors'
+						className='inline-block mx-2 tooltip tooltip-bottom'
+						target='_blank'
+						rel='noopener noreferrer'
+						data-tip='GitHub'>
+						<FiGithub
+							size={24}
+							className='text-white transition-transform hover:scale-150 duration-500 '
+						/>
+					</a>
+
+					<a
+						href='https://iamlite.github.io/next-colors/'
+						className='inline-block mx-2 tooltip tooltip-bottom'
+						target='_blank'
+						rel='noopener noreferrer'
+						data-tip='Documentation'>
+						<FiFileText
+							size={24}
+							className='text-white transition-transform hover:scale-150 duration-500 '
+						/>
 					</a>
 				</div>
 
@@ -187,7 +188,23 @@ export default function Home() {
 
 					<div className='flex-1 bg-white bg-opacity-90 text-gray-700 shadow-md rounded-lg py-4'>
 						<h2 className='text-lg font-semibold my-4 text-center'>Color Harmonies</h2>
-						<div className='grid grid-cols-4 gap-4'>
+						<div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
+							<ColorSection
+								title='Monochromatic'
+								colors={color.monochromatic(5)}
+							/>
+							<ColorSection
+								title='Shades'
+								colors={color.shades()}
+							/>
+							<ColorSection
+								title='Tints'
+								colors={color.tints()}
+							/>
+							<ColorSection
+								title='Tones'
+								colors={color.tones()}
+							/>
 							<ColorSection
 								title='Complementary'
 								colors={color.complementary()}
@@ -201,16 +218,24 @@ export default function Home() {
 								colors={color.triadic()}
 							/>
 							<ColorSection
-								title='Tetradic'
-								colors={color.tetradic()}
-							/>
-							<ColorSection
 								title='Split Complementary'
 								colors={color.splitComplementary()}
 							/>
 							<ColorSection
-								title='Monochromatic'
-								colors={color.monochromatic(5)}
+								title='Compound'
+								colors={color.compound()}
+							/>
+							<ColorSection
+								title='Tetradic'
+								colors={color.tetradic()}
+							/>
+							<ColorSection
+								title='Double Split Complementary'
+								colors={color.doubleSplitComplementary()}
+							/>
+							<ColorSection
+								title='Square'
+								colors={color.square()}
 							/>
 						</div>
 					</div>

@@ -1,4 +1,3 @@
-
 <div align="center">
 <h1 style="padding: 20px">next-colors</h1>
 </div>
@@ -11,11 +10,15 @@
 <img src="https://img.shields.io/github/last-commit/iamlite/next-colors?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" style="margin: 5px;" />
 <img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/next-colors?style=for-the-badge" style='margin: 5px'>
 <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/next-colors?style=for-the-badge" style='margin: 5px'>
+<a href="https://iamlite.github.io/next-colors/">
+<img alt="Static Badge" src="https://img.shields.io/badge/Docs-blue?style=for-the-badge&logo=github&logoColor=white&labelColor=gray" style="margin: 5px" >
+</a>
 
 </div>
 
 ---
 <div align="center">
+
 <a href="https://next-colors-demo.vercel.app">
 <img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray" style="margin: 5px" >
 </a>
@@ -27,13 +30,14 @@
 <a href="https://discord.gg/uYBuFXUmcU">
 <img src="https://img.shields.io/discord/640575167772491786?style=for-the-badge&logo=discord&label=Discord&color=gold" alt="Discord" style="margin: 5px;" />
 </a>
+
 </div>
 
 ---
 
 `next-colors` is a powerful and versatile color manipulation library designed specifically for Next.js and React applications. It provides a comprehensive set of tools for working with colors across various color spaces, making it an essential utility for developers working on projects that require advanced color handling.
 
-This library offers a unified `Color` class that simplifies color conversions, manipulations, and harmony calculations. With support for RGB, HEX, HSL, HSV, CMYK, LAB, and LCH color spaces, next-colors enables developers to effortlessly convert between formats, generate color harmonies, and perform complex color operations.
+This library offers a unified `Color` class that simplifies color conversions, manipulations, and harmony calculations. With support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV color spaces, next-colors enables developers to effortlessly convert between formats, generate color harmonies, and perform complex color operations.
 
 Key features include:
 
@@ -65,6 +69,8 @@ const color = new Color('#ff0000');
 console.log(color.toRgb());  // { r: 255, g: 0, b: 0 }
 console.log(color.toHsl());  // { h: 0, s: 100, l: 50 }
 console.log(color.toHex());  // '#ff0000'
+console.log(color.toXyz());  // { x: 0.4124, y: 0.2126, z: 0.0193 }
+console.log(color.toYuv());  // { y: 0.299, u: -0.14713, v: 0.615 }
 
 // Create a color from RGB
 const blueColor = new Color({ r: 0, g: 0, b: 255 });
@@ -78,13 +84,19 @@ console.log(color.equals(sameRed));  // true
 ### Using Individual Conversion Functions
 
 ```typescript
-import { hexToRgb, rgbToHsl } from 'next-colors';
+import { hexToRgb, rgbToHsl, rgbToXyz, rgbToYuv } from 'next-colors';
 
 const rgb = hexToRgb('#00ff00');
 console.log(rgb);  // { r: 0, g: 255, b: 0 }
 
 const hsl = rgbToHsl(rgb);
 console.log(hsl);  // { h: 120, s: 100, l: 50 }
+
+const xyz = rgbToXyz(rgb);
+console.log(xyz);  // { x: 0.3576, y: 0.7152, z: 0.1192 }
+
+const yuv = rgbToYuv(rgb);
+console.log(yuv);  // { y: 0.587, u: -0.28886, v: -0.51499 }
 ```
 
 ### Using Color Harmony Functions
@@ -132,7 +144,7 @@ The `Color` class is the main entry point for color manipulations.
 #### Constructor
 
 ```typescript
-new Color(color: string | RGB | HSL | HSV | CMYK | LAB | LCH)
+new Color(color: string | RGB | HSL | HSV | CMYK | LAB | LCH | XYZ | YUV)
 ```
 
 Creates a new Color instance from various color formats.
@@ -148,6 +160,8 @@ Creates a new Color instance from various color formats.
 | `toCmyk()` | CMYK        | Converts the color to CMYK format |
 | `toLab()`  | LAB         | Converts the color to LAB format  |
 | `toLch()`  | LCH         | Converts the color to LCH format  |
+| `toXyz()`  | XYZ         | Converts the color to XYZ format  |
+| `toYuv()`  | YUV         | Converts the color to YUV format  |
 
 #### Harmony Methods
 
@@ -183,6 +197,10 @@ Creates a new Color instance from various color formats.
 | `labToRgb`  | lab: LAB    | RGB         | Converts LAB to RGB  |
 | `rgbToLch`  | rgb: RGB    | LCH         | Converts RGB to LCH  |
 | `lchToRgb`  | lch: LCH    | RGB         | Converts LCH to RGB  |
+| `rgbToXyz`  | rgb: RGB    | XYZ         | Converts RGB to XYZ  |
+| `xyzToRgb`  | xyz: XYZ    | RGB         | Converts XYZ to RGB  |
+| `rgbToYuv`  | rgb: RGB    | YUV         | Converts RGB to YUV  |
+| `yuvToRgb`  | yuv: YUV    | RGB         | Converts YUV to RGB  |
 
 ### Harmony Functions
 
@@ -204,6 +222,8 @@ type HSV = { h: number; s: number; v: number };
 type CMYK = { c: number; m: number; y: number; k: number };
 type LAB = { l: number; a: number; b: number };
 type LCH = { l: number; c: number; h: number };
+type XYZ = { x: number; y: number; z: number };
+type YUV = { y: number; u: number; v: number };
 ```
 
 ## Contributing

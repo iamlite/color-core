@@ -9,10 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Planned Features
 
-- Color palette generation
-- Color accessibility functions (contrast ratio, WCAG compliance)
-- Color mixing and blending functions
-- Support for additional color spaces (e.g., XYZ, YUV)
+- New color harmony functions:
+  - Square
+  - Double Split-Complementary
+  - Compound (Accented Analog)
+  - Shades
+  - Tints
+  - Tones
+- Extended Color class with new harmony methods
 
 ## [0.2.0] - 2024-07-02
 

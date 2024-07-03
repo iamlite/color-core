@@ -10,23 +10,37 @@ import { rgbToHsl } from './conversions/rgb-to-hsl';
 import { rgbToHsv } from './conversions/rgb-to-hsv';
 import { rgbToLab } from './conversions/rgb-to-lab';
 import { rgbToLch } from './conversions/rgb-to-lch';
+import { rgbToXyz } from './conversions/rgb-to-xyz';
+import { rgbToYuv } from './conversions/rgb-to-yuv';
+import { xyzToRgb } from './conversions/xyz-to-rgb';
+import { yuvToRgb } from './conversions/yuv-to-rgb';
 import { analogous } from './harmony/analogous';
 import { complementary } from './harmony/complementary';
+import { compound } from './harmony/compound';
+import { doubleSplitComplementary } from './harmony/double-split-complementary';
 import { monochromatic } from './harmony/monochromatic';
+import { shades } from './harmony/shades';
 import { splitComplementary } from './harmony/split-complementary';
+import { square } from './harmony/square';
 import { tetradic } from './harmony/tetradic';
+import { tints } from './harmony/tints';
+import { tones } from './harmony/tones';
 import { triadic } from './harmony/triadic';
-import { CMYK, HSL, HSV, LAB, LCH, RGB } from './types';
+import { CMYK, HSL, HSV, LAB, LCH, RGB, XYZ, YUV } from './types';
 
 export class Color {
     private _rgb: RGB;
     private static PRECISION = 6;
 
-    constructor(color: string | RGB | HSL | HSV | CMYK | LAB | LCH) {
+    constructor(color: string | RGB | HSL | HSV | CMYK | LAB | LCH | XYZ | YUV) {
         if (typeof color === 'string') {
             this._rgb = hexToRgb(color);
         } else if ('r' in color && 'g' in color && 'b' in color) {
             this._rgb = color;
+        } else if ('x' in color && 'y' in color && 'z' in color) {
+            this._rgb = xyzToRgb(color as XYZ);
+        } else if ('y' in color && 'u' in color && 'v' in color) {
+            this._rgb = yuvToRgb(color as YUV);
         } else if ('h' in color && 's' in color && 'l' in color) {
             this._rgb = hslToRgb(color as HSL);
         } else if ('h' in color && 's' in color && 'v' in color) {
@@ -61,9 +75,11 @@ export class Color {
     toHex(): string { return rgbToHex(this._rgb); }
     toHsl(): HSL { return this.roundObject(rgbToHsl(this._rgb)); }
     toHsv(): HSV { return this.roundObject(rgbToHsv(this._rgb)); }
-    toCmyk(): CMYK { return this.roundObject(rgbToCmyk(this._rgb)); }
     toLab(): LAB { return this.roundObject(rgbToLab(this._rgb)); }
     toLch(): LCH { return this.roundObject(rgbToLch(this._rgb)); }
+    toXyz(): XYZ { return this.roundObject(rgbToXyz(this._rgb)); }
+    toYuv(): YUV { return this.roundObject(rgbToYuv(this._rgb)); }
+    toCmyk(): CMYK { return this.roundObject(rgbToCmyk(this._rgb)); }
 
     // Harmony methods
     complementary(): [Color, Color] {
@@ -88,6 +104,30 @@ export class Color {
 
     monochromatic(count?: number): Color[] {
         return monochromatic(this, count);
+    }
+
+    square(): [Color, Color, Color, Color] {
+        return square(this);
+    }
+
+    doubleSplitComplementary(angle?: number): [Color, Color, Color, Color] {
+        return doubleSplitComplementary(this, angle);
+    }
+
+    compound(angle?: number): [Color, Color, Color, Color] {
+        return compound(this, angle);
+    }
+
+    shades(count?: number): Color[] {
+        return shades(this, count);
+    }
+
+    tints(count?: number): Color[] {
+        return tints(this, count);
+    }
+
+    tones(count?: number): Color[] {
+        return tones(this, count);
     }
 
     // Utility methods

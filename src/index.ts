@@ -11,15 +11,20 @@ export { rgbToHsl } from './conversions/rgb-to-hsl';
 export { rgbToHsv } from './conversions/rgb-to-hsv';
 export { rgbToLab } from './conversions/rgb-to-lab';
 export { rgbToLch } from './conversions/rgb-to-lch';
+export { rgbToXyz } from './conversions/rgb-to-xyz';
+export { rgbToYuv } from './conversions/rgb-to-yuv';
+export { xyzToRgb } from './conversions/xyz-to-rgb';
+export { yuvToRgb } from './conversions/yuv-to-rgb';
+
 
 // Color types
-export { CMYK, HSL, HSV, LAB, LCH, RGB } from './types';
+export { CMYK, HSL, HSV, LAB, LCH, RGB, XYZ, YUV } from './types';
 
 // Export the Unified Color Class
 export { Color } from './color';
 
 // Harmony functions
 export {
-    analogous, complementary, monochromatic, splitComplementary, tetradic, triadic
+    analogous, complementary, compound, doubleSplitComplementary, monochromatic, shades, splitComplementary, square, tetradic, tints, tones, triadic
 } from './harmony';
 
