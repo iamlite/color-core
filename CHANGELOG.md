@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Planned Features
 
+- Add slider controls for adjusting color values
+
+## [0.2.0] - 2024-07-03
+
+### Added
+
 - New color harmony functions:
   - Square
   - Double Split-Complementary
@@ -17,8 +23,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Tints
   - Tones
 - Extended Color class with new harmony methods
+  
+### Changed
 
-## [0.2.0] - 2024-07-02
+- /
+
+### Fixed
+
+- /
+
+## [0.1.2] - 2024-07-02
 
 ### Added
 
