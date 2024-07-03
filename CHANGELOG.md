@@ -7,10 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Color harmony functions:
+  - Complementary
+  - Analogous
+  - Triadic
+  - Tetradic (Rectangle)
+  - Split-Complementary
+  - Monochromatic
+
 ### Planned Features
 
 - Color palette generation
-- Color harmony calculations (complementary, analogous, etc.)
 - Color accessibility functions (contrast ratio, WCAG compliance)
 - Color mixing and blending functions
 - Support for additional color spaces (e.g., XYZ, YUV)
@@ -40,5 +49,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Edge cases in color conversion algorithms
 
-[Unreleased]: https://github.com/iamlite/next-color/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/iamlite/next-color/releases/tag/v0.1.0
+[Unreleased]: https://github.com/iamlite/next-colors/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/iamlite/next-colors/releases/tag/v0.1.0

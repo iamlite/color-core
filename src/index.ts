@@ -17,3 +17,9 @@ export { CMYK, HSL, HSV, LAB, LCH, RGB } from './types';
 
 // Export the Unified Color Class
 export { Color } from './color';
+
+// Harmony functions
+export {
+    analogous, complementary, monochromatic, splitComplementary, tetradic, triadic
+} from './harmony';
+

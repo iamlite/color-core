@@ -44,6 +44,42 @@ const hsl = rgbToHsl(rgb);
 console.log(hsl);  // { h: 120, s: 100, l: 50 }
 ```
 
+### Using Color Harmony Functions
+
+```typescript
+import { Color, complementary, analogous } from 'next-colors';
+
+const baseColor = new Color('#ff0000');
+
+// Generate complementary harmony
+const [base, complement] = complementary(baseColor);
+console.log(complement.toHex());  // '#00ffff'
+
+// Generate analogous harmony
+const [color1, color2, color3] = analogous(baseColor);
+console.log(color1.toHex(), color2.toHex(), color3.toHex());  // '#ff0080', '#ff0000', '#ff8000'
+```
+
+### Using Color Harmony Methods
+
+```typescript
+import { Color } from 'next-colors';
+
+const baseColor = new Color('#ff0000');
+
+// Generate complementary harmony
+const [base, complement] = baseColor.complementary();
+console.log(complement.toHex());  // '#00ffff'
+
+// Generate analogous harmony
+const [color1, color2, color3] = baseColor.analogous();
+console.log(color1.toHex(), color2.toHex(), color3.toHex());  // '#ff0080', '#ff0000', '#ff8000'
+
+// Generate monochromatic harmony
+const monoColors = baseColor.monochromatic(5);
+monoColors.forEach(color => console.log(color.toHex()));
+```
+
 ## API Reference
 
 ### Color Class
@@ -58,18 +94,35 @@ new Color(color: string | RGB | HSL | HSV | CMYK | LAB | LCH)
 
 Creates a new Color instance from various color formats.
 
-#### Methods
+#### Conversion Methods
 
-| Method                 | Return Type | Description                       |
-| ---------------------- | ----------- | --------------------------------- |
-| `toRgb()`              | RGB         | Converts the color to RGB format  |
-| `toHex()`              | string      | Converts the color to HEX format  |
-| `toHsl()`              | HSL         | Converts the color to HSL format  |
-| `toHsv()`              | HSV         | Converts the color to HSV format  |
-| `toCmyk()`             | CMYK        | Converts the color to CMYK format |
-| `toLab()`              | LAB         | Converts the color to LAB format  |
-| `toLch()`              | LCH         | Converts the color to LCH format  |
-| `equals(other: Color)` | boolean     | Checks if two colors are equal    |
+| Method     | Return Type | Description                       |
+| ---------- | ----------- | --------------------------------- |
+| `toRgb()`  | RGB         | Converts the color to RGB format  |
+| `toHex()`  | string      | Converts the color to HEX format  |
+| `toHsl()`  | HSL         | Converts the color to HSL format  |
+| `toHsv()`  | HSV         | Converts the color to HSV format  |
+| `toCmyk()` | CMYK        | Converts the color to CMYK format |
+| `toLab()`  | LAB         | Converts the color to LAB format  |
+| `toLch()`  | LCH         | Converts the color to LCH format  |
+
+#### Harmony Methods
+
+| Method                 | Parameters     | Return Type                  | Description                             |
+| ---------------------- | -------------- | ---------------------------- | --------------------------------------- |
+| `complementary()`      | None           | [Color, Color]               | Generates a complementary harmony       |
+| `analogous()`          | angle?: number | [Color, Color, Color]        | Generates an analogous harmony          |
+| `triadic()`            | None           | [Color, Color, Color]        | Generates a triadic harmony             |
+| `tetradic()`           | angle?: number | [Color, Color, Color, Color] | Generates a tetradic harmony            |
+| `splitComplementary()` | angle?: number | [Color, Color, Color]        | Generates a split-complementary harmony |
+| `monochromatic()`      | count?: number | Color[]                      | Generates a monochromatic harmony       |
+
+#### Utility Methods
+
+| Method                 | Parameters   | Return Type | Description                       |
+| ---------------------- | ------------ | ----------- | --------------------------------- |
+| `toString()`           | None         | string      | Returns the color as a hex string |
+| `equals(other: Color)` | other: Color | boolean     | Checks if two colors are equal    |
 
 ### Conversion Functions
 
@@ -87,6 +140,17 @@ Creates a new Color instance from various color formats.
 | `labToRgb`  | lab: LAB    | RGB         | Converts LAB to RGB  |
 | `rgbToLch`  | rgb: RGB    | LCH         | Converts RGB to LCH  |
 | `lchToRgb`  | lch: LCH    | RGB         | Converts LCH to RGB  |
+
+### Harmony Functions
+
+| Function             | Parameters           | Return Type                  | Description                             |
+| -------------------- | -------------------- | ---------------------------- | --------------------------------------- |
+| `complementary`      | color: Color         | [Color, Color]               | Generates a complementary harmony       |
+| `analogous`          | color: Color, angle? | [Color, Color, Color]        | Generates an analogous harmony          |
+| `triadic`            | color: Color         | [Color, Color, Color]        | Generates a triadic harmony             |
+| `tetradic`           | color: Color, angle? | [Color, Color, Color, Color] | Generates a tetradic harmony            |
+| `splitComplementary` | color: Color, angle? | [Color, Color, Color]        | Generates a split-complementary harmony |
+| `monochromatic`      | color: Color, count? | Color[]                      | Generates a monochromatic harmony       |
 
 ### Types
 

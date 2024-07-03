@@ -10,6 +10,12 @@ import { rgbToHsl } from './conversions/rgb-to-hsl';
 import { rgbToHsv } from './conversions/rgb-to-hsv';
 import { rgbToLab } from './conversions/rgb-to-lab';
 import { rgbToLch } from './conversions/rgb-to-lch';
+import { analogous } from './harmony/analogous';
+import { complementary } from './harmony/complementary';
+import { monochromatic } from './harmony/monochromatic';
+import { splitComplementary } from './harmony/split-complementary';
+import { tetradic } from './harmony/tetradic';
+import { triadic } from './harmony/triadic';
 import { CMYK, HSL, HSV, LAB, LCH, RGB } from './types';
 
 export class Color {
@@ -43,6 +49,31 @@ export class Color {
     toCmyk(): CMYK { return rgbToCmyk(this._rgb); }
     toLab(): LAB { return rgbToLab(this._rgb); }
     toLch(): LCH { return rgbToLch(this._rgb); }
+
+    // Harmony methods
+    complementary(): [Color, Color] {
+        return complementary(this);
+    }
+
+    analogous(angle?: number): [Color, Color, Color] {
+        return analogous(this, angle);
+    }
+
+    triadic(): [Color, Color, Color] {
+        return triadic(this);
+    }
+
+    tetradic(angle?: number): [Color, Color, Color, Color] {
+        return tetradic(this, angle);
+    }
+
+    splitComplementary(angle?: number): [Color, Color, Color] {
+        return splitComplementary(this, angle);
+    }
+
+    monochromatic(count?: number): Color[] {
+        return monochromatic(this, count);
+    }
 
     // Utility methods
     toString(): string {
