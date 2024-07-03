@@ -1,6 +1,6 @@
 
 <div align="center">
-<h1>next-colors</h1>
+<h1 style="padding: 20px">next-colors</h1>
 </div>
 
 <div align="center">
