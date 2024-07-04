@@ -1,8 +1,12 @@
-export type RGB = { r: number; g: number; b: number };
-export type HSL = { h: number; s: number; l: number };
-export type HSV = { h: number; s: number; v: number };
+export type RGB = { r: number; g: number; b: number; a?: number };
+export type HSL = { h: number; s: number; l: number; a?: number };
+export type HSV = { h: number; s: number; v: number; a?: number };
 export type CMYK = { c: number; m: number; y: number; k: number };
 export type LAB = { l: number; a: number; b: number };
 export type LCH = { l: number; c: number; h: number };
 export type XYZ = { x: number; y: number; z: number };
 export type YUV = { y: number; u: number; v: number };
+
+
+export { default as ColorPicker } from './utils/color-picker';
+export type { ColorPickerProps } from './utils/color-picker';

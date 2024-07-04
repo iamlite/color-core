@@ -1,29 +1,60 @@
-
-├── src
-│   ├── conversions
-│   │   ├── cmyk-to-rgb.ts
-│   │   ├── hex-to-rgb.ts
-│   │   ├── hsl-to-rgb.ts
-│   │   ├── hsv-to-rgb.ts
-│   │   ├── lab-to-rgb.ts
-│   │   ├── lch-to-rgb.ts
-│   │   ├── rgb-to-cmyk.ts
-│   │   ├── rgb-to-hex.ts
-│   │   ├── rgb-to-hsl.ts
-│   │   ├── rgb-to-hsv.ts
-│   │   ├── rgb-to-lab.ts
-│   │   └── rgb-to-lch.ts
-│   ├── harmony
-│   ├── manipulation
-│   ├── utils
+next-color/
+├── src/
+│   ├── conversions/
+│   │   ├── components/
+│   │   │   ├── cmyk-to-rgb.ts
+│   │   │   ├── hex-to-rgb.ts
+│   │   │   ├── hsl-to-rgb.ts
+│   │   │   ├── hsv-to-rgb.ts
+│   │   │   ├── lab-to-rgb.ts
+│   │   │   ├── lch-to-rgb.ts
+│   │   │   ├── rgb-to-cmyk.ts
+│   │   │   ├── rgb-to-hex.ts
+│   │   │   ├── rgb-to-hsl.ts
+│   │   │   ├── rgb-to-hsv.ts
+│   │   │   ├── rgb-to-lab.ts
+│   │   │   ├── rgb-to-lch.ts
+│   │   │   ├── rgb-to-xyz.ts
+│   │   │   ├── rgb-to-yuv.ts
+│   │   │   ├── xyz-to-rgb.ts
+│   │   │   └── yuv-to-rgb.ts
+│   │   └── index.ts
+│   ├── harmony/
+│   │   ├── components/
+│   │   │   ├── analogous.ts
+│   │   │   ├── complementary.ts
+│   │   │   ├── compound.ts
+│   │   │   ├── double-split-complementary.ts
+│   │   │   ├── monochromatic.ts
+│   │   │   ├── shades.ts
+│   │   │   ├── split-complementary.ts
+│   │   │   ├── square.ts
+│   │   │   ├── tetradic.ts
+│   │   │   ├── tints.ts
+│   │   │   ├── tones.ts
+│   │   │   └── triadic.ts
+│   │   └── index.ts
+│   ├── manipulation/
+│   │   ├── components/
+│   │   │   ├── adjust-alpha.ts
+│   │   │   ├── adjust-hue.ts
+│   │   │   ├── adjust-lightness.ts
+│   │   │   ├── adjust-saturation.ts
+│   │   │   ├── grayscale.ts
+│   │   │   ├── invert.ts
+│   │   │   └── mix.ts
+│   │   └── index.ts
+│   ├── utils/
 │   ├── color.ts
 │   ├── index.ts
 │   └── types.ts
-├── test-site
 ├── .gitignore
+├── .npmignore
 ├── CHANGELOG.md
-├── DEVELOPMENT_GUIDELINES.md
+├── DEVGUIDE.md
 ├── LICENSE
-├── package.json
 ├── README.md
-└── tsconfig.json
+├── package.json
+├── structure.tree
+├── tsconfig.json
+└── typedoc.json

@@ -1,13 +1,13 @@
-export { analogous } from './analogous';
-export { complementary } from './complementary';
-export { compound } from './compound';
-export { doubleSplitComplementary } from './double-split-complementary';
-export { monochromatic } from './monochromatic';
-export { shades } from './shades';
-export { splitComplementary } from './split-complementary';
-export { square } from './square';
-export { tetradic } from './tetradic';
-export { tints } from './tints';
-export { tones } from './tones';
-export { triadic } from './triadic';
+export { analogous } from './components/analogous';
+export { complementary } from './components/complementary';
+export { compound } from './components/compound';
+export { doubleSplitComplementary } from './components/double-split-complementary';
+export { monochromatic } from './components/monochromatic';
+export { shades } from './components/shades';
+export { splitComplementary } from './components/split-complementary';
+export { square } from './components/square';
+export { tetradic } from './components/tetradic';
+export { tints } from './components/tints';
+export { tones } from './components/tones';
+export { triadic } from './components/triadic';
 

@@ -1,21 +1,18 @@
 // Color conversion functions
-export { cmykToRgb } from './conversions/cmyk-to-rgb';
-export { hexToRgb } from './conversions/hex-to-rgb';
-export { hslToRgb } from './conversions/hsl-to-rgb';
-export { hsvToRgb } from './conversions/hsv-to-rgb';
-export { labToRgb } from './conversions/lab-to-rgb';
-export { lchToRgb } from './conversions/lch-to-rgb';
-export { rgbToCmyk } from './conversions/rgb-to-cmyk';
-export { rgbToHex } from './conversions/rgb-to-hex';
-export { rgbToHsl } from './conversions/rgb-to-hsl';
-export { rgbToHsv } from './conversions/rgb-to-hsv';
-export { rgbToLab } from './conversions/rgb-to-lab';
-export { rgbToLch } from './conversions/rgb-to-lch';
-export { rgbToXyz } from './conversions/rgb-to-xyz';
-export { rgbToYuv } from './conversions/rgb-to-yuv';
-export { xyzToRgb } from './conversions/xyz-to-rgb';
-export { yuvToRgb } from './conversions/yuv-to-rgb';
+export {
+    cmykToRgb, hexToRgb, hslToRgb, hsvToRgb, labToRgb,
+    lchToRgb, rgbToCmyk, rgbToHex, rgbToHsl,
+    rgbToHsv, rgbToLab, rgbToLch, rgbToXyz, rgbToYuv, xyzToRgb, yuvToRgb
+} from './conversions';
 
+
+// Harmony functions
+export {
+    analogous, complementary, compound, doubleSplitComplementary, monochromatic, shades, splitComplementary, square, tetradic, tints, tones, triadic
+} from './harmony';
+
+// Manipulation functions
+export { adjustAlpha, adjustHue, adjustLightness, adjustSaturation, grayscale, invert, mix } from './manipulation';
 
 // Color types
 export { CMYK, HSL, HSV, LAB, LCH, RGB, XYZ, YUV } from './types';
@@ -23,8 +20,6 @@ export { CMYK, HSL, HSV, LAB, LCH, RGB, XYZ, YUV } from './types';
 // Export the Unified Color Class
 export { Color } from './color';
 
-// Harmony functions
-export {
-    analogous, complementary, compound, doubleSplitComplementary, monochromatic, shades, splitComplementary, square, tetradic, tints, tones, triadic
-} from './harmony';
 
+// In next-colors/src/index.ts (or wherever your main entry point is)
+export { ColorPicker } from './utils/color-picker';
