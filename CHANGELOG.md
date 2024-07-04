@@ -9,7 +9,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Planned Features
 
-- Add slider controls for adjusting color values
+- none yet
+
+## [1.0.0] - 2024-07-04
+
+### Added
+
+- New Color Picker functionality
+- Unified Color class for easy color manipulations
+- Additional color harmony functions:
+  - Compound
+  - Double Split-Complementary
+  - Shades
+  - Square
+  - Tints
+  - Tones
+- New color manipulation methods:
+  - adjustLightness
+  - adjustSaturation
+  - adjustHue
+  - adjustAlpha
+  - invert
+  - grayscale
+  - mix
+- Support for XYZ and YUV color spaces
+- Improved type safety and error handling
+
+### Changed
+
+- Upgraded from version 0.2.0 to 1.0.0
+- Refactored and optimized existing color conversion and harmony functions
+- Enhanced documentation and examples in README.md
+
+### Fixed
+
+- Various bug fixes and performance improvements
 
 ## [0.2.0] - 2024-07-03
 

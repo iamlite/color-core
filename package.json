@@ -1,6 +1,6 @@
 {
   "name": "next-colors",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "A comprehensive color manipulation library for Next.js and React applications",
   "author": {
     "name": "Tariel Davidashvili",
@@ -30,7 +30,7 @@
     "build": "npm run build-app && npm run move-dist && npm run clean",
     "prepublishOnly": "npm run build",
     "build-app": "tsc",
-    "move-dist": "rm -rf ./demo/node_modules/next-colors/dist && mv dist ./demo/node_modules/next-colors/",
+    "move-dist": "rm -rf ./demo/node_modules/next-colors/dist && cp -r dist ./demo/node_modules/next-colors/",
     "clean": "rm -rf ./demo/.next"
   },
   "devDependencies": {
