@@ -45,6 +45,8 @@ next-color/
 │   │   │   └── mix.ts
 │   │   └── index.ts
 │   ├── utils/
+│   │   ├── color-picker-styles.ts
+│   │   └── color-picker.tsx
 │   ├── color.ts
 │   ├── index.ts
 │   └── types.ts
