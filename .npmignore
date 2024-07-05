@@ -5,3 +5,8 @@ tsconfig.json
 .DS_Store
 DEVGUIDE.md
 *.tree
+demo
+docs
+node_modules
+package-lock.json
+doctheme
