@@ -1,5 +1,5 @@
 import { Color, ColorPicker, RGB } from 'next-colors';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 interface ColorPickerDemoProps {
     color: Color;
@@ -7,19 +7,22 @@ interface ColorPickerDemoProps {
 }
 
 const ColorPickerDemo: React.FC<ColorPickerDemoProps> = ({ color, setColor }) => {
-    const handleDefaultColorChange = (newRgb: RGB) => {
-        if (setColor) {
-            setColor(new Color(newRgb));
-        }
-    };
+    const handleColorChange = useCallback(
+        (newRgb: RGB) => {
+            if (setColor) {
+                setColor(new Color(newRgb));
+            }
+        },
+        [setColor]
+    );
 
     return (
         <div className='flex flex-col md:flex-row gap-8 p-8 my-8 rounded-2xl bg-gray-100'>
             <div className='flex-1'>
-                <h2 className='text-lg font-semibold text-center'>Default Color Picker</h2>
+                <h2 className='text-lg font-semibold text-center'>Unstyled Color Picker</h2>
                 <ColorPicker
                     initialColor={color.toRgb()}
-                    onChange={handleDefaultColorChange}
+                    onChange={handleColorChange}
                 />
             </div>
             <div className='flex-1 justify-center'>

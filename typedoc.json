@@ -1,17 +1,26 @@
 {
-	"$schema": "https://typedoc.org/schema.json",
-	"entryPoints": ["src/index.ts"],
-	"out": "docs",
-	"plugin": ["typedoc-material-theme", "typedoc-plugin-missing-exports"],
-	"themeColor": "#0073FF",
-	"name": "next-colors",
-	"hideGenerator": true,
-	"navigationLinks": {
-		"GitHub": "https://github.com/iamlite/next-colors",
-		"NPM": "https://www.npmjs.com/package/next-colors",
-		"Demo Site": "https://next-colors-demo.vercel.app"
-	},
-	"githubPages": true,
-	"lang": "en",
-	"customFooterHtml": "© next-colors 2024"
+    "$schema": "https://typedoc.org/schema.json",
+
+    "entryPoints": ["src"],
+
+    "out": "docs",
+    "lang": "en",
+    "hideGenerator": true,
+    "includeVersion": false,
+    "highlightLanguages": ["js", "ts", "jsx", "tsx", "bash"],
+    "plugin": ["./doctheme/cjs/index.js"],
+    "theme": "dumi",
+    "navigationLinks": {
+        "GitHub": "https://github.com/iamlite/next-colors",
+        "NPM": "https://www.npmjs.com/package/next-colors",
+        "Demo Site": "https://next-colors-demo.vercel.app"
+    },
+    "navigationLinkTargets": {
+        "GitHub": "_blank",
+        "NPM": "_blank",
+        "Demo Site": "_blank"
+    },
+    "logoImage": "https://typedoc.org/images/logo-32.png",
+    "logoTitle": "Next-Colors",
+    "footerAlign": "center"
 }

@@ -31,20 +31,16 @@
     "prepublishOnly": "npm run build",
     "build-app": "tsc",
     "move-dist": "rm -rf ./demo/node_modules/next-colors/dist && cp -r dist ./demo/node_modules/next-colors/",
-    "clean": "rm -rf ./demo/.next"
+    "clean": "rm -rf ./demo/.next",
+    "docs": "npx typedoc"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "typedoc": "^0.26.3",
+    "typedoc": "~0.26.3",
     "typedoc-material-theme": "^1.1.0",
-    "typedoc-plugin-missing-exports": "^3.0.0",
     "typescript": "^5.5.3"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "react": "^18.3.1",

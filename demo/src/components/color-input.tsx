@@ -36,7 +36,7 @@ const ColorInput: React.FC<ColorInputProps> = ({ color, onColorChange }) => {
                 value={color.toHex()}
                 onChange={(e) => handleInputChange(e.target.value)}
                 style={{ backgroundColor: color.toHex() }}
-                className='w-10 h-10 duimask duimask-squircle cursor-pointer duishadow'
+                className='w-10 h-10 duimask duimask-squircle cursor-pointer shadow'
             />
         </div>
     );

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { hsvToRgb, rgbToHsv } from '../conversions';
 import { HSV, RGB } from '../types';
 import defaultStyles from './color-picker-styles';
@@ -42,8 +42,26 @@ export interface ColorPickerProps {
 /**
  * A customizable color picker component for Next.js projects.
  *
- * @param props - The component props
- * @returns A React component
+ * This component provides a user interface for selecting colors, including:
+ * - A saturation-value area for picking the color's saturation and brightness
+ * - A hue slider for selecting the base hue
+ * - An input field for entering hex color values
+ * - A color preview box
+ *
+ * The component is highly customizable through props, allowing for custom styling
+ * and dimensions to fit various design requirements.
+ *
+ * @example
+ * ```jsx
+ * <ColorPicker
+ *   initialColor={{ r: 255, g: 0, b: 0 }}
+ *   onChange={(color) => console.log(color)}
+ *   width={300}
+ *   height={200}
+ * />
+ * ```
+ *
+ * @see {@link ColorPickerProps} for detailed prop descriptions
  */
 export const ColorPicker: React.FC<ColorPickerProps> = ({
     initialColor = { r: 255, g: 0, b: 0 },
@@ -66,46 +84,79 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
     const [hsv, setHsv] = useState<HSV>(rgbToHsv(initialColor));
     const saturationValueRef = useRef<HTMLDivElement>(null);
     const hueSliderRef = useRef<HTMLDivElement>(null);
+    const updateTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+    /**
+     * Debounces the onChange callback to prevent excessive updates.
+     * This function creates a small delay before calling the onChange prop,
+     * which helps to improve performance when the color is changing rapidly.
+     *
+     * @param newColor - The new RGB color value to be passed to the onChange callback
+     */
+    const debouncedOnChange = useCallback(
+        (newColor: RGB) => {
+            if (updateTimeoutRef.current) {
+                clearTimeout(updateTimeoutRef.current);
+            }
+            updateTimeoutRef.current = setTimeout(() => {
+                onChange?.(newColor);
+            }, 10);
+        },
+        [onChange]
+    );
+
+    /**
+     * Effect hook to trigger the onChange callback when the color changes.
+     * This ensures that the parent component is notified of color changes.
+     */
     useEffect(() => {
-        onChange?.(color);
-    }, [color, onChange]);
+        debouncedOnChange(color);
+    }, [color, debouncedOnChange]);
 
     /**
      * Handles changes in the saturation-value area.
+     * Updates the color based on the mouse position within the saturation-value area.
      *
-     * @param event - The mouse event
+     * @param event - The mouse event from interacting with the saturation-value area
      */
-    const handleSaturationValueChange = (event: React.MouseEvent<HTMLDivElement>): void => {
-        if (!saturationValueRef.current) return;
-        const rect = saturationValueRef.current.getBoundingClientRect();
-        const s = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
-        const v = Math.max(0, Math.min(100, 100 - ((event.clientY - rect.top) / rect.height) * 100));
-        const newHsv = { ...hsv, s, v };
-        setHsv(newHsv);
-        setColor(hsvToRgb(newHsv));
-    };
+    const handleSaturationValueChange = useCallback(
+        (event: React.MouseEvent<HTMLDivElement>): void => {
+            if (!saturationValueRef.current) return;
+            const rect = saturationValueRef.current.getBoundingClientRect();
+            const s = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
+            const v = Math.max(0, Math.min(100, 100 - ((event.clientY - rect.top) / rect.height) * 100));
+            const newHsv = { ...hsv, s, v };
+            setHsv(newHsv);
+            setColor(hsvToRgb(newHsv));
+        },
+        [hsv]
+    );
 
     /**
      * Handles changes in the hue slider.
+     * Updates the color based on the mouse position along the hue slider.
      *
-     * @param event - The mouse event
+     * @param event - The mouse event from interacting with the hue slider
      */
-    const handleHueChange = (event: React.MouseEvent<HTMLDivElement>): void => {
-        if (!hueSliderRef.current) return;
-        const rect = hueSliderRef.current.getBoundingClientRect();
-        const h = Math.max(0, Math.min(360, ((event.clientX - rect.left) / rect.width) * 360));
-        const newHsv = { ...hsv, h };
-        setHsv(newHsv);
-        setColor(hsvToRgb(newHsv));
-    };
+    const handleHueChange = useCallback(
+        (event: React.MouseEvent<HTMLDivElement>): void => {
+            if (!hueSliderRef.current) return;
+            const rect = hueSliderRef.current.getBoundingClientRect();
+            const h = Math.max(0, Math.min(360, ((event.clientX - rect.left) / rect.width) * 360));
+            const newHsv = { ...hsv, h };
+            setHsv(newHsv);
+            setColor(hsvToRgb(newHsv));
+        },
+        [hsv]
+    );
 
     /**
      * Handles changes in the hex input field.
+     * Validates the input and updates the color if a valid hex value is entered.
      *
-     * @param event - The input change event
+     * @param event - The input change event from the hex input field
      */
-    const handleHexChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleHexChange = useCallback((event: React.ChangeEvent<HTMLInputElement>): void => {
         const hex = event.target.value;
         if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
             const r = parseInt(hex.slice(1, 3), 16);
@@ -114,17 +165,17 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
             setColor({ r, g, b });
             setHsv(rgbToHsv({ r, g, b }));
         }
-    };
+    }, []);
 
     /**
-     * Converts RGB color to hex string.
+     * Converts an RGB color value to its hexadecimal string representation.
      *
      * @param rgb - The RGB color to convert
-     * @returns The hex string representation of the color
+     * @returns The hex string representation of the color (e.g., "#FF0000" for red)
      */
-    const toHex = (rgb: RGB): string => {
+    const toHex = useCallback((rgb: RGB): string => {
         return `#${rgb.r.toString(16).padStart(2, '0')}${rgb.g.toString(16).padStart(2, '0')}${rgb.b.toString(16).padStart(2, '0')}`;
-    };
+    }, []);
 
     return (
         <div
