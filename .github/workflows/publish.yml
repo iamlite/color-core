@@ -25,43 +25,42 @@ jobs:
             - name: Run tests
               run: npm test
 
-            - name: Get current version
+            - name: Get local version
               id: package-version
               uses: martinbeentjes/npm-get-version-action@v1.3.1
 
-            - name: Check if version has changed
-              id: check_version
+            - name: Check npm registry version
+              id: npm-version
               run: |
-                  git show HEAD~1:package.json > previous_package.json
-                  PREVIOUS_VERSION=$(node -p "require('./previous_package.json').version")
-                  CURRENT_VERSION=${{ steps.package-version.outputs.current-version }}
-                  if [ "$CURRENT_VERSION" != "$PREVIOUS_VERSION" ]; then
-                    echo "VERSION_CHANGED=true" >> $GITHUB_OUTPUT
-                    echo "NEW_VERSION=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+                  NPM_VERSION=$(npm view ${{ github.event.repository.name }} version 2>/dev/null || echo "0.0.0")
+                  echo "NPM_VERSION=$NPM_VERSION" >> $GITHUB_OUTPUT
+                  LOCAL_VERSION=${{ steps.package-version.outputs.current-version }}
+                  if [ "$(printf '%s\n' "$NPM_VERSION" "$LOCAL_VERSION" | sort -V | tail -n1)" = "$LOCAL_VERSION" ] && [ "$NPM_VERSION" != "$LOCAL_VERSION" ]; then
+                    echo "SHOULD_PUBLISH=true" >> $GITHUB_OUTPUT
                   else
-                    echo "VERSION_CHANGED=false" >> $GITHUB_OUTPUT
+                    echo "SHOULD_PUBLISH=false" >> $GITHUB_OUTPUT
                   fi
 
             - name: Publish to npm
-              if: steps.check_version.outputs.VERSION_CHANGED == 'true'
+              if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
               run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Extract changelog
-              if: steps.check_version.outputs.VERSION_CHANGED == 'true'
+              if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
               run: |
-                  NEW_VERSION=${{ steps.check_version.outputs.NEW_VERSION }}
+                  NEW_VERSION=${{ steps.package-version.outputs.current-version }}
                   sed -n "/## \[$NEW_VERSION\]/,/## \[/p" CHANGELOG.md | sed '$d' > RELEASE_CHANGELOG.md
 
             - name: Create GitHub Release
-              if: steps.check_version.outputs.VERSION_CHANGED == 'true'
+              if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
               uses: actions/create-release@v1
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                  tag_name: v${{ steps.check_version.outputs.NEW_VERSION }}
-                  release_name: Release ${{ steps.check_version.outputs.NEW_VERSION }}
+                  tag_name: v${{ steps.package-version.outputs.current-version }}
+                  release_name: Release ${{ steps.package-version.outputs.current-version }}
                   body_path: RELEASE_CHANGELOG.md
                   draft: false
                   prerelease: false
