@@ -1,6 +1,6 @@
 {
   "name": "next-colors",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A comprehensive color manipulation library for Next.js and React applications",
   "author": {
     "name": "Tariel Davidashvili",
@@ -27,11 +27,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build-app && npm run move-dist && npm run clean",
-    "prepublishOnly": "npm run build-app",
-    "build-app": "tsc",
+    "build": "npm run packup && npm run clean && npm run move-dist && npm run cleandemo",
+    "prepublishOnly": "npm run clean && npm run packup",
+    "packup": "tsc",
     "move-dist": "rm -rf ./demo/node_modules/next-colors/dist && cp -r dist ./demo/node_modules/next-colors/",
-    "clean": "rm -rf ./demo/.next",
+    "cleandemo": "rm -rf ./demo/.next",
+    "clean": "find . -name .DS_Store -type f -print0 | xargs -0 -I {} sh -c 'echo \"Removing {}\"; git rm -f --ignore-unmatch \"{}\"'",
     "docs": "npx typedoc",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -41,7 +42,7 @@
     "@testing-library/dom": "^10.3.1",
     "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.14.9",
+    "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "jest": "^29.7.0",
