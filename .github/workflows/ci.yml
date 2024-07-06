@@ -6,7 +6,7 @@ on:
         branches: [main]
 
 jobs:
-    build-test-and-deploy:
+    build-test-and-update-docs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -27,13 +27,14 @@ jobs:
 
             # Generate docs (only for Node.js 20.x)
             - name: Generate documentation
-              if: matrix.node-version == '20.x'
+              if: matrix.node-version == '20.x' && github.event_name == 'push' && github.ref == 'refs/heads/main'
               run: npm run docs
 
-            # Deploy docs to GitHub Pages (only for Node.js 20.x and push to main)
-            - name: Deploy to GitHub Pages
-              if: github.event_name == 'push' && github.ref == 'refs/heads/main' && matrix.node-version == '20.x'
-              uses: peaceiris/actions-gh-pages@v4
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./docs # Adjust this if your docs are generated in a different directory
+            # Commit and push if there are any changes (only for Node.js 20.x and push to main)
+            - name: Commit and push changes
+              if: matrix.node-version == '20.x' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git add docs
+                  git diff --quiet && git diff --staged --quiet || (git commit -m "Update documentation" && git push)

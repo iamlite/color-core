@@ -1,0 +1,10 @@
+import { type DeclarationOption } from 'typedoc';
+export declare const logoImage: DeclarationOption;
+export declare const logoWidth: DeclarationOption;
+export declare const logoHeight: DeclarationOption;
+export declare const logoTitle: DeclarationOption;
+export declare const navigationLinkTargets: DeclarationOption;
+export declare const sidebarLinkTargets: DeclarationOption;
+export declare const preventModulesLink: DeclarationOption;
+export declare const hideIndexContentTitle: DeclarationOption;
+export declare const footerAlign: DeclarationOption;
