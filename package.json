@@ -28,7 +28,7 @@
   ],
   "scripts": {
     "build": "npm run build-app && npm run move-dist && npm run clean",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build-app",
     "build-app": "tsc",
     "move-dist": "rm -rf ./demo/node_modules/next-colors/dist && cp -r dist ./demo/node_modules/next-colors/",
     "clean": "rm -rf ./demo/.next",
