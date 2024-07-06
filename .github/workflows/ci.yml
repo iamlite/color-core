@@ -1,5 +1,4 @@
 name: Next-Colors CI
-
 on:
     push:
         branches: [main]
@@ -7,17 +6,15 @@ on:
         branches: [main]
 
 jobs:
-    test:
+    build-test-and-deploy:
         runs-on: ubuntu-latest
-
         strategy:
             matrix:
                 node-version: [16.x, 18.x, 20.x]
-
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
             - run: npm ci
@@ -27,3 +24,16 @@ jobs:
               uses: codecov/codecov-action@v4.0.1
               env:
                   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+            # Generate docs (only for Node.js 20.x)
+            - name: Generate documentation
+              if: matrix.node-version == '20.x'
+              run: npm run docs
+
+            # Deploy docs to GitHub Pages (only for Node.js 20.x and push to main)
+            - name: Deploy to GitHub Pages
+              if: github.event_name == 'push' && github.ref == 'refs/heads/main' && matrix.node-version == '20.x'
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./docs # Adjust this if your docs are generated in a different directory

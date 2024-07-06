@@ -7,14 +7,21 @@
 
 <div align="center">
 
-<img alt="NPM Downloads" src="https://img.shields.io/npm/dm/next-colors?style=for-the-badge" style='margin: 5px'>
-<img alt="NPM Version" src="https://img.shields.io/npm/v/next-colors?style=for-the-badge&logo=npm" style='margin: 5px'>
-<img alt="NPM License" src="https://img.shields.io/npm/l/next-colors?style=for-the-badge&color=red" style='margin: 5px'>
-<img src="https://img.shields.io/github/last-commit/iamlite/next-colors?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" style="margin: 5px;" />
-<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/next-colors?style=for-the-badge" style='margin: 5px'>
-<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/next-colors?style=for-the-badge" style='margin: 5px'>
+<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/next-colors?style=for-the-badge&logo=npm&color=purple">
+
+<img alt="NPM Version" src="https://img.shields.io/npm/v/next-colors?style=for-the-badge&logo=npm">
+
+<img alt="NPM License" src="https://img.shields.io/npm/l/next-colors?style=for-the-badge&color=red" >
+
+<img src="https://img.shields.io/github/last-commit/iamlite/next-colors?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" />
+
+<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/next-colors?style=for-the-badge&logo=dependabot">
+
+<img alt="Codecov" src="https://img.shields.io/codecov/c/github/iamlite/next-colors?style=for-the-badge&logo=codecov">
+
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/next-colors?style=for-the-badge">
 <a href="https://iamlite.github.io/next-colors/">
-<img alt="Static Badge" src="https://img.shields.io/badge/Docs-blue?style=for-the-badge&logo=github&logoColor=white&labelColor=gray" style="margin: 5px" >
+<img alt="Static Badge" src="https://img.shields.io/badge/Docs-blue?style=for-the-badge&logo=github&logoColor=white&labelColor=gray" >
 </a>
 
 </div>
@@ -23,15 +30,13 @@
 <div align="center">
 
 <a href="https://next-colors-demo.vercel.app">
-<img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray" style="margin: 5px" >
+<img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray" >
 </a>
-
 <a href="https://www.npmjs.com/package/next-colors">
-<img alt="Static Badge" src="https://img.shields.io/badge/NPM-URL%20-%20link?style=for-the-badge&logo=npm" style="margin: 5px;">
+<img alt="Static Badge" src="https://img.shields.io/badge/NPM-URL%20-%20link?style=for-the-badge&logo=npm" >
 </a>
-
 <a href="https://discord.gg/uYBuFXUmcU">
-<img src="https://img.shields.io/discord/640575167772491786?style=for-the-badge&logo=discord&label=Discord&color=gold" alt="Discord" style="margin: 5px;" />
+<img src="https://img.shields.io/discord/640575167772491786?style=for-the-badge&logo=discord&label=Discord&color=gold" alt="Discord" />
 </a>
 
 </div>
