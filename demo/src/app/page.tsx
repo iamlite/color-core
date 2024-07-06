@@ -81,10 +81,6 @@ export default function Home() {
                                 colors={color.splitComplementary()}
                             />
                             <ColorSection
-                                title='Compound'
-                                colors={color.compound()}
-                            />
-                            <ColorSection
                                 title='Tetradic'
                                 colors={color.tetradic()}
                             />
