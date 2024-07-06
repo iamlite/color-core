@@ -10,7 +10,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Planned Features
 
-- Removed Compound color harmony function due to redundancy with split-complementary harmony.
+- N/A
+
+## [1.1.0] - 2024-07-07
+
+### Added
+
+- SO many tests! 🎉
+
+### Changed
+
+- Improved performance of RGB to HSL conversion
+- Other minor conversion optimizations
+- Enhanced type safety for all color manipulation functions
+- Updated demo site with new features and examples
+
+### Fixed
+
+- Edge case in `mix()` function where alpha values were not being considered correctly
+- Precision loss in successive color space conversions
+
+### Deprecated
+
+- Compound color harmony function in favor of Split-Complementary
+
+### Security
+
+- Updated dependencies to address potential vulnerabilities
+
+### Documentation
+
+- Added examples for all new features in README.md
+- Improved API documentation with more detailed explanations and use cases + a new fancy theme
 
 ## [1.0.1] - 2024-07-05
 
