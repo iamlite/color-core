@@ -47,8 +47,8 @@ export function hslToRgb(hsl: HSL): RGB {
     }
 
     return {
-        r: Math.round(r * 255),
-        g: Math.round(g * 255),
-        b: Math.round(b * 255)
+        r: Math.round(r * 255 + 0.001), // Nudge the rounding
+        g: Math.round(g * 255 + 0.001),
+        b: Math.round(b * 255 + 0.001)
     };
 }

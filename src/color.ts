@@ -1,5 +1,5 @@
-import { cmykToRgb, hexToRgb, hslToRgb, hsvToRgb, labToRgb, lchToRgb, rgbToCmyk, rgbToHsl, rgbToHsv, rgbToLab, rgbToLch, rgbToXyz, rgbToYuv, xyzToRgb, yuvToRgb } from './conversions';
-import { analogous, complementary, compound, doubleSplitComplementary, monochromatic, shades, splitComplementary, square, tetradic, tints, tones, triadic } from './harmony';
+import { cmykToRgb, hexToRgb, hslToRgb, hsvToRgb, labToRgb, lchToRgb, rgbToCmyk, rgbToHex, rgbToHsl, rgbToHsv, rgbToLab, rgbToLch, rgbToXyz, rgbToYuv, xyzToRgb, yuvToRgb } from './conversions';
+import { analogous, complementary, doubleSplitComplementary, monochromatic, shades, splitComplementary, square, tetradic, tints, tones, triadic } from './harmony';
 import { adjustAlpha, adjustHue, adjustLightness, adjustSaturation, grayscale, invert, mix } from './manipulation';
 import { CMYK, HSL, HSV, LAB, LCH, RGB, XYZ, YUV } from './types';
 
@@ -36,8 +36,13 @@ export class Color {
         } else {
             throw new Error('Invalid color format');
         }
+        /** Ensure alpha is explicitly set to undefined if not provided */
+        if (this._rgb.a === undefined) {
+            this._rgb.a = undefined;
+        }
         this._rgb = this.roundObject(this._rgb);
     }
+
 
     /**
     * Rounds a given number to the specified precision.
@@ -70,8 +75,11 @@ export class Color {
     get g(): number { return this._rgb.g; }
     /** Gets the blue component of the color. */
     get b(): number { return this._rgb.b; }
-    /** Gets the alpha component of the color. */
-    get a(): number { return this._rgb.a ?? 1; }
+    /** 
+     * Gets the alpha component of the color. 
+     * @returns The alpha value if set, otherwise undefined.
+     */
+    get a(): number | undefined { return this._rgb.a; }
 
     /** Sets the red component of the color. */
     set r(value: number) { this._rgb.r = Math.max(0, Math.min(255, Math.round(value))); }
@@ -80,20 +88,30 @@ export class Color {
     /** Sets the blue component of the color. */
     set b(value: number) { this._rgb.b = Math.max(0, Math.min(255, Math.round(value))); }
     /** Sets the alpha component of the color. */
-    set a(value: number) { this._rgb.a = Math.max(0, Math.min(1, value)); }
+    set a(value: number | undefined) {
+        if (value === undefined) {
+            this._rgb.a = undefined;
+        } else {
+            this._rgb.a = Math.max(0, Math.min(1, value));
+        }
+    }
+
 
     // Conversion methods
     /** Converts the color to RGB format. */
-    toRgb(): RGB { return { ...this._rgb }; }
-    /** 
-     * Converts the color to Hex format. 
-     * @param includeAlpha - Whether to include the alpha channel in the hex string.
-     */
-    toHex(includeAlpha: boolean = false): string {
+    toRgb(): RGB {
         const { r, g, b, a } = this._rgb;
-        const alphaHex = includeAlpha && a !== undefined && a < 1 ? Math.round(a * 255).toString(16).padStart(2, '0') : '';
-        return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}${alphaHex}`;
+        return a === undefined ? { r, g, b } : { r, g, b, a };
     }
+
+    /**
+      * Converts the color to Hex format.
+      * @param includeAlpha - Whether to include the alpha channel in the hex string.
+      */
+    toHex(includeAlpha: boolean = false): string {
+        return rgbToHex(this._rgb, includeAlpha);
+    }
+
     /** Converts the color to HSL format. */
     toHsl(): HSL { return this.roundObject(rgbToHsl(this._rgb)); }
     /** Converts the color to HSV format. */
@@ -133,7 +151,7 @@ export class Color {
      * @param angle - The angle between color pairs.
      */
     tetradic(angle?: number): [Color, Color, Color, Color] {
-        return tetradic(this, angle);
+        return tetradic(this);
     }
 
     /** 
@@ -161,16 +179,8 @@ export class Color {
      * Generates double split-complementary colors. 
      * @param angle - The angle of split.
      */
-    doubleSplitComplementary(angle?: number): [Color, Color, Color, Color] {
-        return doubleSplitComplementary(this, angle);
-    }
-
-    /** 
-     * Generates compound colors. 
-     * @param angle - The angle between analogous colors.
-     */
-    compound(angle?: number): [Color, Color, Color, Color] {
-        return compound(this, angle);
+    doubleSplitComplementary(angle?: number): [Color, Color, Color, Color, Color] {
+        return doubleSplitComplementary(this);
     }
 
     /** 
@@ -198,7 +208,6 @@ export class Color {
     }
 
     // Manipulation methods
-
 
     /**
       * Adjusts the lightness of the color.
@@ -263,12 +272,27 @@ export class Color {
     }
 
     // Utility methods
+
+
+
+
     /** 
      * Returns a string representation of the color. 
      * @param includeAlpha - Whether to include the alpha channel in the string representation.
      */
     toString(includeAlpha: boolean = false): string {
         return this.toHex(includeAlpha);
+    }
+
+    // Add a method to explicitly set alpha
+    setAlpha(value: number | undefined): Color {
+        this.a = value;
+        return this;
+    }
+
+    // Add a method to get the effective alpha (1 if undefined)
+    getEffectiveAlpha(): number {
+        return this.a ?? 1;
     }
 
     /** 

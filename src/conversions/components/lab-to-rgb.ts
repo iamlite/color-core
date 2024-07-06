@@ -6,46 +6,42 @@ import { LAB, RGB } from '../../types';
  * @returns {RGB} The color in RGB color space.
  * @throws {Error} If the input is not a valid LAB object.
  */
+
+
 export function labToRgb(lab: LAB): RGB {
     if (typeof lab !== 'object' || lab === null) {
         throw new Error('Input must be an object');
     }
 
-    const { l, a, b } = lab;
+    const { l, a, b: bValue } = lab;
 
-    if (typeof l !== 'number' || typeof a !== 'number' || typeof b !== 'number') {
+    if (typeof l !== 'number' || typeof a !== 'number' || typeof bValue !== 'number') {
         throw new Error('LAB values must be numbers');
     }
 
-    // Convert LAB to XYZ
     let y = (l + 16) / 116;
     let x = a / 500 + y;
-    let z = y - b / 200;
+    let z = y - bValue / 200;
 
-    const y3 = Math.pow(y, 3);
-    const x3 = Math.pow(x, 3);
-    const z3 = Math.pow(z, 3);
+    const delta = 6 / 29;
+    const deltaSquared = delta * delta;
+    const deltaCubed = deltaSquared * delta;
 
-    y = y3 > 0.008856 ? y3 : (y - 16 / 116) / 7.787;
-    x = x3 > 0.008856 ? x3 : (x - 16 / 116) / 7.787;
-    z = z3 > 0.008856 ? z3 : (z - 16 / 116) / 7.787;
+    x = 0.95047 * ((x > delta) ? x * x * x : 3 * deltaSquared * (x - 4 / 29));
+    y = 1.00000 * ((y > delta) ? y * y * y : 3 * deltaSquared * (y - 4 / 29));
+    z = 1.08883 * ((z > delta) ? z * z * z : 3 * deltaSquared * (z - 4 / 29));
 
-    x *= 95.047;
-    y *= 100.000;
-    z *= 108.883;
+    let r = x * 3.2404542 + y * -1.5371385 + z * -0.4985314;
+    let g = x * -0.9692660 + y * 1.8760108 + z * 0.0415560;
+    let b = x * 0.0556434 + y * -0.2040259 + z * 1.0572252;
 
-    // Convert XYZ to RGB
-    let rLinear = x * 3.2406 + y * -1.5372 + z * -0.4986;
-    let gLinear = x * -0.9689 + y * 1.8758 + z * 0.0415;
-    let bLinear = x * 0.0557 + y * -0.2040 + z * 1.0570;
-
-    rLinear = rLinear > 0.0031308 ? 1.055 * Math.pow(rLinear, 1 / 2.4) - 0.055 : 12.92 * rLinear;
-    gLinear = gLinear > 0.0031308 ? 1.055 * Math.pow(gLinear, 1 / 2.4) - 0.055 : 12.92 * gLinear;
-    bLinear = bLinear > 0.0031308 ? 1.055 * Math.pow(bLinear, 1 / 2.4) - 0.055 : 12.92 * bLinear;
+    r = r > 0.0031308 ? 1.055 * Math.pow(r, 1 / 2.4) - 0.055 : 12.92 * r;
+    g = g > 0.0031308 ? 1.055 * Math.pow(g, 1 / 2.4) - 0.055 : 12.92 * g;
+    b = b > 0.0031308 ? 1.055 * Math.pow(b, 1 / 2.4) - 0.055 : 12.92 * b;
 
     return {
-        r: Math.max(0, Math.min(255, Math.round(rLinear * 255))),
-        g: Math.max(0, Math.min(255, Math.round(gLinear * 255))),
-        b: Math.max(0, Math.min(255, Math.round(bLinear * 255)))
+        r: Math.round(Math.max(0, Math.min(255, r * 255))),
+        g: Math.round(Math.max(0, Math.min(255, g * 255))),
+        b: Math.round(Math.max(0, Math.min(255, b * 255)))
     };
 }

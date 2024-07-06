@@ -1,6 +1,5 @@
 export { analogous } from './components/analogous';
 export { complementary } from './components/complementary';
-export { compound } from './components/compound';
 export { doubleSplitComplementary } from './components/double-split-complementary';
 export { monochromatic } from './components/monochromatic';
 export { shades } from './components/shades';

@@ -1,3 +1,6 @@
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD041 -->
+
 <div align="center">
 <h1 style="padding: 20px">next-colors</h1>
 </div>
@@ -43,7 +46,7 @@ This library offers a unified `Color` class that simplifies color conversions, m
 
 - 🎨 Comprehensive color space support (RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, YUV)
 - 🔄 Easy color conversions between different formats
-- 🌈 Generate color harmonies (complementary, analogous, triadic, tetradic, split-complementary, compound)
+- 🌈 Generate color harmonies (complementary, analogous, triadic, tetradic, split-complementary, etc)
 - 🛠 Powerful color manipulation tools (adjust lightness, saturation, hue, and more)
 - 🎛 Customizable, unopinionated ColorPicker component
 - 💪 Type-safe with full TypeScript support
@@ -128,10 +131,7 @@ console.log(tetra1.toHex(), tetra2.toHex(), tetra3.toHex());  // '#00ff00', '#00
 const [split1, split2] = baseColor.splitComplementary();
 console.log(split1.toHex(), split2.toHex());  // '#00ffff', '#00ff80'
 
-// Compound
-const [comp1, comp2, comp3] = baseColor.compound();
-console.log(comp1.toHex(), comp2.toHex(), comp3.toHex());  // '#ff8000', '#0080ff', '#00ffff'
-```
+
 
 ### ColorPicker Component
 
@@ -163,11 +163,11 @@ function MyComponent() {
 - `Color`: Main class for color operations
   - Properties: `r`, `g`, `b`, `a`
   - Methods: `toRgb()`, `toHex()`, `toHsl()`, `toHsv()`, `toCmyk()`, `toLab()`, `toLch()`, `toXyz()`, `toYuv()`
-  - Harmony methods: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `compound()`, `monochromatic()`
+  - Harmony methods: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `monochromatic()`
   - Manipulation methods: `adjustLightness()`, `adjustSaturation()`, `adjustHue()`, `adjustAlpha()`, `invert()`, `grayscale()`, `mix()`
   - Utility methods: `toString()`, `equals()`
 - Conversion functions: `hexToRgb()`, `rgbToHex()`, `rgbToHsl()`, `hslToRgb()`, `rgbToHsv()`, `hsvToRgb()`, `rgbToCmyk()`, `cmykToRgb()`, `rgbToLab()`, `labToRgb()`, `rgbToLch()`, `lchToRgb()`, `rgbToXyz()`, `xyzToRgb()`, `rgbToYuv()`, `yuvToRgb()`
-- Harmony functions: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `compound()`, `monochromatic()`
+- Harmony functions: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `monochromatic()`
 - Components: `ColorPicker`
 
 For a complete API reference, please refer to our [documentation](https://iamlite.github.io/next-colors/).
@@ -209,7 +209,6 @@ Creates a new Color instance from various color formats.
 | `triadic()`                  | None           | [Color, Color, Color]        | Generates a triadic harmony                    |
 | `tetradic()`                 | angle?: number | [Color, Color, Color, Color] | Generates a tetradic harmony                   |
 | `splitComplementary()`       | angle?: number | [Color, Color, Color]        | Generates a split-complementary harmony        |
-| `compound()`                 | angle?: number | [Color, Color, Color, Color] | Generates a compound harmony                   |
 | `doubleSplitComplementary()` | angle?: number | [Color, Color, Color, Color] | Generates a double split-complementary harmony |
 | `square()`                   | None           | [Color, Color, Color, Color] | Generates a square harmony                     |
 | `monochromatic()`            | count?: number | Color[]                      | Generates a monochromatic harmony              |
@@ -268,7 +267,6 @@ Creates a new Color instance from various color formats.
 | `triadic`                  | color: Color         | [Color, Color, Color]        | Generates a triadic harmony                    |
 | `tetradic`                 | color: Color, angle? | [Color, Color, Color, Color] | Generates a tetradic harmony                   |
 | `splitComplementary`       | color: Color, angle? | [Color, Color, Color]        | Generates a split-complementary harmony        |
-| `compound`                 | color: Color, angle? | [Color, Color, Color, Color] | Generates a compound harmony                   |
 | `doubleSplitComplementary` | color: Color, angle? | [Color, Color, Color, Color] | Generates a double split-complementary harmony |
 | `square`                   | color: Color         | [Color, Color, Color, Color] | Generates a square harmony                     |
 | `monochromatic`            | color: Color, count? | Color[]                      | Generates a monochromatic harmony              |

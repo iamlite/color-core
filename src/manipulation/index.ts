@@ -1,7 +1,8 @@
-export { adjustAlpha } from './components/adjust-alpha';
-export { adjustHue } from './components/adjust-hue';
-export { adjustLightness } from './components/adjust-lightness';
-export { adjustSaturation } from './components/adjust-saturation';
+export { adjustAlpha } from './components/alpha';
 export { grayscale } from './components/grayscale';
+export { adjustHue } from './components/hue';
 export { invert } from './components/invert';
+export { adjustLightness } from './components/lightness';
 export { mix } from './components/mix';
+export { adjustSaturation } from './components/saturation';
+

@@ -1,4 +1,5 @@
 import { Color } from '../../color';
+import { RGB } from '../../types';
 
 /**
  * Mixes two colors.
@@ -10,11 +11,24 @@ import { Color } from '../../color';
 export function mix(color1: Color, color2: Color, amount: number): Color {
     const rgb1 = color1.toRgb();
     const rgb2 = color2.toRgb();
-    const mixValue = (a: number, b: number) => Math.round(a * (1 - amount) + b * amount);
-    return new Color({
+
+    // Clamp amount to be between 0 and 1, or default to 0 if invalid
+    const clampedAmount = isNaN(amount) ? 0 : Math.max(0, Math.min(1, amount));
+
+    const mixValue = (a: number, b: number) => Math.round(a * (1 - clampedAmount) + b * clampedAmount);
+
+    const mixedColor: RGB = {
         r: mixValue(rgb1.r, rgb2.r),
         g: mixValue(rgb1.g, rgb2.g),
-        b: mixValue(rgb1.b, rgb2.b),
-        a: mixValue(rgb1.a || 1, rgb2.a || 1)
-    });
+        b: mixValue(rgb1.b, rgb2.b)
+    };
+
+    // Handle alpha mixing
+    if (rgb1.a !== undefined || rgb2.a !== undefined) {
+        const alpha1 = rgb1.a ?? 1;
+        const alpha2 = rgb2.a ?? 1;
+        mixedColor.a = alpha1 * (1 - clampedAmount) + alpha2 * clampedAmount;
+    }
+
+    return new Color(mixedColor);
 }

@@ -13,7 +13,7 @@ export {
  * These functions generate color harmonies based on color theory
  */
 export {
-    analogous, complementary, compound, doubleSplitComplementary,
+    analogous, complementary, doubleSplitComplementary,
     monochromatic, shades, splitComplementary, square,
     tetradic, tints, tones, triadic
 } from './harmony';

@@ -31,7 +31,7 @@ export function hsvToRgb(hsv: HSV): RGB {
     const q = v * (1 - s * f);
     const t = v * (1 - s * (1 - f));
 
-    let r: number, g: number, b: number;
+    let r = 0, g = 0, b = 0; // Initialize r, g, b to 0
 
     switch (i % 6) {
         case 0: r = v, g = t, b = p; break;
@@ -40,7 +40,6 @@ export function hsvToRgb(hsv: HSV): RGB {
         case 3: r = p, g = q, b = v; break;
         case 4: r = t, g = p, b = v; break;
         case 5: r = v, g = p, b = q; break;
-        default: r = 0, g = 0, b = 0; // This should never happen, but TypeScript wants it
     }
 
     return {

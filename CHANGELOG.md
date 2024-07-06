@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Planned Features
 
-- :laughing:
+- Removed Compound color harmony function due to redundancy with split-complementary harmony.
 
 ## [1.0.1] - 2024-07-05
 

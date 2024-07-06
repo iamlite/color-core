@@ -28,18 +28,15 @@ export function rgbToHsv(rgb: RGB): HSV {
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
     const d = max - min;
-    let h: number;
+    let h = 0; // Initialize h to 0
     const s = max === 0 ? 0 : d / max;
     const v = max;
 
-    if (max === min) {
-        h = 0; // achromatic
-    } else {
+    if (max !== min) {
         switch (max) {
             case r: h = (g - b) / d + (g < b ? 6 : 0); break;
             case g: h = (b - r) / d + 2; break;
             case b: h = (r - g) / d + 4; break;
-            default: h = 0; // This should never happen, but TypeScript wants it
         }
         h /= 6;
     }

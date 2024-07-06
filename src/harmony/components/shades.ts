@@ -12,7 +12,11 @@ export function shades(color: Color, count: number = 5): Color[] {
     const step = hsl.l / (count - 1);
 
     return Array.from({ length: count }, (_, i) => {
-        const newColor: HSL = { ...hsl, l: Math.max(0, hsl.l - i * step) };
-        return new Color(newColor);
+        const newHsl: HSL = {
+            h: hsl.h,
+            s: hsl.s,
+            l: Math.max(0, Math.min(100, hsl.l - i * step))
+        };
+        return new Color(newHsl);
     });
 }
