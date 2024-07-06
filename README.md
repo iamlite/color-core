@@ -135,8 +135,7 @@ console.log(tetra1.toHex(), tetra2.toHex(), tetra3.toHex());  // '#00ff00', '#00
 // Split-complementary
 const [split1, split2] = baseColor.splitComplementary();
 console.log(split1.toHex(), split2.toHex());  // '#00ffff', '#00ff80'
-
-
+```
 
 ### ColorPicker Component
 
