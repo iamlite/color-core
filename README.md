@@ -57,11 +57,21 @@ This library offers a unified `Color` class that simplifies color conversions, m
 - 💪 Type-safe with full TypeScript support
 - 🔧 Unified `Color` class for seamless operations
 
+---
+
 ## Installation
 
 ```bash
 npm install next-colors
 ```
+
+or:
+
+```bash
+yarn add next-colors
+```
+
+---
 
 ## Usage
 
