@@ -106,3 +106,23 @@ export type HexColor = `#${string}`;
  * Represents any valid color input, including color space objects and hex strings.
  */
 export type ColorInput = ColorSpace | HexColor | string;
+
+
+/**
+ * Represents information about a color.
+ * @property {string} name - The name of the color.
+ * @property {string} hex - The hexadecimal representation of the color.
+ * @property {RGB} rgb - The RGB representation of the color.
+ * @property {HSL} hsl - The HSL representation of the color.
+ * @property {number} luminance - The luminance of the color.
+ * @property {string} requestedHex - The hexadecimal representation of the color as requested.
+ */
+export interface ColorInfo {
+    name: string;
+    hex: string;
+    rgb: RGB;
+    hsl: HSL;
+    luminance: number;
+    requestedHex: string;
+}
+

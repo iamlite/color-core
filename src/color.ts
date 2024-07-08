@@ -1,11 +1,22 @@
 import { cmykToRgb, hexToRgb, hslToRgb, hsvToRgb, labToRgb, lchToRgb, rgbToCmyk, rgbToHex, rgbToHsl, rgbToHsv, rgbToLab, rgbToLch, rgbToXyz, rgbToYuv, xyzToRgb, yuvToRgb } from './conversions';
 import { analogous, complementary, doubleSplitComplementary, monochromatic, shades, splitComplementary, square, tetradic, tints, tones, triadic } from './harmony';
 import { adjustAlpha, adjustHue, adjustLightness, adjustSaturation, grayscale, invert, mix } from './manipulation';
-import { CMYK, HSL, HSV, LAB, LCH, RGB, XYZ, YUV } from './types';
+import { CMYK, ColorInfo, HSL, HSV, LAB, LCH, RGB, XYZ, YUV } from './types';
+import { calculateBrightness, isLightColor } from './utils';
+import { getColorInfo, getColorName } from './utils/components/color-naming';
+
 
 /**
- * Represents a color with various color space representations and manipulation methods.
- */
++ * The Color class represents a color with various color space representations and manipulation methods.
++ * 
++ * The class supports multiple color spaces, including RGB, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV.
++ * It also provides methods for converting between color spaces and generating harmony colors.
++ * 
++ * The class offers various color manipulation methods, such as adjusting lightness, saturation, hue, and alpha.
++ * It also provides methods for converting colors to different string representations and retrieving information about the color.
++ * 
++ * The class also includes utility methods for determining the perceived brightness of the color and checking if it is light or dark.
++ */
 export class Color {
     private _rgb: RGB;
     private static PRECISION = 6;
@@ -311,5 +322,41 @@ export class Color {
      */
     static setPrecision(precision: number): void {
         Color.PRECISION = precision;
+    }
+
+    /**
+     * Asynchronously gets the name of the color.
+     *
+     * @return {Promise<string>} The name of the color.
+     */
+    async getName(): Promise<string> {
+        return getColorName(this);
+    }
+
+    /**
+     * Asynchronously retrieves information about the color.
+     *
+     * @return {Promise<ColorInfo>} A promise that resolves to the color information.
+     */
+    async getInfo(): Promise<ColorInfo> {
+        return getColorInfo(this);
+    }
+
+
+    /**
+       * Calculates the perceived brightness of the color.
+       * @returns A value between 0 (darkest) and 255 (lightest)
+       */
+    getBrightness(): number {
+        return calculateBrightness(this._rgb);
+    }
+
+    /**
+     * Determines if the color is perceived as "light" or "dark".
+     * @param threshold The brightness threshold (0-255). Default is 128.
+     * @returns true if the color is light, false if it's dark
+     */
+    isLight(threshold: number = 128): boolean {
+        return isLightColor(this._rgb, threshold);
     }
 }

@@ -1,7 +1,26 @@
 next-color/
 ├── src/
+│   ├── __tests__/
+│   │   └── color-test.ts
 │   ├── conversions/
 │   │   ├── components/
+│   │   │   ├── __tests__/
+│   │   │   │   ├── cmyk-to-rgb-test.ts
+│   │   │   │   ├── hex-to-rgb-test.ts
+│   │   │   │   ├── hsl-to-rgb-test.ts
+│   │   │   │   ├── hsv-to-rgb-test.ts
+│   │   │   │   ├── lab-to-rgb-test.ts
+│   │   │   │   ├── lch-to-rgb-test.ts
+│   │   │   │   ├── rgb-to-cmyk-test.ts
+│   │   │   │   ├── rgb-to-hex-test.ts
+│   │   │   │   ├── rgb-to-hsl-test.ts
+│   │   │   │   ├── rgb-to-hsv-test.ts
+│   │   │   │   ├── rgb-to-lab-test.ts
+│   │   │   │   ├── rgb-to-lch-test.ts
+│   │   │   │   ├── rgb-to-xyz-test.ts
+│   │   │   │   ├── rgb-to-yuv-test.ts
+│   │   │   │   ├── xyz-to-rgb-test.ts
+│   │   │   │   └── yuv-to-rgb-test.ts
 │   │   │   ├── cmyk-to-rgb.ts
 │   │   │   ├── hex-to-rgb.ts
 │   │   │   ├── hsl-to-rgb.ts
@@ -21,9 +40,20 @@ next-color/
 │   │   └── index.ts
 │   ├── harmony/
 │   │   ├── components/
+│   │   │   ├── __tests__/
+│   │   │   │   ├── analogous-test.ts
+│   │   │   │   ├── complementary-test.ts
+│   │   │   │   ├── double-split-complementary-test.ts
+│   │   │   │   ├── monochromatic-test.ts
+│   │   │   │   ├── shades-test.ts
+│   │   │   │   ├── split-complementary-test.ts
+│   │   │   │   ├── square-test.ts
+│   │   │   │   ├── tetradic-test.ts
+│   │   │   │   ├── tints-test.ts
+│   │   │   │   ├── tones-test.ts
+│   │   │   │   └── triadic-test.ts
 │   │   │   ├── analogous.ts
 │   │   │   ├── complementary.ts
-│   │   │   ├── compound.ts
 │   │   │   ├── double-split-complementary.ts
 │   │   │   ├── monochromatic.ts
 │   │   │   ├── shades.ts
@@ -36,13 +66,21 @@ next-color/
 │   │   └── index.ts
 │   ├── manipulation/
 │   │   ├── components/
-│   │   │   ├── adjust-alpha.ts
-│   │   │   ├── adjust-hue.ts
-│   │   │   ├── adjust-lightness.ts
-│   │   │   ├── adjust-saturation.ts
+│   │   │   ├── __tests__/
+│   │   │   │   ├── alpha-test.ts
+│   │   │   │   ├── grayscale-test.ts
+│   │   │   │   ├── hue-test.ts
+│   │   │   │   ├── invert-test.ts
+│   │   │   │   ├── lightness-test.ts
+│   │   │   │   ├── mix-test.ts
+│   │   │   │   └── saturation-test.ts
+│   │   │   ├── alpha.ts
 │   │   │   ├── grayscale.ts
+│   │   │   ├── hue.ts
 │   │   │   ├── invert.ts
-│   │   │   └── mix.ts
+│   │   │   ├── lightness.ts
+│   │   │   ├── mix.ts
+│   │   │   └── saturation.ts
 │   │   └── index.ts
 │   ├── utils/
 │   │   ├── color-picker-styles.ts
@@ -56,6 +94,7 @@ next-color/
 ├── DEVGUIDE.md
 ├── LICENSE
 ├── README.md
+├── jest.config.ts
 ├── package.json
 ├── structure.tree
 ├── tsconfig.json

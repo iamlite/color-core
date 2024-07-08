@@ -8,9 +8,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-### Planned Features
+## [1.2.0] - 2024-07-07
 
-- N/A
+### Added
+
+- Color naming functionality: `getColorName()` method to get the closest named color from api.color.pizza based on the provided color
+- Brightness calculation:
+  - `getBrightness()` method to calculate perceived brightness
+  - `isLight()` method to determine if a color is light or dark
+
+### Changed
+
+- Improved performance of color conversion functions
+- Refactored color manipulation methods for better readability and maintainability
+- Updated demo site with new features and examples
+- Improved error handling and type safety
+- Improved documentation with more examples and explanations
+- Enhanced test coverage
+- Added CI/CD pipeline for automated testing and deployment
+
+### Fixed
+
+- Edge case in `mix()` function where alpha values were not being considered correctly
+- Precision loss in successive color space conversions
+- Addressed potential "Maximum update depth exceeded" error during rapid color picker interactions
+- Improved performance of ColorPicker component for better performance during rapid color changes
 
 ## [1.1.0] - 2024-07-07
 

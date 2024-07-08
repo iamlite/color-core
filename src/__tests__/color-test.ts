@@ -482,4 +482,99 @@ describe('Color Class', () => {
       expect(color.toHex(true)).toBe('#00ff00fe');
     });
   });
+
+
+  describe('getName', () => {
+    it('should return a promise that resolves to a string', async () => {
+      const color = new Color('#FF5733');
+      const result = color.getName();
+
+      expect(result).toBeInstanceOf(Promise);
+      await expect(result).resolves.toEqual(expect.any(String));
+    });
+
+    it('should return different names for different colors', async () => {
+      const color1 = new Color('#FF0000');
+      const color2 = new Color('#00FF00');
+
+      const name1 = await color1.getName();
+      const name2 = await color2.getName();
+
+      expect(name1).not.toBe(name2);
+    });
+  });
+
+  describe('getInfo', () => {
+    it('should return a promise that resolves to an object', async () => {
+      const color = new Color('#33FF57');
+      const result = color.getInfo();
+
+      expect(result).toBeInstanceOf(Promise);
+      await expect(result).resolves.toEqual(expect.any(Object));
+    });
+
+    it('should return color information including name and hex', async () => {
+      const color = new Color('#3366FF');
+      const info = await color.getInfo();
+
+      expect(info).toHaveProperty('name');
+      expect(info).toHaveProperty('hex');
+      expect(info.hex.toLowerCase()).toBe('#3366ff');
+    });
+  });
+
+  describe('Integration with other Color methods', () => {
+    it('should return consistent names for the same color in different formats', async () => {
+      const hexColor = '#FF5733';
+      const rgbColor = new Color({ r: 255, g: 87, b: 51 });
+
+      const color1 = new Color(hexColor);
+      const color2 = new Color(rgbColor.toHex());
+
+      const name1 = await color1.getName();
+      const name2 = await color2.getName();
+
+      expect(name1).toBe(name2);
+    });
+
+    it('should return different info for adjusted colors', async () => {
+      const originalColor = new Color('#FF5733');
+      const adjustedColor = originalColor.adjustLightness(20);
+
+      const originalInfo = await originalColor.getInfo();
+      const adjustedInfo = await adjustedColor.getInfo();
+
+      expect(originalInfo).not.toEqual(adjustedInfo);
+    });
+  });
 });
+
+describe('Color brightness methods', () => {
+  const testCases: [string, number, boolean][] = [
+    ['#FFFFFF', 255, true],  // White
+    ['#000000', 0, false],   // Black
+    ['#FF0000', 76, false],  // Red
+    ['#00FF00', 149, true],  // Green
+    ['#0000FF', 29, false],  // Blue
+  ];
+
+  describe('getBrightness', () => {
+    test.each(testCases)('calculates brightness correctly for %s', (hex, expected) => {
+      const color = new Color(hex);
+      expect(color.getBrightness()).toBe(expected);
+    });
+  });
+
+  describe('isLight', () => {
+    test.each(testCases)('determines if color is light correctly for %s', (hex, _, expected) => {
+      const color = new Color(hex);
+      expect(color.isLight()).toBe(expected);
+    });
+
+    test('uses custom threshold correctly', () => {
+      const color = new Color('#646464');  // RGB(100, 100, 100)
+      expect(color.isLight(100)).toBe(true);
+      expect(color.isLight(150)).toBe(false);
+    });
+  });
+})

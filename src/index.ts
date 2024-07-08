@@ -41,20 +41,23 @@ export {
  */
 export { Color } from './color';
 
-/**
- * React Color Picker Component
- * A customizable color picker component for React applications
- */
-export { ColorPicker } from './utils/color-picker';
 
 /**
  * Color Picker Props Type
  * Type definition for the props of the ColorPicker component
  */
-export type { ColorPickerProps } from './utils/color-picker';
+export type { ColorPickerProps } from './utils';
 
 /**
- * Default styles for the Color Picker component
- * These styles can be customized or overridden as needed
+ * @description getColorInfo and getColorName
+ * Axios functions for color name and information
+ * These functions can be used to fetch color name and information from the Color.pizza API
+ * 
+ * React Color Picker Component:
+ * A customizable color picker component for React applications
+ * 
+ * Default styles for the Color Picker component:
+ * These styles can be customized or overridden as neede
  */
-export { default as defaultColorPickerStyles } from './utils/color-picker-styles';
+export { ColorPicker, defaultColorPickerStyles, getColorInfo, getColorName } from './utils';
+

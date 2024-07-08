@@ -30,6 +30,7 @@ const ColorInput: React.FC<ColorInputProps> = ({ color, onColorChange }) => {
                     placeholder='Enter a color'
                 />
             </label>
+            <p>or</p>
 
             <input
                 type='color'

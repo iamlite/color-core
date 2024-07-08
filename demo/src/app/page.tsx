@@ -1,6 +1,6 @@
 'use client';
 
-import ColorSection from '@/components/color';
+import ColorHarmonies from '@/components/color';
 import ColorInput from '@/components/color-input';
 import ColorMixer from '@/components/color-mixer';
 import ColorPickerDemo from '@/components/color-picker';
@@ -38,62 +38,8 @@ export default function Home() {
                 />
 
                 <div className='flex flex-col md:flex-row gap-4'>
-                    <div className='flex-1 flex-col justify-center bg-white bg-opacity-90 text-gray-700 shadow-md rounded-lg py-4'>
-                        <h3 className='text-lg font-semibold my-4 text-center'>Color Conversions</h3>
-                        <div className='flex flex-col justify-center'>
-                            <ConversionSection color={color} />
-                        </div>
-                    </div>
-
-                    <div className='flex-1 bg-white bg-opacity-90 text-gray-700 shadow-md rounded-lg py-4'>
-                        <h2 className='text-lg font-semibold my-4 text-center'>Color Harmonies</h2>
-                        <div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
-                            <ColorSection
-                                title='Monochromatic'
-                                colors={color.monochromatic(5)}
-                            />
-                            <ColorSection
-                                title='Shades'
-                                colors={color.shades()}
-                            />
-                            <ColorSection
-                                title='Tints'
-                                colors={color.tints()}
-                            />
-                            <ColorSection
-                                title='Tones'
-                                colors={color.tones()}
-                            />
-                            <ColorSection
-                                title='Complementary'
-                                colors={color.complementary()}
-                            />
-                            <ColorSection
-                                title='Analogous'
-                                colors={color.analogous()}
-                            />
-                            <ColorSection
-                                title='Triadic'
-                                colors={color.triadic()}
-                            />
-                            <ColorSection
-                                title='Split Complementary'
-                                colors={color.splitComplementary()}
-                            />
-                            <ColorSection
-                                title='Tetradic'
-                                colors={color.tetradic()}
-                            />
-                            <ColorSection
-                                title='Double Split Complementary'
-                                colors={color.doubleSplitComplementary()}
-                            />
-                            <ColorSection
-                                title='Square'
-                                colors={color.square()}
-                            />
-                        </div>
-                    </div>
+                    <ConversionSection color={color} />
+                    <ColorHarmonies color={color} />
                 </div>
 
                 <div className='flex flex-col md:flex-row gap-4'>

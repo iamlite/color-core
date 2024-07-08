@@ -170,6 +170,8 @@ function MyComponent() {
   - Harmony methods: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `monochromatic()`
   - Manipulation methods: `adjustLightness()`, `adjustSaturation()`, `adjustHue()`, `adjustAlpha()`, `invert()`, `grayscale()`, `mix()`
   - Utility methods: `toString()`, `equals()`
+  - Color naming: `getColorName()` method to get the closest named color
+  - Brightness calculation: `getBrightness()` and `isLight()` methods
 - Conversion functions: `hexToRgb()`, `rgbToHex()`, `rgbToHsl()`, `hslToRgb()`, `rgbToHsv()`, `hsvToRgb()`, `rgbToCmyk()`, `cmykToRgb()`, `rgbToLab()`, `labToRgb()`, `rgbToLch()`, `lchToRgb()`, `rgbToXyz()`, `xyzToRgb()`, `rgbToYuv()`, `yuvToRgb()`
 - Harmony functions: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `monochromatic()`
 - Components: `ColorPicker`
@@ -238,6 +240,9 @@ Creates a new Color instance from various color formats.
 | ---------------------- | ------------ | ----------- | --------------------------------- |
 | `toString()`           | None         | string      | Returns the color as a hex string |
 | `equals(other: Color)` | other: Color | boolean     | Checks if two colors are equal    |
+| `getColorName()` | None                  | string      | Returns the name of the closest matching color  |
+| `getBrightness()`| None                  | number      | Calculates the perceived brightness (0-255)     |
+| `isLight()`      | threshold?: number    | boolean     | Determines if the color is light or dark        |
 
 ### Conversion Functions
 
@@ -360,25 +365,13 @@ Contributions are welcome and greatly appreciated! Here are a few ways you can c
 3. Writing or improving documentation
 4. Submitting pull requests with code changes
 
-## Roadmap
-
-We're constantly working to improve next-colors. Here are some features we're planning to add in future releases:
-
-- Color palette generation
-- Color accessibility functions (contrast ratio, WCAG compliance)
-- Advanced color mixing and blending functions
-- Support for additional color spaces
-- Performance optimizations
-
-For a full list of planned features and improvements, please see our [CHANGELOG.md](CHANGELOG.md).
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Support
 
-If you're having any problem, please [raise an issue](https://github.com/iamlite/next-colors/issues/new) on GitHub and we'll be happy to help.
+If you're having any problem, please [raise an issue](https://github.com/iamlite/next-colors/issues/new) on GitHub and I will be happy to help.
 
 ---
 

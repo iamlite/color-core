@@ -1,66 +1,66 @@
 name: Publish Package
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    publish:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 2
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
-                  registry-url: 'https://registry.npmjs.org'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          registry-url: 'https://registry.npmjs.org'
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Run tests
-              run: npm test
+      - name: Run tests
+        run: npm test
 
-            - name: Get local version
-              id: package-version
-              uses: martinbeentjes/npm-get-version-action@v1.3.1
+      - name: Get local version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
 
-            - name: Check npm registry version
-              id: npm-version
-              run: |
-                  NPM_VERSION=$(npm view ${{ github.event.repository.name }} version 2>/dev/null || echo "0.0.0")
-                  echo "NPM_VERSION=$NPM_VERSION" >> $GITHUB_OUTPUT
-                  LOCAL_VERSION=${{ steps.package-version.outputs.current-version }}
-                  if [ "$(printf '%s\n' "$NPM_VERSION" "$LOCAL_VERSION" | sort -V | tail -n1)" = "$LOCAL_VERSION" ] && [ "$NPM_VERSION" != "$LOCAL_VERSION" ]; then
-                    echo "SHOULD_PUBLISH=true" >> $GITHUB_OUTPUT
-                  else
-                    echo "SHOULD_PUBLISH=false" >> $GITHUB_OUTPUT
-                  fi
+      - name: Check npm registry version
+        id: npm-version
+        run: |
+          NPM_VERSION=$(npm view ${{ github.event.repository.name }} version 2>/dev/null || echo "0.0.0")
+          echo "NPM_VERSION=$NPM_VERSION" >> $GITHUB_OUTPUT
+          LOCAL_VERSION=${{ steps.package-version.outputs.current-version }}
+          if [ "$(printf '%s\n' "$NPM_VERSION" "$LOCAL_VERSION" | sort -V | tail -n1)" = "$LOCAL_VERSION" ] && [ "$NPM_VERSION" != "$LOCAL_VERSION" ]; then
+            echo "SHOULD_PUBLISH=true" >> $GITHUB_OUTPUT
+          else
+            echo "SHOULD_PUBLISH=false" >> $GITHUB_OUTPUT
+          fi
 
-            - name: Publish to npm
-              if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
-              run: npm publish
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to npm
+        if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            - name: Extract changelog
-              if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
-              run: |
-                  NEW_VERSION=${{ steps.package-version.outputs.current-version }}
-                  sed -n "/## \[$NEW_VERSION\]/,/## \[/p" CHANGELOG.md | sed '$d' > RELEASE_CHANGELOG.md
+      - name: Extract changelog
+        if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
+        run: |
+          NEW_VERSION=${{ steps.package-version.outputs.current-version }}
+          sed -n "/## \[$NEW_VERSION\]/,/## \[/p" CHANGELOG.md | sed '$d' > RELEASE_CHANGELOG.md
 
-            - name: Create GitHub Release
-              if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
-              uses: softprops/action-gh-release@v2
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  name: Release ${{ steps.package-version.outputs.current-version }}
-                  tag_name: v${{ steps.package-version.outputs.current-version }}
-                  files: RELEASE_CHANGELOG.md
-                  draft: false
-                  prerelease: false
+      - name: Create GitHub Release
+        if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Release ${{ steps.package-version.outputs.current-version }}
+          tag_name: v${{ steps.package-version.outputs.current-version }}
+          files: RELEASE_CHANGELOG.md
+          draft: false
+          prerelease: false

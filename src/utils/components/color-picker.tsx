@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { hsvToRgb, rgbToHsv } from '../conversions';
-import { HSV, RGB } from '../types';
+import { hsvToRgb, rgbToHsv } from '../../conversions';
+import { HSV, RGB } from '../../types';
 import defaultStyles from './color-picker-styles';
 
 /**
@@ -38,6 +38,14 @@ export interface ColorPickerProps {
     /** Custom inline styles for the outer container */
     containerStyle?: React.CSSProperties;
 }
+
+// Extend the component type for testing purposes
+export type TestableColorPickerProps = {
+    testHandlers?: {
+        handleSaturationValueChange: (event: React.MouseEvent<HTMLDivElement>) => void;
+        handleHueChange: (event: React.MouseEvent<HTMLDivElement>) => void;
+    };
+};
 
 /**
  * A customizable color picker component for Next.js projects.
@@ -138,6 +146,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
      *
      * @param event - The mouse event from interacting with the hue slider
      */
+
     const handleHueChange = useCallback(
         (event: React.MouseEvent<HTMLDivElement>): void => {
             if (!hueSliderRef.current) return;
@@ -149,6 +158,12 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
         },
         [hsv]
     );
+
+    // Expose these functions for testing
+    (ColorPicker as any).testHandlers = {
+        handleSaturationValueChange,
+        handleHueChange,
+    };
 
     /**
      * Handles changes in the hex input field.
@@ -179,12 +194,15 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
 
     return (
         <div
+            data-testid='color-picker-container'
             style={{ ...defaultStyles.container.style, ...containerStyle }}
             className={`${defaultStyles.container.className} ${containerClassName}`}>
             <div
+                data-testid='color-picker'
                 style={{ ...defaultStyles.colorPicker.style, ...style, width, height }}
                 className={`${defaultStyles.colorPicker.className} ${className}`}>
                 <div
+                    data-testid='saturation-value-area'
                     ref={saturationValueRef}
                     style={{
                         ...defaultStyles.saturationValueArea.style,
@@ -205,6 +223,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                     />
                 </div>
                 <div
+                    data-testid='hue-slider'
                     ref={hueSliderRef}
                     style={{
                         ...defaultStyles.hueSlider.style,
@@ -234,6 +253,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
                         className={`${defaultStyles.hexInput.className} ${inputClassName}`}
                     />
                     <div
+                        data-testid='color-preview'
                         style={{
                             ...defaultStyles.colorPreview.style,
                             backgroundColor: toHex(color),
