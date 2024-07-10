@@ -33,5 +33,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add /demo/public/docs
+          git add ./demo/public/docs
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update documentation" && git push)
