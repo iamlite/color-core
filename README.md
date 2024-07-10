@@ -2,25 +2,25 @@
 <!-- markdownlint-disable MD041 -->
 
 <div align="center">
-<h1 style="padding: 20px">ts-color</h1>
+<h1 style="padding: 20px">ts-colors</h1>
 </div>
 
 <div align="center">
 
-<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/ts-color?style=for-the-badge&logo=npm&color=purple">
+<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/ts-colors?style=for-the-badge&logo=npm&color=purple">
 
-<img alt="NPM Version" src="https://img.shields.io/npm/v/ts-color?style=for-the-badge&logo=npm">
+<img alt="NPM Version" src="https://img.shields.io/npm/v/ts-colors?style=for-the-badge&logo=npm">
 
-<img alt="NPM License" src="https://img.shields.io/npm/l/ts-color?style=for-the-badge&color=red" >
+<img alt="NPM License" src="https://img.shields.io/npm/l/ts-colors?style=for-the-badge&color=red" >
 
-<img src="https://img.shields.io/github/last-commit/iamlite/ts-color?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" />
+<img src="https://img.shields.io/github/last-commit/iamlite/ts-colors?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" />
 
-<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/ts-color?style=for-the-badge&logo=dependabot">
+<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/ts-colors?style=for-the-badge&logo=dependabot">
 
-<img alt="Codecov" src="https://img.shields.io/codecov/c/github/iamlite/ts-color?style=for-the-badge&logo=codecov">
+<img alt="Codecov" src="https://img.shields.io/codecov/c/github/iamlite/ts-colors?style=for-the-badge&logo=codecov">
 
-<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/ts-color?style=for-the-badge">
-<a href="https://iamlite.github.io/ts-color/">
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/ts-colors?style=for-the-badge">
+<a href="https://iamlite.github.io/ts-colors/">
 <img alt="Static Badge" src="https://img.shields.io/badge/Docs-blue?style=for-the-badge&logo=github&logoColor=white&labelColor=gray" >
 </a>
 
@@ -29,10 +29,10 @@
 ---
 <div align="center">
 
-<a href="https://ts-color-demo.vercel.app">
+<a href="https://ts-colors-demo.vercel.app">
 <img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray" >
 </a>
-<a href="https://www.npmjs.com/package/ts-color">
+<a href="https://www.npmjs.com/package/ts-colors">
 <img alt="Static Badge" src="https://img.shields.io/badge/NPM-URL%20-%20link?style=for-the-badge&logo=npm" >
 </a>
 <a href="https://discord.gg/uYBuFXUmcU">
@@ -43,9 +43,9 @@
 
 ---
 
-`ts-color` is a powerful and versatile color manipulation library designed specifically for Next.js and React applications. It provides a comprehensive set of tools for working with colors across various color spaces, making it an essential utility for developers working on projects that require advanced color handling.
+`ts-colors` is a powerful and versatile color manipulation library designed specifically for Next.js and React applications. It provides a comprehensive set of tools for working with colors across various color spaces, making it an essential utility for developers working on projects that require advanced color handling.
 
-This library offers a unified `Color` class that simplifies color conversions, manipulations, and harmony calculations. With support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV color spaces, ts-color enables developers to effortlessly convert between formats, generate color harmonies, and perform complex color operations.
+This library offers a unified `Color` class that simplifies color conversions, manipulations, and harmony calculations. With support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV color spaces, ts-colors enables developers to effortlessly convert between formats, generate color harmonies, and perform complex color operations.
 
 ## Features
 
@@ -62,13 +62,13 @@ This library offers a unified `Color` class that simplifies color conversions, m
 ## Installation
 
 ```bash
-npm install ts-color
+npm install ts-colors
 ```
 
 or:
 
 ```bash
-yarn add ts-color
+yarn add ts-colors
 ```
 
 ---
@@ -78,7 +78,7 @@ yarn add ts-color
 ### Unified Color Class
 
 ```typescript
-import { Color } from 'ts-color';
+import { Color } from 'ts-colors';
 
 // Create a color from hex
 const color = new Color('#ff0000');
@@ -104,7 +104,7 @@ console.log(color.equals(sameRed));  // true
 ### Individual Conversion Functions
 
 ```typescript
-import { hexToRgb, rgbToHsl, rgbToXyz, rgbToYuv } from 'ts-color';
+import { hexToRgb, rgbToHsl, rgbToXyz, rgbToYuv } from 'ts-colors';
 
 const rgb = hexToRgb('#00ff00');
 console.log(rgb);  // { r: 0, g: 255, b: 0 }
@@ -122,7 +122,7 @@ console.log(yuv);  // { y: 0.587, u: -0.28886, v: -0.51499 }
 ### Color Harmonies
 
 ```typescript
-import { Color } from 'ts-color';
+import { Color } from 'ts-colors';
 
 const baseColor = new Color('#ff0000');
 
@@ -152,7 +152,7 @@ console.log(split1.toHex(), split2.toHex());  // '#00ffff', '#00ff80'
 The ColorPicker component is unopinionated and comes with minimal styling for layout. You can easily customize it using your preferred styling method, such as Tailwind CSS.
 
 ```jsx
-import { ColorPicker } from 'ts-color';
+import { ColorPicker } from 'ts-colors';
 
 function MyComponent() {
   return (
@@ -201,7 +201,7 @@ color.getInfo().then(info => console.log(info));
 - Harmony functions: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `monochromatic()`
 - Components: `ColorPicker`
 
-For a complete API reference, please refer to our [documentation](https://iamlite.github.io/ts-color/).
+For a complete API reference, please refer to our [documentation](https://iamlite.github.io/ts-colors/).
 
 ## API Reference
 
@@ -348,7 +348,7 @@ The `ColorPicker` component accepts the following props:
 ### Color Manipulation
 
 ```typescript
-import { Color } from 'ts-color';
+import { Color } from 'ts-colors';
 
 const color = new Color('#ff0000');
 
@@ -379,7 +379,7 @@ console.log(mixedColor.toHex()); // '#800080'
 
 ## Versioning
 
-This project follows [Semantic Versioning](https://semver.org/). For the versions available, see the [tags on this repository](https://github.com/iamlite/ts-color/tags).
+This project follows [Semantic Versioning](https://semver.org/). For the versions available, see the [tags on this repository](https://github.com/iamlite/ts-colors/tags).
 
 ## Contributing
 
@@ -396,7 +396,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-If you're having any problem, please [raise an issue](https://github.com/iamlite/ts-color/issues/new) on GitHub and I will be happy to help.
+If you're having any problem, please [raise an issue](https://github.com/iamlite/ts-colors/issues/new) on GitHub and I will be happy to help.
 
 ---
 
