@@ -33,6 +33,7 @@ jobs:
             echo "SHOULD_PUBLISH=true" >> $GITHUB_OUTPUT
           else
             echo "SHOULD_PUBLISH=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Install dependencies
         if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
