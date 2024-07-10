@@ -43,24 +43,26 @@
 
 ---
 
-`color-core` is a robust and versatile color manipulation library that serves as the fundamental toolkit for handling colors in TypeScript and JavaScript applications. It provides a comprehensive set of tools for working with colors across various color spaces, making it an essential utility for developers tackling projects that demand sophisticated color handling.
+# color-core
 
-At the heart of color-core is a unified `Color` class, designed to simplify color conversions, manipulations, and harmony calculations. With extensive support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV color spaces, color-core empowers developers to seamlessly convert between formats, generate color harmonies, and perform complex color operations with ease.
+`color-core` is a powerful, type-safe color manipulation library for TypeScript and JavaScript applications. It provides a comprehensive toolkit for working with colors across multiple color spaces, making it an indispensable tool for developers working on projects that require advanced color handling.
 
-While optimized for use in Next.js and React applications, color-core's versatility makes it an invaluable asset for any JavaScript or TypeScript project requiring advanced color management.
+## Key Features
 
-## Features
+- 🎨 Support for 9 color spaces: RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV
+- 🔄 Seamless color space conversions
+- 🌈 Advanced color harmony generation
+- 🛠 Robust color manipulation tools
+- 🎛 Flexible, unopinionated ColorPicker component
+- 💪 Full TypeScript support
+- 🔧 Unified `Color` class for intuitive operations
+- 🚀 Optimized for modern web applications
 
-- 🎨 Comprehensive color space support (RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, YUV)
-- 🔄 Effortless color conversions across different formats
-- 🌈 Advanced color harmony generation (complementary, analogous, triadic, tetradic, split-complementary, and more)
-- 🛠 Powerful color manipulation tools (adjust lightness, saturation, hue, alpha, and beyond)
-- 🎛 Flexible, unopinionated ColorPicker component for easy integration
-- 💪 Fully type-safe with comprehensive TypeScript support
-- 🔧 Unified `Color` class for intuitive and seamless color operations
-- 🚀 Optimized for performance and ease of use in modern web applications
+At its core, `color-core` offers a unified `Color` class that simplifies complex color operations. Whether you're converting between color spaces, generating harmonious color schemes, or performing intricate color manipulations, `color-core` provides the tools you need in an easy-to-use package.
 
----
+While designed with Next.js and React applications in mind, `color-core`'s versatility makes it suitable for any JavaScript or TypeScript project requiring sophisticated color management.
+
+Elevate your color handling capabilities with `color-core` – the essential library for developers working with color. 🌈
 
 ## Installation
 
