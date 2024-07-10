@@ -1,6 +1,6 @@
 {
-	"name": "next-app-template",
-	"version": "0.0.1",
+	"name": "color-core",
+	"version": "1.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbo",

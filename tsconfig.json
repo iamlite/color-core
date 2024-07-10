@@ -19,12 +19,18 @@
     "out": "demo/public/docs",
     "hostedBaseUrl": "https://color-core.com/docs",
     "useHostedBaseUrlForAbsoluteLinks": true,
+    "titleLink": "https://color-core.com",
     "lang": "en",
     "hideGenerator": true,
     "includeVersion": false,
     "highlightLanguages": ["js", "ts", "jsx", "tsx", "bash"],
     "plugin": ["./doctheme/cjs/index.js"],
     "theme": "dumi",
+    "navigation": {
+      "includeCategories": true,
+      "includeGroups": false,
+      "includeFolders": true
+    },
     "navigationLinks": {
       "Home": "https://color-core.com",
       "Demo": "https://color-core.com/demo",
