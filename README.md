@@ -404,3 +404,5 @@ If you're having any problem, please [raise an issue](https://github.com/iamlite
 ---
 
 Built with ❤️ by [iamlite](https://github.com/iamlite)
+
+<img alt=codecov src="https://codecov.io/gh/iamlite/color-core/graphs/sunburst.svg?token=MBMKJU55OY">
