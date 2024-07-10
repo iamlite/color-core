@@ -16,7 +16,9 @@
   "types": ["jest", "jest-dom"],
   "typedocOptions": {
     "entryPoints": ["src"],
-    "out": "docs",
+    "out": "demo/public/docs",
+    "hostedBaseUrl": "https://color-core.com/docs",
+    "useHostedBaseUrlForAbsoluteLinks": true,
     "lang": "en",
     "hideGenerator": true,
     "includeVersion": false,
