@@ -26,14 +26,16 @@
     "plugin": ["./doctheme/cjs/index.js"],
     "theme": "dumi",
     "navigationLinks": {
+      "Home": "https://color-core.com",
+      "Demo": "https://color-core.com/demo",
       "GitHub": "https://github.com/iamlite/color-core",
-      "NPM": "https://www.npmjs.com/package/color-core",
-      "Demo Site": "https://color-core-demo.vercel.app"
+      "NPM": "https://www.npmjs.com/package/color-core"
     },
     "navigationLinkTargets": {
+      "Home": "_self",
+      "Demo": "_self",
       "GitHub": "_blank",
-      "NPM": "_blank",
-      "Demo Site": "_blank"
+      "NPM": "_blank"
     },
     "logoImage": "https://typedoc.org/images/logo-32.png",
     "logoTitle": "color-core",

@@ -29,7 +29,7 @@
 ---
 <div align="center">
 
-<a href="https://color-core-demo.vercel.app">
+<a href="https://color-core.com">
 <img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray" >
 </a>
 <a href="https://www.npmjs.com/package/color-core">
@@ -405,4 +405,7 @@ If you're having any problem, please [raise an issue](https://github.com/iamlite
 
 Built with ❤️ by [iamlite](https://github.com/iamlite)
 
+<div align="center">
+<h1>Code Coverage</h1>
 <img alt=codecov src="https://codecov.io/gh/iamlite/color-core/graphs/sunburst.svg?token=MBMKJU55OY">
+</div>

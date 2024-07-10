@@ -11,6 +11,19 @@ const nextConfig = {
                 source: '/docs/',
                 destination: '/docs/index.html',
             },
+            {
+                source: '/docs/:path*',
+                destination: '/docs/:path*',
+            },
+        ];
+    },
+    async redirects() {
+        return [
+            {
+                source: '/docs/:path*.html',
+                destination: '/docs/:path*',
+                permanent: true,
+            },
         ];
     },
 };
