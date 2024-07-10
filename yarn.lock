@@ -1726,17 +1726,10 @@ __metadata:
     npm-run-all: "npm:^4.1.5"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-<<<<<<< HEAD
-    rimraf: "npm:^5.0.8"
-    ts-jest: "npm:^29.1.5"
-    ts-node: "npm:^10.9.2"
-    typedoc: "npm:~0.26.3"
-=======
     rimraf: "npm:^6.0.0"
     ts-jest: "npm:^29.2.1"
     ts-node: "npm:^10.9.2"
     typedoc: "npm:~0.26.4"
->>>>>>> 9de0b24 (initial commit)
     typescript: "npm:^5.5.3"
   languageName: unknown
   linkType: soft
@@ -3271,20 +3264,18 @@ __metadata:
   linkType: hard
 
 "jackspeak@npm:^3.1.2":
-  version: 3.4.2
-  resolution: "jackspeak@npm:3.4.2"
+  version: 3.4.3
+  resolution: "jackspeak@npm:3.4.3"
   dependencies:
     "@isaacs/cliui": "npm:^8.0.2"
     "@pkgjs/parseargs": "npm:^0.11.0"
   dependenciesMeta:
     "@pkgjs/parseargs":
       optional: true
-  checksum: 10c0/31952961f4d0d51831b8973db5c800233dc0f2181c3ca74af96f02cdc5c3f2b3df147a9ce2b56a643bd459036d782fb8c59f8992658d2bb4564753c42bb80c6c
+  checksum: 10c0/6acc10d139eaefdbe04d2f679e6191b3abf073f111edf10b1de5302c97ec93fffeb2fdd8681ed17f16268aa9dd4f8c588ed9d1d3bffbbfa6e8bf897cbb3149b9
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
 "jackspeak@npm:^4.0.1":
   version: 4.0.1
   resolution: "jackspeak@npm:4.0.1"
@@ -3298,7 +3289,6 @@ __metadata:
   languageName: node
   linkType: hard
 
->>>>>>> 9de0b24 (initial commit)
 "jake@npm:^10.8.5":
   version: 10.9.1
   resolution: "jake@npm:10.9.1"
@@ -4162,8 +4152,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
 "minimatch@npm:^10.0.0":
   version: 10.0.1
   resolution: "minimatch@npm:10.0.1"
@@ -4173,7 +4161,6 @@ __metadata:
   languageName: node
   linkType: hard
 
->>>>>>> 9de0b24 (initial commit)
 "minimatch@npm:^3.0.4, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
@@ -5564,11 +5551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"ts-jest@npm:^29.1.5":
-=======
 "ts-jest@npm:^29.2.1":
->>>>>>> 9de0b24 (initial commit)
   version: 29.2.1
   resolution: "ts-jest@npm:29.2.1"
   dependencies:
