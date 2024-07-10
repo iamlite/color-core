@@ -14,9 +14,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
-      - run: npm install
-      - run: npm run build
-      - run: npm test
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.0.1
         env:
@@ -25,7 +25,7 @@ jobs:
       # Generate docs
       - name: Generate documentation
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npm run docs
+        run: yarn docs
 
       # Commit and push if there are any changes
       - name: Commit and push changes
@@ -33,5 +33,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add docs
+          git add /demo/public/docs
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update documentation" && git push)
