@@ -1,0 +1,107 @@
+{
+  "name": "ts-color",
+  "version": "1.2.0",
+  "description": "A comprehensive color manipulation library for Next.js and React applications",
+  "author": "Tariel Davidashvili <hello@tariel.me> (http://tariel.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamlite/ts-color/issues",
+    "email": "hello@tariel.me"
+  },
+  "homepage": "https://iamlite.github.io/ts-color/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamlite/ts-color.git"
+  },
+  "keywords": [
+    "color",
+    "nextjs",
+    "react",
+    "colorpicker",
+    "colors",
+    "colorful",
+    "colorutility",
+    "colortools",
+    "colorconverter"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lb": "npm-run-all test build clean docs demo-prep",
+    "test": "jest",
+    "docs": "npx typedoc",
+    "clean": "find . -name .DS_Store -type f -print0 | xargs -0 -I {} sh -c 'echo \"Removing {}\"; git rm -f --ignore-unmatch \"{}\"; rm \"{}\"'",
+    "demo-prep": "rm -rf ./demo/node_modules/ts-color/dist && cp -r dist ./demo/node_modules/ts-color/ && rm -rf ./demo/.next",
+    "prepublishOnly": "npm-run-all test build"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "lcov"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    }
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@testing-library/dom": "^10.3.1",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "cpy-cli": "^5.0.0",
+    "cross-env": "^7.0.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.1.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.8",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "typedoc": "~0.26.3",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/iamlite"
+    },
+    {
+      "type": "kofi",
+      "url": "https://ko-fi.com/iamlite"
+    }
+  ],
+  "packageManager": "yarn@4.3.1"
+}
