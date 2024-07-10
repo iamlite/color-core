@@ -1585,7 +1585,7 @@ __metadata:
   dependencies:
     ansi-styles: "npm:^3.2.1"
     escape-string-regexp: "npm:^1.0.5"
-    supports-colors: "npm:^5.3.0"
+    supporcolor-library: "npm:^5.3.0"
   checksum: 10c0/e6543f02ec877732e3a2d1c3c3323ddb4d39fbab687c23f526e25bd4c6a9bf3b83a696e8c769d078e04e5754921648f7821b2a2acfd16c550435fd630026e073
   languageName: node
   linkType: hard
@@ -1595,7 +1595,7 @@ __metadata:
   resolution: "chalk@npm:3.0.0"
   dependencies:
     ansi-styles: "npm:^4.1.0"
-    supports-colors: "npm:^7.1.0"
+    supporcolor-library: "npm:^7.1.0"
   checksum: 10c0/ee650b0a065b3d7a6fda258e75d3a86fc8e4effa55871da730a9e42ccb035bf5fd203525e5a1ef45ec2582ecc4f65b47eb11357c526b84dd29a14fb162c414d2
   languageName: node
   linkType: hard
@@ -1605,7 +1605,7 @@ __metadata:
   resolution: "chalk@npm:4.1.2"
   dependencies:
     ansi-styles: "npm:^4.1.0"
-    supports-colors: "npm:^7.1.0"
+    supporcolor-library: "npm:^7.1.0"
   checksum: 10c0/4a3fef5cc34975c898ffe77141450f679721df9dde00f6c304353fa9c8b571929123b26a0e4617bde5018977eb655b31970c297b91b63ee83bb82aeb04666880
   languageName: node
   linkType: hard
@@ -1939,7 +1939,7 @@ __metadata:
   dependencies:
     ms: "npm:2.1.2"
   peerDependenciesMeta:
-    supports-colors:
+    supporcolor-library:
       optional: true
   checksum: 10c0/082c375a2bdc4f4469c99f325ff458adad62a3fc2c482d59923c260cb08152f34e2659f72b3767db8bb2f21ca81a60a42d1019605a412132d7b9f59363a005cc
   languageName: node
@@ -3164,7 +3164,7 @@ __metadata:
   dependencies:
     istanbul-lib-coverage: "npm:^3.0.0"
     make-dir: "npm:^4.0.0"
-    supports-colors: "npm:^7.1.0"
+    supporcolor-library: "npm:^7.1.0"
   checksum: 10c0/84323afb14392de8b6a5714bd7e9af845cfbd56cfe71ed276cda2f5f1201aea673c7111901227ee33e68e4364e288d73861eb2ed48f6679d1e69a43b6d9b3ba7
   languageName: node
   linkType: hard
@@ -3639,7 +3639,7 @@ __metadata:
     "@types/node": "npm:*"
     jest-util: "npm:^29.7.0"
     merge-stream: "npm:^2.0.0"
-    supports-colors: "npm:^8.0.0"
+    supporcolor-library: "npm:^8.0.0"
   checksum: 10c0/5570a3a005b16f46c131968b8a5b56d291f9bbb85ff4217e31c80bd8a02e7de799e59a54b95ca28d5c302f248b54cbffde2d177c2f0f52ffcee7504c6eabf660
   languageName: node
   linkType: hard
@@ -5304,27 +5304,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-colors@npm:^5.3.0":
+"supporcolor-library@npm:^5.3.0":
   version: 5.5.0
-  resolution: "supports-colors@npm:5.5.0"
+  resolution: "supporcolor-library@npm:5.5.0"
   dependencies:
     has-flag: "npm:^3.0.0"
   checksum: 10c0/6ae5ff319bfbb021f8a86da8ea1f8db52fac8bd4d499492e30ec17095b58af11f0c55f8577390a749b1c4dde691b6a0315dab78f5f54c9b3d83f8fb5905c1c05
   languageName: node
   linkType: hard
 
-"supports-colors@npm:^7.1.0":
+"supporcolor-library@npm:^7.1.0":
   version: 7.2.0
-  resolution: "supports-colors@npm:7.2.0"
+  resolution: "supporcolor-library@npm:7.2.0"
   dependencies:
     has-flag: "npm:^4.0.0"
   checksum: 10c0/afb4c88521b8b136b5f5f95160c98dee7243dc79d5432db7efc27efb219385bbc7d9427398e43dd6cc730a0f87d5085ce1652af7efbe391327bc0a7d0f7fc124
   languageName: node
   linkType: hard
 
-"supports-colors@npm:^8.0.0":
+"supporcolor-library@npm:^8.0.0":
   version: 8.1.1
-  resolution: "supports-colors@npm:8.1.1"
+  resolution: "supporcolor-library@npm:8.1.1"
   dependencies:
     has-flag: "npm:^4.0.0"
   checksum: 10c0/ea1d3c275dd604c974670f63943ed9bd83623edc102430c05adb8efc56ba492746b6e95386e7831b872ec3807fd89dd8eb43f735195f37b5ec343e4234cc7e89
@@ -5423,9 +5423,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-colors@workspace:.":
+"color-library@workspace:.":
   version: 0.0.0-use.local
-  resolution: "ts-colors@workspace:."
+  resolution: "color-library@workspace:."
   dependencies:
     "@jest/globals": "npm:^29.7.0"
     "@testing-library/dom": "npm:^10.3.1"

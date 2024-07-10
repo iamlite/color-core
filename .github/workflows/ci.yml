@@ -1,4 +1,4 @@
-name: ts-colors CI
+name: color-library CI
 on:
   push:
     branches: [main]
