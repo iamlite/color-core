@@ -1,42 +1,80 @@
 'use client';
-import { button as buttonStyles, Link } from '@nextui-org/react';
-
-import { GithubIcon } from '@/components/icons';
 import InstallSnippet from '@/components/install-snippet';
-import { subtitle, title } from '@/components/primitives';
-import { siteConfig } from '@/config/site';
+import { Button, Card, Link } from '@nextui-org/react';
 
 export default function Home() {
   return (
-    <section className='flex flex-col items-center justify-center gap-4 py-8 md:py-10'>
-      <div className='justify-center inline-block max-w-lg text-center'>
-        <h1 className={title()}>Make&nbsp;</h1>
-        <h1 className={title({ color: 'yellow' })}>beautiful&nbsp;</h1>
-        <br />
-        <h1 className={title()}>websites regardless of your design experience.</h1>
-        <h2 className={subtitle({ class: 'mt-4' })}>Beautiful, fast and modern React UI library.</h2>
+    <section className='flex flex-col items-center justify-center h-full px-4 space-y-14'>
+      <div className='space-y-4 text-center'>
+        <h1 className='text-6xl font-extrabold tracking-tight'>
+          <Card className='pt-2 pb-4 mb-12 opacity-80'>
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary'>color-core</span>
+          </Card>
+        </h1>
+        <p className='max-w-2xl mx-auto text-xl leading-relaxed text-default-600'>
+          Elevate your web and app designs with precise color management. color-core empowers developers to manipulate,
+          convert, and harmonize colors effortlessly, ensuring visually stunning and accessible user interfaces.
+        </p>
       </div>
 
-      <div className='flex gap-3'>
-        <InstallSnippet />
-        <Link
-          isExternal
-          className={buttonStyles({
-            color: 'primary',
-            radius: 'full',
-            variant: 'shadow',
-          })}
-          href={siteConfig.links.docs}>
-          Documentation
-        </Link>
-        <Link
-          isExternal
-          className={buttonStyles({ variant: 'bordered', radius: 'full' })}
-          href={siteConfig.links.github}>
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
+      <InstallSnippet />
+
+      <div className='max-w-3xl mx-auto space-y-6 text-center'>
+        <h2 className='text-2xl font-semibold'>Key Features</h2>
+        <ul className='grid grid-cols-1 gap-4 text-left text-default-600 md:grid-cols-2'>
+          <li className='flex items-start'>
+            <span className='mr-2 text-xl text-primary'>✨</span>
+            <div>
+              <strong>Comprehensive color spaces:</strong> Support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV
+            </div>
+          </li>
+          <li className='flex items-start'>
+            <span className='mr-2 text-xl text-primary'>🔄</span>
+            <div>
+              <strong>Effortless conversions:</strong> Seamlessly switch between color models with precision
+            </div>
+          </li>
+          <li className='flex items-start'>
+            <span className='mr-2 text-xl text-primary'>🌈</span>
+            <div>
+              <strong>Advanced harmony generation:</strong> Create stunning color schemes with built-in harmony
+              algorithms
+            </div>
+          </li>
+          <li className='flex items-start'>
+            <span className='mr-2 text-xl text-primary'>🛠</span>
+            <div>
+              <strong>Powerful manipulation tools:</strong> Adjust hue, saturation, lightness, and more with ease
+            </div>
+          </li>
+          <li className='flex items-start'>
+            <span className='mr-2 text-xl text-primary'>💪</span>
+            <div>
+              <strong>Full TypeScript support:</strong> Enjoy type safety and excellent IDE integration
+            </div>
+          </li>
+          <li className='flex items-start'>
+            <span className='mr-2 text-xl text-primary'>🎨</span>
+            <div>
+              <strong>Intuitive Color class:</strong> Simplified API for all your color manipulation needs
+            </div>
+          </li>
+        </ul>
       </div>
+
+      <Card
+        isBlurred
+        className='p-6'>
+        <h3 className='mb-2 text-xl font-semibold'>See it in Action</h3>
+        <p className='mb-4'>Experience the power and flexibility of color-core in our interactive demo.</p>
+        <Button
+          as={Link}
+          href='/demo'
+          variant='solid'
+          size='lg'>
+          Try the Demo
+        </Button>
+      </Card>
     </section>
   );
 }

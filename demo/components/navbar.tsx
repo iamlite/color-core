@@ -1,5 +1,8 @@
-import { Link } from '@nextui-org/link';
+'use client';
+
 import {
+  Link,
+  link as linkStyles,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
@@ -7,35 +10,60 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   Navbar as NextUINavbar,
-} from '@nextui-org/navbar';
-import { link as linkStyles } from '@nextui-org/theme';
+} from '@nextui-org/react';
 import clsx from 'clsx';
 import NextLink from 'next/link';
 
-import { GithubIcon, Logo } from '@/components/icons';
+import { GithubIcon, Logo, NPMIcon } from '@/components/icons';
 import { ThemeSwitch } from '@/components/theme-switch';
 import { siteConfig } from '@/config/site';
-import InstallSnippet from './install-snippet';
+
+const Links = () => {
+  return (
+    <>
+      <Link
+        className={linkStyles({ color: 'foreground' })}
+        color='foreground'
+        href={siteConfig.links.github}>
+        <GithubIcon className='text-default-500' />
+      </Link>
+      <p className='mx-2 text-default-500'>|</p>
+      <Link
+        className={linkStyles({ color: 'foreground' })}
+        color='foreground'
+        href={siteConfig.links.npm}>
+        <NPMIcon className='text-default-500' />
+      </Link>
+    </>
+  );
+};
 
 export const Navbar = () => {
   return (
     <NextUINavbar
       maxWidth='xl'
       position='sticky'>
+      {/* Start */}
       <NavbarContent
-        className='basis-1/5 sm:basis-full'
-        justify='start'>
+        justify='start'
+        className='basis-1/5 sm:basis-full'>
         <NavbarBrand
           as='li'
           className='gap-3 max-w-fit'>
           <NextLink
-            className='flex justify-start items-center gap-1'
+            className='flex items-center justify-start gap-1'
             href='/'>
             <Logo />
-            <p className='font-bold text-inherit'>ACME</p>
+            <p className='font-bold text-inherit'>color-core</p>
           </NextLink>
         </NavbarBrand>
-        <ul className='hidden lg:flex gap-4 justify-start ml-2'>
+      </NavbarContent>
+
+      {/* Center */}
+      <NavbarContent
+        className='basis-1/5 sm:basis-full'
+        justify='center'>
+        <ul className='justify-start hidden gap-4 ml-2 lg:flex'>
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
@@ -52,36 +80,28 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
 
+      {/* End */}
       <NavbarContent
         className='hidden sm:flex basis-1/5 sm:basis-full'
         justify='end'>
-        <NavbarItem className='hidden sm:flex gap-2'>
-          <Link
-            isExternal
-            aria-label='Github'
-            href={siteConfig.links.github}>
-            <GithubIcon className='text-default-500' />
-          </Link>
+        <NavbarItem className='hidden gap-2 sm:flex'>
+          <Links />
+          <p className='mx-2 text-default-500'>|</p>
+          <ThemeSwitch />
         </NavbarItem>
-        <InstallSnippet />
-        <ThemeSwitch />
       </NavbarContent>
 
+      {/* Mobile */}
       <NavbarContent
-        className='sm:hidden basis-1 pl-4'
+        className='pl-4 sm:hidden basis-1'
         justify='end'>
-        <Link
-          isExternal
-          aria-label='Github'
-          href={siteConfig.links.github}>
-          <GithubIcon className='text-default-500' />
-        </Link>
+        <Links />
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarMenu>
-        <div className='mx-4 mt-2 flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 mx-4 mt-2'>
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link

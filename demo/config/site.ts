@@ -1,21 +1,23 @@
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Color-Core",
+  description: "A comprehensive color manipulation library that serves as a fundamental toolkit for handling colors in TypeScript and JavaScript applications.",
   navItems: [
     {
       label: "Home",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
       label: "Demo",
       href: "/demo",
     },
+    {
+      label: "Docs",
+      href: "/docs",
+    },
+
   ],
   navMenuItems: [
     {
@@ -23,17 +25,18 @@ export const siteConfig = {
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
       label: "Demo",
       href: "/demo",
     },
+    {
+      label: "Docs",
+      href: "/docs",
+    },
   ],
   links: {
-    github: "https://github.com/nextui-org/nextui",
-    docs: "https://nextui.org",
+    github: "https://github.com/iamlite/color-core",
+    docs: "https://color-core.com/docs",
+    npm: "https://www.npmjs.com/package/color-core",
 
   },
 };

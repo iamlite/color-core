@@ -22,7 +22,7 @@
     "titleLink": "https://color-core.com",
     "lang": "en",
     "hideGenerator": true,
-    "includeVersion": false,
+    "includeVersion": true,
     "highlightLanguages": ["js", "ts", "jsx", "tsx", "bash"],
     "plugin": ["./doctheme/cjs/index.js"],
     "theme": "dumi",
@@ -33,15 +33,11 @@
     },
     "navigationLinks": {
       "Home": "https://color-core.com",
-      "Demo": "https://color-core.com/demo",
-      "GitHub": "https://github.com/iamlite/color-core",
-      "NPM": "https://www.npmjs.com/package/color-core"
+      "Demo": "https://color-core.com/demo"
     },
     "navigationLinkTargets": {
       "Home": "_self",
-      "Demo": "_self",
-      "GitHub": "_blank",
-      "NPM": "_blank"
+      "Demo": "_self"
     },
     "logoImage": "https://typedoc.org/images/logo-32.png",
     "logoTitle": "color-core",
