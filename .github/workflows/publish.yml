@@ -19,12 +19,6 @@ jobs:
           node-version: 'latest'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
       - name: Get local version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
@@ -39,7 +33,14 @@ jobs:
             echo "SHOULD_PUBLISH=true" >> $GITHUB_OUTPUT
           else
             echo "SHOULD_PUBLISH=false" >> $GITHUB_OUTPUT
-          fi
+
+      - name: Install dependencies
+        if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
+        run: npm install
+
+      - name: Run tests
+        if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
+        run: npm test
 
       - name: Publish to npm
         if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
