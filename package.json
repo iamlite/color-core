@@ -1,17 +1,17 @@
 {
-  "name": "color-library",
+  "name": "color-core",
   "version": "1.2.0",
   "description": "A comprehensive color manipulation library for Next.js and React applications",
   "author": "Tariel Davidashvili <hello@tariel.me> (http://tariel.me/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iamlite/color-library/issues",
+    "url": "https://github.com/iamlite/color-core/issues",
     "email": "hello@tariel.me"
   },
-  "homepage": "https://iamlite.github.io/color-library/",
+  "homepage": "https://iamlite.github.io/color-core/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iamlite/color-library.git"
+    "url": "git+https://github.com/iamlite/color-core.git"
   },
   "keywords": [
     "color",
@@ -35,7 +35,7 @@
     "test": "jest",
     "docs": "npx typedoc",
     "clean": "find . -name .DS_Store -type f -print0 | xargs -0 -I {} sh -c 'echo \"Removing {}\"; git rm -f --ignore-unmatch \"{}\"; rm \"{}\"'",
-    "demo-prep": "rm -rf ./demo/node_modules/color-library/dist && cp -r dist ./demo/node_modules/color-library/ && rm -rf ./demo/.next",
+    "demo-prep": "rm -rf ./demo/node_modules/color-core/dist && cp -r dist ./demo/node_modules/color-core/ && rm -rf ./demo/.next",
     "prepublishOnly": "npm-run-all test build"
   },
   "jest": {

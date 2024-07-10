@@ -2,25 +2,25 @@
 <!-- markdownlint-disable MD041 -->
 
 <div align="center">
-<h1 style="padding: 20px">color-library</h1>
+<h1 style="padding: 20px">color-core</h1>
 </div>
 
 <div align="center">
 
-<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/color-library?style=for-the-badge&logo=npm&color=purple">
+<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/color-core?style=for-the-badge&logo=npm&color=purple">
 
-<img alt="NPM Version" src="https://img.shields.io/npm/v/color-library?style=for-the-badge&logo=npm">
+<img alt="NPM Version" src="https://img.shields.io/npm/v/color-core?style=for-the-badge&logo=npm">
 
-<img alt="NPM License" src="https://img.shields.io/npm/l/color-library?style=for-the-badge&color=red" >
+<img alt="NPM License" src="https://img.shields.io/npm/l/color-core?style=for-the-badge&color=red" >
 
-<img src="https://img.shields.io/github/last-commit/iamlite/color-library?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" />
+<img src="https://img.shields.io/github/last-commit/iamlite/color-core?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" />
 
-<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/color-library?style=for-the-badge&logo=dependabot">
+<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/color-core?style=for-the-badge&logo=dependabot">
 
-<img alt="Codecov" src="https://img.shields.io/codecov/c/github/iamlite/color-library?style=for-the-badge&logo=codecov">
+<img alt="Codecov" src="https://img.shields.io/codecov/c/github/iamlite/color-core?style=for-the-badge&logo=codecov">
 
-<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/color-library?style=for-the-badge">
-<a href="https://iamlite.github.io/color-library/">
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/color-core?style=for-the-badge">
+<a href="https://iamlite.github.io/color-core/">
 <img alt="Static Badge" src="https://img.shields.io/badge/Docs-blue?style=for-the-badge&logo=github&logoColor=white&labelColor=gray" >
 </a>
 
@@ -29,10 +29,10 @@
 ---
 <div align="center">
 
-<a href="https://color-library-demo.vercel.app">
+<a href="https://color-core-demo.vercel.app">
 <img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray" >
 </a>
-<a href="https://www.npmjs.com/package/color-library">
+<a href="https://www.npmjs.com/package/color-core">
 <img alt="Static Badge" src="https://img.shields.io/badge/NPM-URL%20-%20link?style=for-the-badge&logo=npm" >
 </a>
 <a href="https://discord.gg/uYBuFXUmcU">
@@ -43,9 +43,9 @@
 
 ---
 
-`color-library` is a powerful and versatile color manipulation library designed specifically for Next.js and React applications. It provides a comprehensive set of tools for working with colors across various color spaces, making it an essential utility for developers working on projects that require advanced color handling.
+`color-core` is a powerful and versatile color manipulation library designed specifically for Next.js and React applications. It provides a comprehensive set of tools for working with colors across various color spaces, making it an essential utility for developers working on projects that require advanced color handling.
 
-This library offers a unified `Color` class that simplifies color conversions, manipulations, and harmony calculations. With support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV color spaces, color-library enables developers to effortlessly convert between formats, generate color harmonies, and perform complex color operations.
+This library offers a unified `Color` class that simplifies color conversions, manipulations, and harmony calculations. With support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV color spaces, color-core enables developers to effortlessly convert between formats, generate color harmonies, and perform complex color operations.
 
 ## Features
 
@@ -62,13 +62,13 @@ This library offers a unified `Color` class that simplifies color conversions, m
 ## Installation
 
 ```bash
-npm install color-library
+npm install color-core
 ```
 
 or:
 
 ```bash
-yarn add color-library
+yarn add color-core
 ```
 
 ---
@@ -78,7 +78,7 @@ yarn add color-library
 ### Unified Color Class
 
 ```typescript
-import { Color } from 'color-library';
+import { Color } from 'color-core';
 
 // Create a color from hex
 const color = new Color('#ff0000');
@@ -104,7 +104,7 @@ console.log(color.equals(sameRed));  // true
 ### Individual Conversion Functions
 
 ```typescript
-import { hexToRgb, rgbToHsl, rgbToXyz, rgbToYuv } from 'color-library';
+import { hexToRgb, rgbToHsl, rgbToXyz, rgbToYuv } from 'color-core';
 
 const rgb = hexToRgb('#00ff00');
 console.log(rgb);  // { r: 0, g: 255, b: 0 }
@@ -122,7 +122,7 @@ console.log(yuv);  // { y: 0.587, u: -0.28886, v: -0.51499 }
 ### Color Harmonies
 
 ```typescript
-import { Color } from 'color-library';
+import { Color } from 'color-core';
 
 const baseColor = new Color('#ff0000');
 
@@ -152,7 +152,7 @@ console.log(split1.toHex(), split2.toHex());  // '#00ffff', '#00ff80'
 The ColorPicker component is unopinionated and comes with minimal styling for layout. You can easily customize it using your preferred styling method, such as Tailwind CSS.
 
 ```jsx
-import { ColorPicker } from 'color-library';
+import { ColorPicker } from 'color-core';
 
 function MyComponent() {
   return (
@@ -201,7 +201,7 @@ color.getInfo().then(info => console.log(info));
 - Harmony functions: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `monochromatic()`
 - Components: `ColorPicker`
 
-For a complete API reference, please refer to our [documentation](https://iamlite.github.io/color-library/).
+For a complete API reference, please refer to our [documentation](https://iamlite.github.io/color-core/).
 
 ## API Reference
 
@@ -348,7 +348,7 @@ The `ColorPicker` component accepts the following props:
 ### Color Manipulation
 
 ```typescript
-import { Color } from 'color-library';
+import { Color } from 'color-core';
 
 const color = new Color('#ff0000');
 
@@ -379,7 +379,7 @@ console.log(mixedColor.toHex()); // '#800080'
 
 ## Versioning
 
-This project follows [Semantic Versioning](https://semver.org/). For the versions available, see the [tags on this repository](https://github.com/iamlite/color-library/tags).
+This project follows [Semantic Versioning](https://semver.org/). For the versions available, see the [tags on this repository](https://github.com/iamlite/color-core/tags).
 
 ## Contributing
 
@@ -396,7 +396,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-If you're having any problem, please [raise an issue](https://github.com/iamlite/color-library/issues/new) on GitHub and I will be happy to help.
+If you're having any problem, please [raise an issue](https://github.com/iamlite/color-core/issues/new) on GitHub and I will be happy to help.
 
 ---
 

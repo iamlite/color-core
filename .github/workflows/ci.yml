@@ -1,4 +1,4 @@
-name: color-library CI
+name: color-core CI
 on:
   push:
     branches: [main]

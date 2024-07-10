@@ -24,9 +24,9 @@
     "plugin": ["./doctheme/cjs/index.js"],
     "theme": "dumi",
     "navigationLinks": {
-      "GitHub": "https://github.com/iamlite/color-library",
-      "NPM": "https://www.npmjs.com/package/color-library",
-      "Demo Site": "https://color-library-demo.vercel.app"
+      "GitHub": "https://github.com/iamlite/color-core",
+      "NPM": "https://www.npmjs.com/package/color-core",
+      "Demo Site": "https://color-core-demo.vercel.app"
     },
     "navigationLinkTargets": {
       "GitHub": "_blank",
@@ -34,7 +34,7 @@
       "Demo Site": "_blank"
     },
     "logoImage": "https://typedoc.org/images/logo-32.png",
-    "logoTitle": "color-library",
+    "logoTitle": "color-core",
     "footerAlign": "center"
   }
 }
