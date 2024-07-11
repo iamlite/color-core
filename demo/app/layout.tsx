@@ -37,9 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark', children }}>
           <ColorContextProvider
             initialColor='#387ED3'
-            className='relative flex flex-col w-full h-screen'>
+            className='flex flex-col min-h-screen'>
             <Navbar />
-            <main className='container flex-grow px-6 pt-16 mx-auto max-w-[90vw]'>{children}</main>
+            <main className='flex-grow container px-6 pt-16 mx-auto max-w-[90vw]'>{children}</main>
             <Footer />
           </ColorContextProvider>
         </Providers>

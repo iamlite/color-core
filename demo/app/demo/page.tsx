@@ -3,6 +3,7 @@
 import { useColor } from '@/components/color-context';
 import ColorInput from './components/color-input';
 import ColorMixer from './components/color-mixer';
+import ColorPickerDemo from './components/color-picker';
 import ConversionSection from './components/conversion';
 import ColorHarmonies from './components/harmonies';
 import ManipulationSection from './components/manipulation';
@@ -11,7 +12,7 @@ export default function DemoPage() {
   const { color, setColor } = useColor();
 
   return (
-    <div className='flex flex-col items-center justify-center'>
+    <div className='flex flex-col items-center justify-center h-full'>
       <div>
         <ColorInput
           color={color}
@@ -28,6 +29,12 @@ export default function DemoPage() {
           setColor={setColor}
         />
         <ColorMixer />
+      </div>
+      <div className='flex flex-col gap-4 md:flex-row'>
+        <ColorPickerDemo
+          color={color}
+          setColor={setColor}
+        />
       </div>
     </div>
   );
