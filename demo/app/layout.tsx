@@ -1,12 +1,11 @@
-import '@/styles/globals.css';
-import clsx from 'clsx';
-import { Metadata, Viewport } from 'next';
-
 import { ColorContextProvider } from '@/components/color-context';
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
 import { fontSans } from '@/config/fonts';
 import { siteConfig } from '@/config/site';
+import '@/styles/globals.css';
+import clsx from 'clsx';
+import { Metadata } from 'next';
 import { Providers } from './providers';
 
 export const metadata: Metadata = {
@@ -20,20 +19,18 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang='en'
       suppressHydrationWarning>
-      <head />
-      <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <head>
+        <meta
+          name='theme-color'
+          content='#387ED3'
+        />
+      </head>
+      <body className={clsx('min-h-screen font-sans antialiased', fontSans.variable)}>
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark', children }}>
           <ColorContextProvider
             initialColor='#387ED3'

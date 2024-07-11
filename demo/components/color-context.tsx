@@ -1,12 +1,14 @@
 'use client';
 
+import { AnimatedBackground } from '@/components/animated-background';
 import clsx from 'clsx';
 import { Color } from 'color-core';
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface ColorContextType {
   color: Color;
   setColor: React.Dispatch<React.SetStateAction<Color>>;
+  updateViewportColor: () => void;
 }
 
 const ColorContext = createContext<ColorContextType | undefined>(undefined);
@@ -18,23 +20,36 @@ interface ColorContextProviderProps {
 }
 
 /**
- * ColorContextProvider component that provides color context and applies dynamic background.
+ * ColorContextProvider component that provides color context, applies animated background,
+ * and updates the viewport color.
  * @param {ColorContextProviderProps} props - The props for the ColorContextProvider.
- * @returns A Provider component for the ColorContext with dynamic background.
+ * @returns A Provider component for the ColorContext with animated background and viewport color updating.
  */
-export function ColorContextProvider({ children, className, initialColor = 'string' }: ColorContextProviderProps) {
+export function ColorContextProvider({ children, className, initialColor = '#387ED3' }: ColorContextProviderProps) {
   const [color, setColor] = useState(new Color(initialColor));
 
-  const backgroundStyle = {
-    background: `radial-gradient(circle, ${color.toHex()} 0%, #1F293700 100%)`,
+  /**
+   * Updates the viewport color meta tag.
+   */
+  const updateViewportColor = () => {
+    const metaThemeColor = document.querySelector('meta[name=theme-color]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', color.toHex());
+    }
   };
 
+  useEffect(() => {
+    updateViewportColor();
+  }, [color]);
+
   return (
-    <ColorContext.Provider value={{ color, setColor }}>
-      <div
-        className={clsx(className)}
-        style={backgroundStyle}>
-        {children}
+    <ColorContext.Provider value={{ color, setColor, updateViewportColor }}>
+      <div className={clsx(className, 'relative overflow-hidden')}>
+        <AnimatedBackground
+          color={color}
+          lightCount={30}
+        />
+        <div className='relative z-10'>{children}</div>
       </div>
     </ColorContext.Provider>
   );

@@ -60,7 +60,7 @@ const ColorInput: React.FC<ColorInputProps> = ({ color, onColorChange }) => {
         <div
           className={`${buttonStyles({
             radius: 'lg',
-          })} absolute -right-3 top-[50%] h-[200%] hover:scale-110 active:scale-90 transition-transform duration-500`}
+          })} absolute -right-3 top-[50%] h-[200%] hover:scale-110 active:scale-125 transition-transform duration-500`}
           style={{
             backgroundColor: color.toHex(),
           }}>

@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 - NAME CHANGE! 'next-color' is now 'color-core'
-- New Demo Site!
+- New Demo Site! Built with next-ui :artist:
 
 ### TODO
 

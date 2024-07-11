@@ -2,7 +2,8 @@
 <!-- markdownlint-disable MD041 -->
 
 <div align="center">
-<h1 style="padding: 20px">color-core</h1>
+
+<img alt=logo src="./assets/color-core-light.png">
 </div>
 
 <div align="center">
