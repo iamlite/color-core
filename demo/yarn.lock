@@ -3685,7 +3685,7 @@ __metadata:
     intl-messageformat: "npm:^10.5.14"
     next: "npm:14.2.5"
     next-themes: "npm:^0.2.1"
-    postcss: "npm:8.4.38"
+    postcss: "npm:8.4.39"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     styled-components: "npm:^6.1.11"
@@ -6388,7 +6388,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.23":
+"postcss@npm:8.4.39, postcss@npm:^8.4.23":
   version: 8.4.39
   resolution: "postcss@npm:8.4.39"
   dependencies:
