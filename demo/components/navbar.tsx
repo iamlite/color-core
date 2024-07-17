@@ -3,7 +3,6 @@
 import {
   Link,
   link as linkStyles,
-  NavbarBrand,
   NavbarContent,
   NavbarItem,
   NavbarMenu,
@@ -14,10 +13,12 @@ import {
 import clsx from 'clsx';
 import NextLink from 'next/link';
 
-import { GithubIcon, Logo, NPMIcon } from '@/components/icons';
+import { GithubIcon, NPMIcon } from '@/components/icons';
 import { ThemeSwitch } from '@/components/theme-switch';
 import { siteConfig } from '@/config/site';
 
+const LightLogo = '/assets/color-core-dark.png';
+const DarkLogo = '/assets/color-core-light.png';
 const Links = () => {
   return (
     <>
@@ -47,16 +48,7 @@ export const Navbar = () => {
       <NavbarContent
         justify='start'
         className='basis-1/5 sm:basis-full'>
-        <NavbarBrand
-          as='li'
-          className='gap-3 max-w-fit'>
-          <NextLink
-            className='flex items-center justify-start gap-1'
-            href='/'>
-            <Logo />
-            <p className='font-bold text-inherit'>color-core</p>
-          </NextLink>
-        </NavbarBrand>
+        <Links />
       </NavbarContent>
 
       {/* Center */}
@@ -85,8 +77,6 @@ export const Navbar = () => {
         className='hidden sm:flex basis-1/5 sm:basis-full'
         justify='end'>
         <NavbarItem className='hidden gap-2 sm:flex'>
-          <Links />
-          <p className='mx-2 text-default-500'>|</p>
           <ThemeSwitch />
         </NavbarItem>
       </NavbarContent>
@@ -95,7 +85,6 @@ export const Navbar = () => {
       <NavbarContent
         className='pl-4 sm:hidden basis-1'
         justify='end'>
-        <Links />
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>

@@ -2,7 +2,7 @@
 <!-- markdownlint-disable MD041 -->
 
 <div align="center">
-
+<a name="top"></a>
 <img alt=logo src="./assets/color-core-light.png">
 </div>
 
@@ -44,26 +44,24 @@
 
 ---
 
-# color-core
+<div align="center">
+`color-core` is a comprehensive, type-safe color manipulation library for TypeScript and JavaScript applications. It provides a powerful toolkit for working with colors across multiple color spaces, making it an essential tool for developers working on projects that require advanced color handling.
+</div>
 
-`color-core` is a powerful, type-safe color manipulation library for TypeScript and JavaScript applications. It provides a comprehensive toolkit for working with colors across multiple color spaces, making it an indispensable tool for developers working on projects that require advanced color handling.
+## Features
 
-## Key Features
-
-- 🎨 Support for 9 color spaces: RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV
-- 🔄 Seamless color space conversions
-- 🌈 Advanced color harmony generation
-- 🛠 Robust color manipulation tools
-- 🎛 Flexible, unopinionated ColorPicker component
-- 💪 Full TypeScript support
-- 🔧 Unified `Color` class for intuitive operations
+- 🎨 Support for 22 color spaces: RGB, sRGB, Adobe RGB, HEX, HSL, HSV, HSI, HWB, CMYK, LCH, LAB(D50), LAB(D60), XYZ(D50), XYZ(D65), YUV, Oklab, Oklch, HSLuv, HPLuv, CIExyY, and CIELuv
+- 🔄 Easy color conversions between all supported formats
+- 🌈 Generate color harmonies (complementary, analogous, triadic, tetradic, split-complementary, and more)
+- 🛠 Powerful color manipulation tools (adjust lightness, saturation, hue, alpha, and more)
+- 🎛 Customizable, unopinionated ColorPicker component
+- 💪 Full TypeScript support with type safety
+- 🔌 Seamless IDE integration
+- 🧠 Color naming and information retrieval
+- 🔦 Brightness calculation and light/dark color detection
 - 🚀 Optimized for modern web applications
 
-At its core, `color-core` offers a unified `Color` class that simplifies complex color operations. Whether you're converting between color spaces, generating harmonious color schemes, or performing intricate color manipulations, `color-core` provides the tools you need in an easy-to-use package.
-
-While designed with Next.js and React applications in mind, `color-core`'s versatility makes it suitable for any JavaScript or TypeScript project requiring sophisticated color management.
-
-Elevate your color handling capabilities with `color-core` – the essential library for developers working with color. 🌈
+<div align="center">
 
 ## Installation
 
@@ -71,46 +69,80 @@ Elevate your color handling capabilities with `color-core` – the essential lib
 npm i color-core
 ```
 
-or:
-
-```bash
-yarn add color-core
-```
+<br>
 
 ---
 
 ## Usage
 
-### Unified Color Class
+`color-core` is designed to simplify color manipulation for developers and designers. Whether you're working on web applications, data visualization, or graphic design, this library provides the tools you need to handle colors efficiently across various formats and color spaces. Let's explore how to use `color-core` in your projects. The following examples demonstrate key functionalities of the library, from basic color conversions to more advanced color manipulations
+
+<br>
+
+### The Color Class
+
+The `Color` class is the heart of `color-core`.  It provides a unified way to create, convert, and manipulate colors across different color spaces.
+
+See it in action ⤵️
+
+<br>
 
 ```typescript
 import { Color } from 'color-core';
 
-// Create a color from hex
-const color = new Color('#ff0000');
+// Create a color from different formats
+const red = new Color('#ff0000');
+const green = new Color({ r: 0, g: 255, b: 0 });
+const blue = new Color({ h: 240, s: 100, l: 50 });
 
 // Convert to different formats
-console.log(color.toRgb());  // { r: 255, g: 0, b: 0 }
-console.log(color.toHsl());  // { h: 0, s: 100, l: 50 }
-console.log(color.toHex());  // '#ff0000'
-console.log(color.toXyz());  // { x: 41.24, y: 21.26, z: 1.93 }
-console.log(color.toYuv());  // { y: 0.299, u: -0.14713, v: 0.615 }
+console.log(red.toRgb());    // { r: 255, g: 0, b: 0 }
+console.log(green.toHsl());  // { h: 120, s: 100, l: 50 }
+console.log(blue.toHex());   // '#0000ff'
 
-// Create a color from RGB and perform operations
-const blueColor = new Color({ r: 0, g: 0, b: 255 });
-console.log(blueColor.toHex());  // '#0000ff'
-console.log(blueColor.adjustLightness(20).toHex());  // '#3333ff'
-console.log(blueColor.adjustSaturation(-50).toHex());  // '#4040bf'
+// Advanced color spaces
+console.log(red.toOklab());   // { L: 0.627955, a: 0.224863, b: 0.125846 }
+console.log(green.toCIExyY());// { x: 0.3, y: 0.6, Y: 0.715158 }
+console.log(blue.toHSLuv()); // { h: 265.87, s: 100, l: 32.3 }
 
-// Check equality
-const sameRed = new Color({ r: 255, g: 0, b: 0 });
-console.log(color.equals(sameRed));  // true
+// Color manipulation
+const lightRed = red.adjustLightness(20);
+console.log(lightRed.toHex()); // '#ff6666'
+
+const desaturatedGreen = green.adjustSaturation(-50);
+console.log(desaturatedGreen.toHex()); // '#40bf40'
+
+// Generate harmonies
+const [complement] = red.complementary();
+console.log(complement.toHex()); // '#00ffff'
+
+const [color1, color2] = blue.splitComplementary();
+console.log(color1.toHex(), color2.toHex()); // '#ffaa00' '#ff5500'
+
+// Mix colors
+const purple = red.mix(blue, 0.5);
+console.log(purple.toHex()); // '#800080'
+
+// Get color information
+red.getName().then(name => console.log(name)); // 'Red'
+red.getInfo().then(info => console.log(info));
+// Returns: { name, hex, rgb, hsl, luminance, requestedHex }
+
+// Check brightness and lightness
+console.log(red.getBrightness()); // 76.245
+console.log(red.isLight()); // false
 ```
 
-### Individual Conversion Functions
+<br>
+
+### Color Conversion Functions
+
+For situations where you need quick, one-off color conversions, `color-core` offers standalone conversion functions. These can be useful when you don't need the full functionality of the `Color` class.
+
+<br>
 
 ```typescript
-import { hexToRgb, rgbToHsl, rgbToXyz, rgbToYuv } from 'color-core';
+import { hexToRgb, rgbToHsl, rgbToOklab } from 'color-core';
 
 const rgb = hexToRgb('#00ff00');
 console.log(rgb);  // { r: 0, g: 255, b: 0 }
@@ -118,44 +150,17 @@ console.log(rgb);  // { r: 0, g: 255, b: 0 }
 const hsl = rgbToHsl(rgb);
 console.log(hsl);  // { h: 120, s: 100, l: 50 }
 
-const xyz = rgbToXyz(rgb);
-console.log(xyz);  // { x: 35.76, y: 71.52, z: 11.92 }
-
-const yuv = rgbToYuv(rgb);
-console.log(yuv);  // { y: 0.587, u: -0.28886, v: -0.51499 }
+const oklab = rgbToOklab(rgb);
+console.log(oklab);  // { L: 0.866440, a: -0.233888, b: 0.179498 }
 ```
 
-### Color Harmonies
-
-```typescript
-import { Color } from 'color-core';
-
-const baseColor = new Color('#ff0000');
-
-// Complementary
-const [complement] = baseColor.complementary();
-console.log(complement.toHex());  // '#00ffff'
-
-// Analogous
-const [color1, color2, color3] = baseColor.analogous();
-console.log(color1.toHex(), color2.toHex(), color3.toHex());  // '#ff0080', '#ff0000', '#ff8000'
-
-// Triadic
-const [triad1, triad2] = baseColor.triadic();
-console.log(triad1.toHex(), triad2.toHex());  // '#00ff00', '#0000ff'
-
-// Tetradic
-const [tetra1, tetra2, tetra3] = baseColor.tetradic();
-console.log(tetra1.toHex(), tetra2.toHex(), tetra3.toHex());  // '#00ff00', '#00ffff', '#ff00ff'
-
-// Split-complementary
-const [split1, split2] = baseColor.splitComplementary();
-console.log(split1.toHex(), split2.toHex());  // '#00ffff', '#00ff80'
-```
+<br>
 
 ### ColorPicker Component
 
-The ColorPicker component is unopinionated and comes with minimal styling for layout. You can easily customize it using your preferred styling method, such as Tailwind CSS.
+`color-core` includes a customizable ColorPicker component for typescript applications. This component provides a user-friendly interface for color selection while allowing extensive customization to fit your application's needs.
+
+<br>
 
 ```jsx
 import { ColorPicker } from 'color-core';
@@ -167,96 +172,93 @@ function MyComponent() {
       onChange={(color) => console.log('Selected color:', color)}
       width={300}
       height={200}
-      hueSliderHeight={30}
-      className="bg-gray-100 p-4 rounded-lg shadow-md"
-      saturationValueAreaClassName="rounded-md overflow-hidden"
-      hueSliderClassName="mt-4 rounded-full"
-      inputClassName="mt-2 px-2 py-1 border rounded"
-      previewClassName="w-8 h-8 rounded-full border-2 border-gray-300"
     />
   );
 }
 ```
 
-## Color Naming
+<br>
 
-The Color class now includes methods for retrieving color names and information:
-
-```typescript
-const color = new Color('#ff0000');
-
-// Get color name
-color.getName().then(name => console.log(name));  // e.g., "Red"
-
-// Get color information
-color.getInfo().then(info => console.log(info));
-// Returns: { name, hex, rgb, hsl, luminance, requestedHex }
-```
-
-## API Overview
-
-- `Color`: Main class for color operations
-  - Properties: `r`, `g`, `b`, `a`
-  - Methods: `toRgb()`, `toHex()`, `toHsl()`, `toHsv()`, `toCmyk()`, `toLab()`, `toLch()`, `toXyz()`, `toYuv()`
-  - Harmony methods: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `monochromatic()`
-  - Manipulation methods: `adjustLightness()`, `adjustSaturation()`, `adjustHue()`, `adjustAlpha()`, `invert()`, `grayscale()`, `mix()`
-  - Utility methods: `toString()`, `equals()`
-  - Color naming: `getColorName()` method to get the closest named color
-  - Brightness calculation: `getBrightness()` and `isLight()` methods
-- Conversion functions: `hexToRgb()`, `rgbToHex()`, `rgbToHsl()`, `hslToRgb()`, `rgbToHsv()`, `hsvToRgb()`, `rgbToCmyk()`, `cmykToRgb()`, `rgbToLab()`, `labToRgb()`, `rgbToLch()`, `lchToRgb()`, `rgbToXyz()`, `xyzToRgb()`, `rgbToYuv()`, `yuvToRgb()`
-- Harmony functions: `complementary()`, `analogous()`, `triadic()`, `tetradic()`, `splitComplementary()`, `monochromatic()`
-- Components: `ColorPicker`
-
-For a complete API reference, please refer to our [documentation](https://iamlite.github.io/color-core/).
+---
 
 ## API Reference
+
+The following section provides a comprehensive overview of color-core's API. Each method and function is documented to help you understand its purpose and usage within your color manipulation workflows.You can find more detailed information in the [official documentation](https://color-core.com/docs).
+
+<br>
 
 ### Color Class
 
 The `Color` class is the main entry point for color manipulations.
 
+<br>
+
 #### Constructor
 
 ```typescript
-new Color(color: string | RGB | HSL | HSV | CMYK | LAB | LCH | XYZ | YUV)
+new Color(color: string | RGB | HSL | HSV | CMYK | LAB | LCH | XYZ | YUV | Oklab | Oklch | HSLuv | HPLuv | CIExyY | HSI | HWB | AdobeRGB)
 ```
 
 Creates a new Color instance from various color formats.
 
+<br>
+
 #### Conversion Methods
 
-| Method     | Return Type | Description                       |
-| ---------- | ----------- | --------------------------------- |
-| `toRgb()`  | RGB         | Converts the color to RGB format  |
-| `toHex()`  | string      | Converts the color to HEX format  |
-| `toHsl()`  | HSL         | Converts the color to HSL format  |
-| `toHsv()`  | HSV         | Converts the color to HSV format  |
-| `toCmyk()` | CMYK        | Converts the color to CMYK format |
-| `toLab()`  | LAB         | Converts the color to LAB format  |
-| `toLch()`  | LCH         | Converts the color to LCH format  |
-| `toXyz()`  | XYZ         | Converts the color to XYZ format  |
-| `toYuv()`  | YUV         | Converts the color to YUV format  |
+<br>
+
+| Method        | Return Type | Description                          |
+|---------------|:-----------:|:-------------------------------------:|
+| `toRgb()`     | RGB         | Converts the color to RGB format     |
+| `toSrgb()`    | SRGB        | Converts the color to sRGB format    |
+| `toHex()`     | string      | Converts the color to HEX format     |
+| `toHsl()`     | HSL         | Converts the color to HSL format     |
+| `toHsv()`     | HSV         | Converts the color to HSV format     |
+| `toHsi()`     | HSI         | Converts the color to HSI format     |
+| `toHwb()`     | HWB         | Converts the color to HWB format     |
+| `toLch()`     | LCH         | Converts the color to LCH format     |
+| `toYuv()`     | YUV         | Converts the color to YUV format     |
+| `toCmyk()`    | CMYK        | Converts the color to CMYK format    |
+| `toOklab()`   | Oklab       | Converts the color to Oklab format   |
+| `toOklch()`   | Oklch       | Converts the color to Oklch format   |
+| `toHSLuv()`   | HSLuv       | Converts the color to HSLuv format   |
+| `toHPLuv()`   | HPLuv       | Converts the color to HPLuv format   |
+| `toCIELuv()`  | LUV         | Converts the color to CIELuv format  |
+| `toCIExyY()`  | CIExyY      | Converts the color to CIExyY format  |
+| `toAdobeRGB()`| AdobeRGB    | Converts the color to Adobe RGB format |
+| `toXyz()`     | XYZ         | Converts the color to XYZ (D65) format |
+| `toXyzD50()`  | XYZ         | Converts the color to XYZ (D50) format |
+| `toLab()`     | LAB         | Converts the color to LAB (D65) format |
+| `toLabD50()`  | LAB         | Converts the color to LAB (D50) format |
+
+<br>
 
 #### Harmony Methods
 
+<br>
+
 | Method                       | Parameters     | Return Type                  | Description                                    |
-| ---------------------------- | -------------- | ---------------------------- | ---------------------------------------------- |
+|------------------------------|:--------------:|:----------------------------:|:----------------------------------------------:|
 | `complementary()`            | None           | [Color, Color]               | Generates a complementary harmony              |
 | `analogous()`                | angle?: number | [Color, Color, Color]        | Generates an analogous harmony                 |
 | `triadic()`                  | None           | [Color, Color, Color]        | Generates a triadic harmony                    |
 | `tetradic()`                 | angle?: number | [Color, Color, Color, Color] | Generates a tetradic harmony                   |
 | `splitComplementary()`       | angle?: number | [Color, Color, Color]        | Generates a split-complementary harmony        |
-| `doubleSplitComplementary()` | angle?: number | [Color, Color, Color, Color] | Generates a double split-complementary harmony |
+| `doubleSplitComplementary()` | angle?: number | [Color, Color, Color, Color, Color] | Generates a double split-complementary harmony |
 | `square()`                   | None           | [Color, Color, Color, Color] | Generates a square harmony                     |
 | `monochromatic()`            | count?: number | Color[]                      | Generates a monochromatic harmony              |
 | `shades()`                   | count?: number | Color[]                      | Generates shades of the color                  |
 | `tints()`                    | count?: number | Color[]                      | Generates tints of the color                   |
 | `tones()`                    | count?: number | Color[]                      | Generates tones of the color                   |
 
+<br>
+
 #### Manipulation Methods
 
+<br>
+
 | Method               | Parameters                   | Return Type | Description                         |
-| -------------------- | ---------------------------- | ----------- | ----------------------------------- |
+|----------------------|:----------------------------:|:-----------:|:-----------------------------------:|
 | `adjustLightness()`  | amount: number               | Color       | Adjusts the lightness of the color  |
 | `adjustSaturation()` | amount: number               | Color       | Adjusts the saturation of the color |
 | `adjustHue()`        | amount: number               | Color       | Adjusts the hue of the color        |
@@ -265,59 +267,121 @@ Creates a new Color instance from various color formats.
 | `grayscale()`        | None                         | Color       | Converts the color to grayscale     |
 | `mix()`              | color: Color, amount: number | Color       | Mixes the color with another color  |
 
+<br>
+
 #### Utility Methods
 
-| Method                 | Parameters   | Return Type | Description                       |
-| ---------------------- | ------------ | ----------- | --------------------------------- |
-| `toString()`           | None         | string      | Returns the color as a hex string |
-| `equals(other: Color)` | other: Color | boolean     | Checks if two colors are equal    |
-| `getColorName()` | None                  | string      | Returns the name of the closest matching color  |
-| `getBrightness()`| None                  | number      | Calculates the perceived brightness (0-255)     |
-| `isLight()`      | threshold?: number    | boolean     | Determines if the color is light or dark        |
+<br>
 
-### Conversion Functions
+| Method                 | Parameters             | Return Type | Description                                   |
+|------------------------|:----------------------:|:-----------:|:---------------------------------------------:|
+| `toString()`           | includeAlpha?: boolean | string      | Returns the color as a hex string             |
+| `equals(other: Color)` | other: Color           | boolean     | Checks if two colors are equal                |
+| `getBrightness()`      | None                   | number      | Calculates the perceived brightness (0-255)   |
+| `isLight()`            | threshold?: number     | boolean     | Determines if the color is light or dark      |
+| `getName()`            | None                   | Promise<string> | Returns the name of the closest matching color |
+| `getInfo()`            | None                   | Promise<ColorInfo> | Returns detailed information about the color |
 
-| Function    | Parameters  | Return Type | Description          |
-| ----------- | ----------- | ----------- | -------------------- |
-| `hexToRgb`  | hex: string | RGB         | Converts HEX to RGB  |
-| `rgbToHex`  | rgb: RGB    | string      | Converts RGB to HEX  |
-| `rgbToHsl`  | rgb: RGB    | HSL         | Converts RGB to HSL  |
-| `hslToRgb`  | hsl: HSL    | RGB         | Converts HSL to RGB  |
-| `rgbToHsv`  | rgb: RGB    | HSV         | Converts RGB to HSV  |
-| `hsvToRgb`  | hsv: HSV    | RGB         | Converts HSV to RGB  |
-| `rgbToCmyk` | rgb: RGB    | CMYK        | Converts RGB to CMYK |
-| `cmykToRgb` | cmyk: CMYK  | RGB         | Converts CMYK to RGB |
-| `rgbToLab`  | rgb: RGB    | LAB         | Converts RGB to LAB  |
-| `labToRgb`  | lab: LAB    | RGB         | Converts LAB to RGB  |
-| `rgbToLch`  | rgb: RGB    | LCH         | Converts RGB to LCH  |
-| `lchToRgb`  | lch: LCH    | RGB         | Converts LCH to RGB  |
-| `rgbToXyz`  | rgb: RGB    | XYZ         | Converts RGB to XYZ  |
-| `xyzToRgb`  | xyz: XYZ    | RGB         | Converts XYZ         |
-| `rgbToXyz`  | rgb: RGB    | XYZ         | Converts RGB to XYZ  |
-| `xyzToRgb`  | xyz: XYZ    | RGB         | Converts XYZ to RGB  |
-| `rgbToYuv`  | rgb: RGB    | YUV         | Converts RGB to YUV  |
-| `yuvToRgb`  | yuv: YUV    | RGB         | Converts YUV to RGB  |
+<br>
 
-### Harmony Functions
+### Standalone Functions
+
+<br>
+
+#### Conversion Functions
+
+<br>
+
+| Function        | Parameters     | Return Type | Description             |
+|-----------------|:--------------:|:-----------:|:-----------------------:|
+| `hexToRgb`      | hex: string    | RGB    | Converts HEX to RGB          |
+| `rgbToHex`      | rgb: RGB       | string | Converts RGB to HEX          |
+| `rgbToHsl`      | rgb: RGB       | HSL    | Converts RGB to HSL          |
+| `hslToRgb`      | hsl: HSL       | RGB    | Converts HSL to RGB          |
+| `rgbToHsv`      | rgb: RGB       | HSV    | Converts RGB to HSV          |
+| `hsvToRgb`      | hsv: HSV       | RGB    | Converts HSV to RGB          |
+| `rgbToHsi`      | rgb: RGB       | HSI    | Converts RGB to HSI          |
+| `hsiToRgb`      | hsi: HSI       | RGB    | Converts HSI to RGB          |
+| `rgbToHwb`      | rgb: RGB       | HWB    | Converts RGB to HWB          |
+| `hwbToRgb`      | hwb: HWB       | RGB    | Converts HWB to RGB          |
+| `rgbToCmyk`     | rgb: RGB       | CMYK   | Converts RGB to CMYK         |
+| `cmykToRgb`     | cmyk: CMYK     | RGB    | Converts CMYK to RGB         |
+| `rgbToXyz`      | rgb: RGB       | XYZ    | Converts RGB to XYZ (D65)    |
+| `xyzToRgb`      | xyz: XYZ       | RGB    | Converts XYZ to RGB (D65)    |
+| `rgbToXyzD50`   | rgb: RGB       | XYZ    | Converts RGB to XYZ (D50)    |
+| `xyzD50ToRgb`   | xyz: XYZ       | RGB    | Converts XYZ (D50) to RGB    |
+| `xyzD65ToD50`   | xyz: XYZ       | XYZ    | Converts XYZ from D65 to D50 |
+| `xyzD50ToD65`   | xyz: XYZ       | XYZ    | Converts XYZ from D50 to D65 |
+| `rgbToLab`      | rgb: RGB       | LAB    | Converts RGB to LAB (D65)    |
+| `labToRgb`      | lab: LAB       | RGB    | Converts LAB to RGB (D65)    |
+| `rgbToLabD50`   | rgb: RGB       | LAB    | Converts RGB to LAB (D50)    |
+| `labD50ToRgb`   | lab: LAB       | RGB    | Converts LAB (D50) to RGB    |
+| `rgbToLch`      | rgb: RGB       | LCH    | Converts RGB to LCH          |
+| `lchToRgb`      | lch: LCH       | RGB    | Converts LCH to RGB          |
+| `rgbToOklab`    | rgb: RGB       | Oklab  | Converts RGB to Oklab        |
+| `oklabToRgb`    | oklab: Oklab   | RGB    | Converts Oklab to RGB        |
+| `rgbToOklch`    | rgb: RGB       | Oklch  | Converts RGB to Oklch        |
+| `oklchToRgb`    | oklch: Oklch   | RGB    | Converts Oklch to RGB        |
+| `rgbToHPLuv`    | rgb: RGB       | HPLuv  | Converts RGB to HPLuv        |
+| `hpluvToRgb`    | hpluv: HPLuv   | RGB    | Converts HPLuv to RGB        |
+| `rgbToHSLuv`    | rgb: RGB       | HSLuv  | Converts RGB to HSLuv        |
+| `hsluvToRgb`    | hsluv: HSLuv   | RGB    | Converts HSLuv to RGB        |
+| `rgbToCIExyY`   | rgb: RGB       | CIExyY | Converts RGB to CIE xyY      |
+| `ciexyYToRgb`   | ciexyY: CIExyY | RGB    | Converts CIE xyY to RGB      |
+| `rgbToCIELuv`   | rgb: RGB       | CIELuv | Converts RGB to CIE Luv      |
+| `cieLuvToRgb`   | cieLuv: CIELuv | RGB    | Converts CIE Luv to RGB      |
+| `rgbToYuv`      | rgb: RGB       | YUV    | Converts RGB to YUV          |
+| `yuvToRgb`      | yuv: YUV       | RGB    | Converts YUV to RGB          |
+| `rgbToSrgb`     | rgb: RGB       | RGB    | Converts RGB to sRGB         |
+| `srgbToRgb`     | rgb: RGB       | RGB    | Converts sRGB to RGB         |
+| `rgbToAdobeRGB` | rgb: RGB       | RGB    | Converts RGB to Adobe RGB    |
+| `adobeRGBToRGB` | rgb: RGB       | RGB    | Converts Adobe RGB to RGB    |
+
+<br>
+
+#### Harmony Functions
+
+<br>
 
 | Function                   | Parameters           | Return Type                  | Description                                    |
-| -------------------------- | -------------------- | ---------------------------- | ---------------------------------------------- |
+|----------------------------|:--------------------:|:----------------------------:|:----------------------------------------------:|
 | `complementary`            | color: Color         | [Color, Color]               | Generates a complementary harmony              |
 | `analogous`                | color: Color, angle? | [Color, Color, Color]        | Generates an analogous harmony                 |
 | `triadic`                  | color: Color         | [Color, Color, Color]        | Generates a triadic harmony                    |
 | `tetradic`                 | color: Color, angle? | [Color, Color, Color, Color] | Generates a tetradic harmony                   |
 | `splitComplementary`       | color: Color, angle? | [Color, Color, Color]        | Generates a split-complementary harmony        |
-| `doubleSplitComplementary` | color: Color, angle? | [Color, Color, Color, Color] | Generates a double split-complementary harmony |
+| `doubleSplitComplementary` | color: Color, angle? | [Color, Color, Color, Color, Color] | Generates a double split-complementary harmony |
 | `square`                   | color: Color         | [Color, Color, Color, Color] | Generates a square harmony                     |
 | `monochromatic`            | color: Color, count? | Color[]                      | Generates a monochromatic harmony              |
 | `shades`                   | color: Color, count? | Color[]                      | Generates shades of the color                  |
 | `tints`                    | color: Color, count? | Color[]                      | Generates tints of the color                   |
 | `tones`                    | color: Color, count? | Color[]                      | Generates tones of the color                   |
 
+<br>
+
+#### Manipulation Functions
+
+<br>
+
+| Function           | Parameters                   | Return Type | Description                         |
+|--------------------|:----------------------------:|:-----------:|:-----------------------------------:|
+| `adjustLightness`  | color: Color, amount: number | Color       | Adjusts the lightness of the color  |
+| `adjustSaturation` | color: Color, amount: number | Color       | Adjusts the saturation of the color |
+| `adjustHue`        | color: Color, amount: number | Color       | Adjusts the hue of the color        |
+| `adjustAlpha`      | color: Color, amount: number | Color       | Adjusts the alpha of the color      |
+| `invert`           | color: Color                 | Color       | Inverts the color                   |
+| `grayscale`        | color: Color                 | Color       | Converts the color to grayscale     |
+| `mix`              | color1: Color, color2: Color, amount: number | Color | Mixes two colors          |
+
+<br>
+
 ### Types
+
+<br>
 
 ```typescript
 type RGB = { r: number; g: number; b: number; a?: number };
+type SRGB = { r: number; g: number; b: number };
 type HSL = { h: number; s: number; l: number; a?: number };
 type HSV = { h: number; s: number; v: number; a?: number };
 type CMYK = { c: number; m: number; y: number; k: number };
@@ -325,14 +389,29 @@ type LAB = { l: number; a: number; b: number };
 type LCH = { l: number; c: number; h: number };
 type XYZ = { x: number; y: number; z: number };
 type YUV = { y: number; u: number; v: number };
+type Oklab = { L: number; a: number; b: number };
+type Oklch = { L: number; C: number; h: number };
+type HPLuv = { h: number; p: number; l: number };
+type HSLuv = { h: number; s: number; l: number };
+type CIExyY = { x: number; y: number; Y: number };
+type CIELuv = { L: number; u: number; v: number };
+type HSI = { h: number; s: number; i: number };
+type HWB = { h: number; w: number; b: number };
+type AdobeRGB = { r: number; g: number; b: number };
 ```
+
+<br>
+
+---
 
 ## ColorPicker Component Props
 
 The `ColorPicker` component accepts the following props:
 
+<br>
+
 | Prop Name                        | Type                 | Description                                        |
-| -------------------------------- | -------------------- | -------------------------------------------------- |
+|----------------------------------|:--------------------:|:--------------------------------------------------:|
 | `initialColor`                   | RGB                  | Initial color value in RGB format                  |
 | `onChange`                       | (color: RGB) => void | Callback function triggered when the color changes |
 | `className`                      | string               | Custom class name for the main container           |
@@ -349,9 +428,18 @@ The `ColorPicker` component accepts the following props:
 | `containerClassName`             | string               | Custom class name for the outer container          |
 | `containerStyle`                 | React.CSSProperties  | Custom inline styles for the outer container       |
 
+<br>
+
+---
+
 ## Examples
 
+These practical examples demonstrate how to use various features of color-core to solve common color-related tasks. Feel free to adapt these examples to your specific needs.
+<br>
+
 ### Color Manipulation
+
+<br>
 
 ```typescript
 import { Color } from 'color-core';
@@ -381,34 +469,162 @@ console.log(grayscaleColor.toHex()); // '#4d4d4d'
 // Mix with another color
 const mixedColor = color.mix(new Color('#0000ff'), 0.5);
 console.log(mixedColor.toHex()); // '#800080'
+
+// Get color name
+color.getName().then(name => console.log(name)); // 'Red'
+
+// Get color information
+color.getInfo().then(info => console.log(info));
+// Returns: { name, hex, rgb, hsl, luminance, requestedHex }
+
+// Check brightness and if the color is light
+console.log(color.getBrightness()); // 76.245
+console.log(color.isLight()); // false
 ```
-
-## Versioning
-
-This project follows [Semantic Versioning](https://semver.org/). For the versions available, see the [tags on this repository](https://github.com/iamlite/color-core/tags).
-
-## Contributing
-
-Contributions are welcome and greatly appreciated! Here are a few ways you can contribute:
-
-1. Reporting bugs
-2. Suggesting enhancements
-3. Writing or improving documentation
-4. Submitting pull requests with code changes
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-If you're having any problem, please [raise an issue](https://github.com/iamlite/color-core/issues/new) on GitHub and I will be happy to help.
 
 ---
 
-Built with ❤️ by [iamlite](https://github.com/iamlite)
+## Advanced Usage
 
-<div align="center">
+The advanced usage section covers more complex scenarios, including working with less common color spaces and generating sophisticated color harmonies. These examples showcase the depth of `color-core`'s capabilities.
+<br>
+
+### Working with Different Color Spaces
+
+<br>
+
+```typescript
+import { Color } from 'color-core';
+
+// Create a color in Oklab space
+const oklabColor = new Color({ L: 0.627955, a: 0.224863, b: 0.125846 });
+console.log(oklabColor.toHex()); // '#ff0000'
+
+// Convert to CIE xyY
+const xyYColor = oklabColor.toCIExyY();
+console.log(xyYColor); // { x: 0.64, y: 0.33, Y: 0.2126 }
+
+// Create a color in HSLuv space
+const hsluvColor = new Color({ h: 12.177, s: 100, l: 53.237 });
+console.log(hsluvColor.toRgb()); // { r: 255, g: 0, b: 0 }
+
+// Convert to Adobe RGB
+const adobeRGBColor = hsluvColor.toAdobeRGB();
+console.log(adobeRGBColor); // { r: 255, g: 0, b: 0 }
+```
+
+<br>
+
+### Color Harmonies
+
+<br>
+
+```typescript
+import { Color } from 'color-core';
+
+const baseColor = new Color('#ff0000');
+
+// Generate complementary color
+const [complement] = baseColor.complementary();
+console.log(complement.toHex()); // '#00ffff'
+
+// Generate analogous colors
+const [analog1, analog2] = baseColor.analogous();
+console.log(analog1.toHex(), analog2.toHex()); // '#ff8000' '#ff0080'
+
+// Generate triadic colors
+const [triad1, triad2] = baseColor.triadic();
+console.log(triad1.toHex(), triad2.toHex()); // '#00ff00' '#0000ff'
+
+// Generate tetradic colors
+const [tetra1, tetra2, tetra3] = baseColor.tetradic();
+console.log(tetra1.toHex(), tetra2.toHex(), tetra3.toHex()); // '#80ff00' '#00ffff' '#8000ff'
+
+// Generate split-complementary colors
+const [split1, split2] = baseColor.splitComplementary();
+console.log(split1.toHex(), split2.toHex()); // '#00ff80' '#0080ff'
+
+// Generate shades
+const shades = baseColor.shades(5);
+shades.forEach(shade => console.log(shade.toHex()));
+// '#ff0000' '#cc0000' '#990000' '#660000' '#330000'
+
+// Generate tints
+const tints = baseColor.tints(5);
+tints.forEach(tint => console.log(tint.toHex()));
+// '#ff0000' '#ff3333' '#ff6666' '#ff9999' '#ffcccc'
+```
+
+<br>
+
+As you become more familiar with color-core, you'll likely discover additional ways to leverage its functionality in your projects. The library's extensive color space support and manipulation tools provide a robust foundation for a wide range of color-related tasks.
+
+---
+
+## Versioning
+
+<br>
+
+This project follows [Semantic Versioning](https://semver.org/). For the versions available, see the [tags on this repository](https://github.com/iamlite/color-core/tags).
+
+<br>
+
+---
+
+## Contributing
+
+<br>
+
+Contributions are welcome and greatly appreciated!
+
+<br>
+
+---
+
+## License
+
+<br>
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+<br>
+
+---
+
+## Support
+
+<br>
+
+If you're having any problem, please [raise an issue](https://github.com/iamlite/color-core/issues/new) on GitHub and I will be happy to help.
+
+<br>
+
+---
+
+## Acknowledgements
+
+<br>
+
+[HSLuv & HPLuv Conversions](https://www.hsluv.org/) by [Alexei Boronine](https://github.com/boronine)
+[Oklab & Oklch Math Used](https://bottosson.github.io/posts/oklab/) by [Björn Ottosson](https://bottosson.github.io/posts/oklab/)
+[Color Name API](https://github.com/meodai/color-name-api) by [meodai](https://github.com/meodai)
+
+<br>
+
+---
+
 <h1>Code Coverage</h1>
+
+<br>
+
 <img alt=codecov src="https://codecov.io/gh/iamlite/color-core/graphs/sunburst.svg?token=MBMKJU55OY">
+
+<br>
+
+Built with ❤️ by <a href="https://github.com/iamlite">iamlite</a>
+
+<br>
+
+[Back to top :arrow_up:](#top)
+
 </div>

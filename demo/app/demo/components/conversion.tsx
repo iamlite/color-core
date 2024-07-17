@@ -1,71 +1,97 @@
-import { Card, CardBody, CardFooter, CardHeader, Divider } from '@nextui-org/react';
-import { Color } from 'color-core';
-import React, { useState } from 'react';
+/* eslint-disable prettier/prettier */
+import { Card, CardBody, CardHeader, Snippet } from '@nextui-org/react'
+import { Color } from 'color-core'
+import React from 'react'
 
+/**
+ * Props for the ConversionSection component
+ * @interface ConversionSectionProps
+ * @property {Color} color - The color object to display conversions for
+ */
 interface ConversionSectionProps {
-  color: Color;
+  color: Color
 }
 
+/**
+ * A component that displays various color space conversions for a given color
+ * @param {ConversionSectionProps} props - The component props
+ * @returns {React.ReactElement} The rendered component
+ */
 const ConversionSection: React.FC<ConversionSectionProps> = ({ color }) => {
-  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  /**
+   * Converts a color value to a display-friendly format, explicitly removing the whitePoint property
+   * @param {unknown} value - The color value to format
+   * @returns {Record<string, string | number>} The formatted color value
+   */
+  const formatColorValue = (value: unknown): Record<string, string | number> => {
+    if (typeof value === 'string') {
+      return { value }
+    }
+    if (typeof value === 'object' && value !== null) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { whitePoint, ...rest } = value as Record<string, unknown>
+      const result: Record<string, string | number> = {}
 
-  const conversions = {
-    RGB: color.toRgb(),
-    HSL: color.toHsl(),
-    HSV: color.toHsv(),
-    CMYK: color.toCmyk(),
-    LAB: color.toLab(),
-    LCH: color.toLch(),
-    XYZ: color.toXyz(),
-    YUV: color.toYuv(),
-  };
+      Object.entries(rest).forEach(([key, val]) => {
+        if (typeof val === 'number') {
+          result[key] = Number(val.toFixed(2))
+        } else if (typeof val === 'string') {
+          result[key] = val
+        }
+      })
 
-  const handleCopy = (key: string, value: Record<string, number | undefined>) => {
-    const content = Object.entries(value)
-      .map(([subKey, subValue]) => `${subKey}: ${typeof subValue === 'number' ? subValue.toFixed(2) : subValue}`)
-      .join('\n');
+      return result
+    }
 
-    navigator.clipboard.writeText(`${key}:\n${content}`).then(() => {
-      setCopiedKey(key);
-      setTimeout(() => setCopiedKey(null), 2000); // Reset after 2 seconds
-    });
-  };
+    return {}
+  }
+
+  const conversions: Record<string, Record<string, string | number>> = {
+    RGB: formatColorValue(color.toRgb()),
+    SRGB: formatColorValue(color.toSrgb()),
+    AdobeRGB: formatColorValue(color.toAdobeRGB()),
+    HEX: formatColorValue(color.toHex()),
+    HSL: formatColorValue(color.toHsl()),
+    HSV: formatColorValue(color.toHsv()),
+    HSI: formatColorValue(color.toHsi()),
+    HWB: formatColorValue(color.toHwb()),
+    'LAB D65': formatColorValue(color.toLab()),
+    'LAB D50': formatColorValue(color.toLabD50()),
+    'XYZ D65': formatColorValue(color.toXyz()),
+    'XYZ D50': formatColorValue(color.toXyzD50()),
+    LCH: formatColorValue(color.toLch()),
+    YUV: formatColorValue(color.toYuv()),
+    OKLAB: formatColorValue(color.toOklab()),
+    OKLCH: formatColorValue(color.toOklch()),
+    HPLuv: formatColorValue(color.toHPLuv()),
+    HSLuv: formatColorValue(color.toHSLuv()),
+    CIELuv: formatColorValue(color.toCIELuv()),
+    CIExyY: formatColorValue(color.toCIExyY()),
+    CMYK: formatColorValue(color.toCmyk())
+  }
 
   return (
-    <Card
-      isBlurred
-      className='w-full md:w-[40vw] my-2 px-4'>
+    <Card isBlurred className='w-full md:w-[40vw] my-2 px-4'>
       <CardHeader className='justify-center my-4 text-lg font-semibold'>Color Conversions</CardHeader>
-      <div className='grid grid-cols-1 gap-4 m-4 sm:grid-cols-2 lg:grid-cols-4'>
-        {Object.entries(conversions).map(([key, value]) => (
-          <Card
-            isFooterBlurred
-            isPressable
-            key={key}
-            className='relative bg-content2'
-            onClick={() => handleCopy(key, value)}>
-            <CardHeader className='flex-col items-start '>
-              <p className='text-sm'>{key}</p>
-            </CardHeader>
-            <Divider />
-            <CardBody className='py-2 overflow-visible'>
-              {Object.entries(value).map(([subKey, subValue]) => (
-                <div
-                  key={subKey}
-                  className='flex items-center justify-between py-1'>
-                  <span className='font-semibold'>{subKey}:</span>
-                  <span>{typeof subValue === 'number' ? subValue.toFixed(2) : subValue}</span>
-                </div>
-              ))}
-            </CardBody>
-            <CardFooter className='flex justify-center'>
-              <span className='text-xs'>{copiedKey === key ? 'Copied!' : ''}</span>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+      <CardBody>
+        <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+          {Object.entries(conversions).map(([key, value]) => (
+            <Snippet key={key} symbol size='sm' variant='flat'>
+              <div className='flex'>
+                <span className='pr-2 text-sm font-bold '>{key}:</span>
+                {Object.entries(value).map(([subKey, subValue]) => (
+                  <div key={subKey}>
+                    <span className='text-sm uppercase'>{subKey}:</span>
+                    <span className='pr-2 text-xs'>{subValue}</span>
+                  </div>
+                ))}
+              </div>
+            </Snippet>
+          ))}
+        </div>
+      </CardBody>
     </Card>
-  );
-};
+  )
+}
 
-export default ConversionSection;
+export default ConversionSection

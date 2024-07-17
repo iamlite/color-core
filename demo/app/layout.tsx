@@ -31,12 +31,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={clsx('min-h-screen font-sans antialiased', fontSans.variable)}>
-        <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark', children }}>
+        <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
           <ColorContextProvider
             initialColor='#387ED3'
             className='flex flex-col min-h-screen'>
             <Navbar />
-            <main className='flex-grow container px-6 pt-16 mx-auto max-w-[90vw]'>{children}</main>
+
+            <main className='flex-grow container px-6 pt-16 mx-auto max-w-[90vw] transition-transform-opacity ease-soft-spring duration-500'>
+              {children}
+            </main>
+
             <Footer />
           </ColorContextProvider>
         </Providers>

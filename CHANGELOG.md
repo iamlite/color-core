@@ -8,17 +8,41 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.3.0] - 2024-07-12
+
+## BIG UPDATE 🎉
+
+### Added
+
+- [X] Support for AdobeRGB, Oklab, Oklch, HSLuv, HPLuv, CIExyY, CIELuv, HWB, sRGB, and HSI color spaces
+- [X] Support for converting between D50 and D65 white points for XYZ and Lab color spaces
+- [X] New conversion functions:
+  - `rgbToOklab()`, `oklabToRgb()`
+  - `rgbToOklch()`, `oklchToRgb()`
+  - `rgbToHSLuv()`, `hsluvToRgb()`
+  - `rgbToHPLuv()`, `hpluvToRgb()`
+  - `rgbToCIExyY()`, `ciexyYToRgb()`
+  - `rgbToCIELuv()`, `cieLuvToRgb()`
+  - `rgbToHwb()`, `hwbToRgb()`
+  - `rgbToHsi()`, `hsiToRgb()`
+  - `rgbToSrgb()`, `srgbToRgb()`
+  - `adobeRGBToRGB()`, `rgbToAdobeRGB()`
+  - `xyzD50ToD65()`, `xyzD65ToD50()`
+  - `xyzD50ToRgb()`, `rgbToXyzD50()`
+  - `labD50ToRgb()`, `rgbToLabD50()`
+- [X] New methods in Color class: `toOklab()`, `toOklch()`, `toHSLuv()`, `toHPLuv()`, `toCIExyY()`, `toCIELuv()`, `toHWB()`, `toHSI()`, `toSrgb()`, `toAdobeRGB()`
+- [X] Updated demo site to showcase new color spaces and conversions
+
 ### Changed
 
 - NAME CHANGE! 'next-color' is now 'color-core'
 - New Demo Site! Built with next-ui :artist:
+- Updated type definitions to include Oklab, Oklch, HSLuv, HPLuv, CIExyY, and CIELUV
+- Expanded test coverage for new color spaces, refactored tests to be less dumb.
+- New calculations for LCH color space to improve accuracy
+- New calculations for XYZ and LAB color spaces to account for white point differences
 
-### TODO
-
-- Accessability features
-- More color manipulation methods
-- More color spaces
-- More color harmony functions
+[Documentation](https://color-core.com/docs)
 
 ## [1.2.0] - 2024-07-07
 

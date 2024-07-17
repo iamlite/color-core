@@ -1,67 +1,80 @@
 'use client';
 import InstallSnippet from '@/components/install-snippet';
-import { Button, Card, Link } from '@nextui-org/react';
+import ThemeAwareLogo from '@/components/theme-logo';
+import { Button, Card, CardHeader, Link } from '@nextui-org/react';
 
 export default function Home() {
   return (
-    <section className='flex flex-col items-center justify-center h-full px-4 space-y-14'>
-      <div className='space-y-4 text-center'>
-        <h1 className='text-6xl font-extrabold tracking-tight'>
-          <Card className='pt-2 pb-4 mb-12 opacity-80'>
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary'>color-core</span>
-          </Card>
-        </h1>
-        <p className='max-w-2xl mx-auto text-xl leading-relaxed text-default-600'>
-          Elevate your web and app designs with precise color management. color-core empowers developers to manipulate,
-          convert, and harmonize colors effortlessly, ensuring visually stunning and accessible user interfaces.
-        </p>
-      </div>
+    <section className='flex flex-col items-center justify-center h-full px-4 space-y-6'>
+      <Card
+        isBlurred
+        className='p-10 w-full md:w-[40vw] opacity-80'>
+        <ThemeAwareLogo
+          lightSrc='/assets/color-core-dark.png'
+          darkSrc='/assets/color-core-light.png'
+          width={400}
+          alt='Color Core Logo'
+        />
+      </Card>
+      <Card
+        isBlurred
+        className='p-10 opacity-80'>
+        <CardHeader className='max-w-3xl mx-auto text-lg leading-relaxed '>
+          <p className='text-center'>
+            Elevate your web and app designs with precise color management. color-core empowers developers to
+            manipulate, convert, and harmonize colors effortlessly, ensuring visually stunning and accessible user
+            interfaces.
+          </p>
+        </CardHeader>
 
-      <InstallSnippet />
+        <div className='flex flex-col self-center max-w-sm py-4 space-y-4'>
+          <InstallSnippet packageName='color-core' />
+        </div>
 
-      <div className='max-w-3xl mx-auto space-y-6 text-center'>
-        <h2 className='text-2xl font-semibold'>Key Features</h2>
-        <ul className='grid grid-cols-1 gap-4 text-left text-default-600 md:grid-cols-2'>
-          <li className='flex items-start'>
-            <span className='mr-2 text-xl text-primary'>✨</span>
-            <div>
-              <strong>Comprehensive color spaces:</strong> Support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV
-            </div>
-          </li>
-          <li className='flex items-start'>
-            <span className='mr-2 text-xl text-primary'>🔄</span>
-            <div>
-              <strong>Effortless conversions:</strong> Seamlessly switch between color models with precision
-            </div>
-          </li>
-          <li className='flex items-start'>
-            <span className='mr-2 text-xl text-primary'>🌈</span>
-            <div>
-              <strong>Advanced harmony generation:</strong> Create stunning color schemes with built-in harmony
-              algorithms
-            </div>
-          </li>
-          <li className='flex items-start'>
-            <span className='mr-2 text-xl text-primary'>🛠</span>
-            <div>
-              <strong>Powerful manipulation tools:</strong> Adjust hue, saturation, lightness, and more with ease
-            </div>
-          </li>
-          <li className='flex items-start'>
-            <span className='mr-2 text-xl text-primary'>💪</span>
-            <div>
-              <strong>Full TypeScript support:</strong> Enjoy type safety and excellent IDE integration
-            </div>
-          </li>
-          <li className='flex items-start'>
-            <span className='mr-2 text-xl text-primary'>🎨</span>
-            <div>
-              <strong>Intuitive Color class:</strong> Simplified API for all your color manipulation needs
-            </div>
-          </li>
-        </ul>
-      </div>
-
+        <div className='max-w-3xl pt-4 mx-auto space-y-6 text-center'>
+          <h2 className='text-2xl font-semibold'>Key Features</h2>
+          <ul className='grid grid-cols-1 gap-4 text-left text-default-600 md:grid-cols-2'>
+            <li className='flex items-start'>
+              <span className='mr-2 text-xl text-primary'>✨</span>
+              <div>
+                <strong>Comprehensive color spaces:</strong> Support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and
+                YUV
+              </div>
+            </li>
+            <li className='flex items-start'>
+              <span className='mr-2 text-xl text-primary'>🔄</span>
+              <div>
+                <strong>Effortless conversions:</strong> Seamlessly switch between color models with precision
+              </div>
+            </li>
+            <li className='flex items-start'>
+              <span className='mr-2 text-xl text-primary'>🌈</span>
+              <div>
+                <strong>Advanced harmony generation:</strong> Create stunning color schemes with built-in harmony
+                algorithms
+              </div>
+            </li>
+            <li className='flex items-start'>
+              <span className='mr-2 text-xl text-primary'>🛠</span>
+              <div>
+                <strong>Powerful manipulation tools:</strong> Adjust hue, saturation, lightness, and more with ease
+              </div>
+            </li>
+            <li className='flex items-start'>
+              <span className='mr-2 text-xl text-primary'>💪</span>
+              <div>
+                <strong>Full TypeScript support:</strong> Enjoy type safety and excellent IDE integration
+              </div>
+            </li>
+            <li className='flex items-start'>
+              <span className='mr-2 text-xl text-primary'>🎨</span>
+              <div>
+                <strong>Intuitive Color class:</strong> Simplified API for all your color manipulation needs
+              </div>
+            </li>
+          </ul>
+        </div>
+      </Card>
       <Card
         isBlurred
         className='p-6'>

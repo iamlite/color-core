@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/.color.ts"],
   "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/__tests__/*"],
   "typeRoots": ["../node_modules/@types", "./node_modules/@types", "../node_modules/@testing-library"],
   "types": ["jest", "jest-dom"],

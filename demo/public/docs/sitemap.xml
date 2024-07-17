@@ -2,214 +2,358 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://color-core.com/docs/modules.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/index.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/classes/Color.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/interfaces/ColorPickerProps.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/interfaces/XYZ.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/AdobeRGB.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/CIExyY.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/CMYK.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/ColorInput.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/ColorSpace.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/HPLuv.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/HSI.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/HSL.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/HSLuv.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/HSV.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/HWB.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/HexColor.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/LAB.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/LCH.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/LUV.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/Oklab.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/types/Oklch.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/RGB.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
-		<loc>https://color-core.com/docs/types/XYZ.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<loc>https://color-core.com/docs/types/SRGB.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/types/YUV.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/variables/defaultColorPickerStyles.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/ColorPicker.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/adjustAlpha.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/adjustHue.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/adjustLightness.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/adjustSaturation.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/adobeRGBToRGB.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/analogous.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/cieLuvToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/ciexyyToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/cmykToRgb.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/complementary.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/doubleSplitComplementary.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/getColorInfo.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/getColorName.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/grayscale.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/hexToRgb.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/hpluvToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/hsiToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/hslToRgb.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/hsluvToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/hsvToRgb.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/hwbToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/invert.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/labToRgb.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/lchToRgb.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/linearSrgbToOklab.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/linearSrgbToSrgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/mix.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/monochromatic.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/oklabToLinearSrgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/oklabToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/oklchToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToAdobeRGB.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToCIELuv.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToCIExyY.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/rgbToCmyk.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToHPLuv.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToHSLuv.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/rgbToHex.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToHsi.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/rgbToHsl.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/rgbToHsv.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToHwb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/rgbToLab.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/rgbToLch.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToOklab.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToOklch.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/rgbToSrgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/rgbToXyz.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/rgbToYuv.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/shades.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/splitComplementary.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/square.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/srgbToLinearSrgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/srgbToRgb.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/tetradic.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/tints.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/tones.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/triadic.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/xyzD50ToD65.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
+	</url>
+	<url>
+		<loc>https://color-core.com/docs/functions/xyzD65ToD50.html</loc>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/xyzToRgb.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 	<url>
 		<loc>https://color-core.com/docs/functions/yuvToRgb.html</loc>
-		<lastmod>2024-07-10T22:04:47.329Z</lastmod>
+		<lastmod>2024-07-17T05:11:08.849Z</lastmod>
 	</url>
 </urlset>

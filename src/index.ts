@@ -3,9 +3,9 @@
  * These functions allow conversion between various color spaces
  */
 export {
-    cmykToRgb, hexToRgb, hslToRgb, hsvToRgb, labToRgb,
-    lchToRgb, rgbToCmyk, rgbToHex, rgbToHsl,
-    rgbToHsv, rgbToLab, rgbToLch, rgbToXyz, rgbToYuv, xyzToRgb, yuvToRgb
+    adobeRGBToRGB, cieLuvToRgb, ciexyyToRgb, cmykToRgb, hexToRgb, hpluvToRgb, hsiToRgb, hslToRgb, hsluvToRgb, hsvToRgb, hwbToRgb, labToRgb,
+    lchToRgb, linearSrgbToOklab, linearSrgbToSrgb, oklabToLinearSrgb, oklabToRgb, oklchToRgb, rgbToAdobeRGB, rgbToCIELuv, rgbToCIExyY, rgbToCmyk, rgbToHPLuv, rgbToHSLuv, rgbToHex, rgbToHsi, rgbToHsl,
+    rgbToHsv, rgbToHwb, rgbToLab, rgbToLch, rgbToOklab, rgbToOklch, rgbToSrgb, rgbToXyz, rgbToYuv, srgbToLinearSrgb, srgbToRgb, xyzD50ToD65, xyzD65ToD50, xyzToRgb, yuvToRgb
 } from './conversions';
 
 /**
@@ -31,9 +31,7 @@ export {
  * Color type definitions
  * These types represent colors in various color spaces
  */
-export {
-    CMYK, ColorInput, ColorSpace, HSL, HSV, HexColor, LAB, LCH, RGB, XYZ, YUV
-} from './types';
+export { AdobeRGB, CIExyY, CMYK, ColorInput, ColorSpace, HPLuv, HSI, HSL, HSLuv, HSV, HWB, HexColor, LAB, LCH, LUV, Oklab, Oklch, RGB, SRGB, XYZ, YUV } from './types';
 
 /**
  * Unified Color Class
