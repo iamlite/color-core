@@ -17,8 +17,8 @@
   "typedocOptions": {
     "entryPoints": ["src"],
     "out": "docs/docs",
-    "hostedBaseUrl": "https://docs.color-core.com",
-    "useHostedBaseUrlForAbsoluteLinks": true,
+    // "hostedBaseUrl": "https://docs.color-core.com",
+    // "useHostedBaseUrlForAbsoluteLinks": true,
     "titleLink": "https://color-core.com",
     "lang": "en",
     "hideGenerator": true,
