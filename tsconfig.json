@@ -16,7 +16,7 @@
   "types": ["jest", "jest-dom"],
   "typedocOptions": {
     "entryPoints": ["src"],
-    "out": "demo/public/docs",
+    "out": "docs/docs",
     // "hostedBaseUrl": "https://docs.color-core.com",
     // "useHostedBaseUrlForAbsoluteLinks": true,
     "titleLink": "https://color-core.com",
@@ -24,7 +24,7 @@
     "hideGenerator": true,
     "includeVersion": true,
     "highlightLanguages": ["js", "ts", "jsx", "tsx", "bash"],
-    "plugin": ["./doctheme/cjs/index.js"],
+    "plugin": ["./docs/doctheme/cjs/index.js"],
     "theme": "dumi",
     "navigation": {
       "includeCategories": true,
@@ -39,8 +39,8 @@
       "Home": "_self",
       "Demo": "_self"
     },
-    "logoImage": "https://typedoc.org/images/logo-32.png",
-    "logoTitle": "color-core",
+    "logoImage": "https://docs.color-core.com/media/color-core-light.png",
+    "logoTitle": " ",
     "footerAlign": "center"
   }
 }
