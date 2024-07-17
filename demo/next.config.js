@@ -3,14 +3,19 @@ const nextConfig = {
   reactStrictMode: true,
 
   /**
-   * Configures rewrites for the documentation
+   * Configures rewrites for the documentation subdomain
    * @returns {Promise<import('next/dist/lib/load-custom-routes').Rewrite[]>}
    */
   async rewrites() {
     return [
-      // Serve docs from the public/docs directory on both main domain and subdomain
       {
         source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'docs.color-core.com'
+          }
+        ],
         destination: '/docs/:path*'
       }
     ]
@@ -22,6 +27,18 @@ const nextConfig = {
    */
   async redirects() {
     return [
+      // Redirect root of docs subdomain to /docs
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'docs.color-core.com'
+          }
+        ],
+        destination: '/docs',
+        permanent: false
+      },
       // Redirect /docs on main domain to docs subdomain
       {
         source: '/docs',
@@ -49,6 +66,9 @@ const nextConfig = {
     ]
   },
 
+  /**
+   * Configures allowed remote image sources
+   */
   images: {
     remotePatterns: [
       {
