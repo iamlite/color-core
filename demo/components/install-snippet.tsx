@@ -1,7 +1,7 @@
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
-import { Snippet } from '@nextui-org/snippet';
-import { Color } from 'color-core';
-import React, { useState } from 'react';
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react'
+import { Snippet } from '@nextui-org/snippet'
+import { Color } from 'color-core'
+import React, { useState } from 'react'
 
 /**
  * Interface for package manager options
@@ -10,8 +10,8 @@ import React, { useState } from 'react';
  * @property {string} command - The install command for the package manager
  */
 interface PackageManager {
-  name: string;
-  command: string;
+  name: string
+  command: string
 }
 
 /**
@@ -20,8 +20,8 @@ interface PackageManager {
  * @property {string} packageName - The name of the package to install
  */
 interface InstallSnippetProps {
-  packageName: string;
-  color?: Color;
+  packageName: string
+  color?: Color
 }
 
 /**
@@ -34,10 +34,10 @@ const InstallSnippet: React.FC<InstallSnippetProps> = ({ packageName }) => {
     { name: 'npm', command: 'npm i' },
     { name: 'yarn', command: 'yarn add' },
     { name: 'pnpm', command: 'pnpm add' },
-    { name: 'bun', command: 'bun add' },
-  ];
+    { name: 'bun', command: 'bun add' }
+  ]
 
-  const [selectedManager, setSelectedManager] = useState<PackageManager>(packageManagers[0]);
+  const [selectedManager, setSelectedManager] = useState<PackageManager>(packageManagers[0])
 
   return (
     <div className='flex flex-col gap-4'>
@@ -48,23 +48,22 @@ const InstallSnippet: React.FC<InstallSnippetProps> = ({ packageName }) => {
           </DropdownTrigger>
           <DropdownMenu
             aria-label='Package manager selection'
-            onAction={(key) => {
-              const manager = packageManagers.find((pm) => pm.name === key);
-              if (manager) setSelectedManager(manager);
+            onAction={key => {
+              const manager = packageManagers.find(pm => pm.name === key)
+
+              if (manager) setSelectedManager(manager)
             }}>
-            {packageManagers.map((pm) => (
+            {packageManagers.map(pm => (
               <DropdownItem key={pm.name}>{pm.name}</DropdownItem>
             ))}
           </DropdownMenu>
         </Dropdown>
-        <Snippet
-          variant='shadow'
-          className='flex-grow'>
+        <Snippet className='flex-grow' variant='shadow'>
           {`${selectedManager.command} ${packageName}`}
         </Snippet>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InstallSnippet;
+export default InstallSnippet

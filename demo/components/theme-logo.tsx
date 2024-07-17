@@ -1,6 +1,6 @@
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
 
 /**
  * Props for the ThemeAwareLogo component.
@@ -14,13 +14,13 @@ import React, { useEffect, useState } from 'react';
  * @property {React.CSSProperties} [containerStyle] - Additional styles for the container div.
  */
 interface ThemeAwareLogoProps {
-  lightSrc: string;
-  darkSrc: string;
-  width: number;
-  height?: number;
-  alt?: string;
-  maxWidth?: number;
-  containerStyle?: React.CSSProperties;
+  lightSrc: string
+  darkSrc: string
+  width: number
+  height?: number
+  alt?: string
+  maxWidth?: number
+  containerStyle?: React.CSSProperties
 }
 
 /**
@@ -36,25 +36,26 @@ const ThemeAwareLogo: React.FC<ThemeAwareLogoProps> = ({
   height,
   alt = 'Logo',
   maxWidth,
-  containerStyle = {},
+  containerStyle = {}
 }) => {
-  const { theme, resolvedTheme } = useTheme();
-  const [logoSrc, setLogoSrc] = useState(lightSrc);
+  const { theme, resolvedTheme } = useTheme()
+  const [logoSrc, setLogoSrc] = useState(lightSrc)
 
   /**
    * Calculate the height based on the original aspect ratio if not provided.
    * @returns {number} The calculated height of the image.
    */
   const calculateHeight = (): number => {
-    if (height) return height;
-    const aspectRatio = 3040 / 760; // Original aspect ratio
-    return Math.round(width / aspectRatio);
-  };
+    if (height) return height
+    const aspectRatio = 3040 / 760 // Original aspect ratio
+
+    return Math.round(width / aspectRatio)
+  }
 
   useEffect(() => {
     // Update logo source when theme changes or on initial load
-    setLogoSrc(resolvedTheme === 'dark' || theme === 'dark' ? darkSrc : lightSrc);
-  }, [theme, resolvedTheme, lightSrc, darkSrc]);
+    setLogoSrc(resolvedTheme === 'dark' || theme === 'dark' ? darkSrc : lightSrc)
+  }, [theme, resolvedTheme, lightSrc, darkSrc])
 
   return (
     <div
@@ -62,25 +63,25 @@ const ThemeAwareLogo: React.FC<ThemeAwareLogoProps> = ({
         display: 'flex',
         justifyContent: 'center',
         width: '100%',
-        ...containerStyle,
+        ...containerStyle
       }}>
       <div
         style={{
           maxWidth: maxWidth || 'none',
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center',
+          alignItems: 'center'
         }}>
         <Image
-          src={logoSrc}
-          width={width}
-          height={calculateHeight()}
           alt={alt}
+          height={calculateHeight()}
+          src={logoSrc}
           style={{ width: 'auto', height: 'auto', maxWidth: '100%' }}
+          width={width}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ThemeAwareLogo;
+export default ThemeAwareLogo

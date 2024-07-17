@@ -1,24 +1,21 @@
-'use client';
-import InstallSnippet from '@/components/install-snippet';
-import ThemeAwareLogo from '@/components/theme-logo';
-import { Button, Card, CardHeader, Link } from '@nextui-org/react';
+'use client'
+import { Button, Card, CardHeader, Link } from '@nextui-org/react'
+
+import InstallSnippet from '@/components/install-snippet'
+import ThemeAwareLogo from '@/components/theme-logo'
 
 export default function Home() {
   return (
     <section className='flex flex-col items-center justify-center h-full px-4 space-y-6'>
-      <Card
-        isBlurred
-        className='p-10 w-full md:w-[40vw] opacity-80'>
+      <Card isBlurred className='p-10 w-full md:w-[40vw] opacity-80'>
         <ThemeAwareLogo
-          lightSrc='/assets/color-core-dark.png'
-          darkSrc='/assets/color-core-light.png'
-          width={400}
           alt='Color Core Logo'
+          darkSrc='/assets/color-core-light.png'
+          lightSrc='/assets/color-core-dark.png'
+          width={400}
         />
       </Card>
-      <Card
-        isBlurred
-        className='p-10 opacity-80'>
+      <Card isBlurred className='p-10 opacity-80'>
         <CardHeader className='max-w-3xl mx-auto text-lg leading-relaxed '>
           <p className='text-center'>
             Elevate your web and app designs with precise color management. color-core empowers developers to
@@ -75,19 +72,13 @@ export default function Home() {
           </ul>
         </div>
       </Card>
-      <Card
-        isBlurred
-        className='p-6'>
+      <Card isBlurred className='p-6'>
         <h3 className='mb-2 text-xl font-semibold'>See it in Action</h3>
         <p className='mb-4'>Experience the power and flexibility of color-core in our interactive demo.</p>
-        <Button
-          as={Link}
-          href='/demo'
-          variant='solid'
-          size='lg'>
+        <Button as={Link} href='/demo' size='lg' variant='solid'>
           Try the Demo
         </Button>
       </Card>
     </section>
-  );
+  )
 }

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Card, CardBody, CardHeader, Snippet } from '@nextui-org/react'
 import { Color } from 'color-core'
 import React from 'react'

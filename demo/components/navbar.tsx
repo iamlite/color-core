@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import {
   Link,
@@ -8,55 +8,43 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-  Navbar as NextUINavbar,
-} from '@nextui-org/react';
-import clsx from 'clsx';
-import NextLink from 'next/link';
+  Navbar as NextUINavbar
+} from '@nextui-org/react'
+import clsx from 'clsx'
+import NextLink from 'next/link'
 
-import { GithubIcon, NPMIcon } from '@/components/icons';
-import { ThemeSwitch } from '@/components/theme-switch';
-import { siteConfig } from '@/config/site';
+import { GithubIcon, NPMIcon } from '@/components/icons'
+import { ThemeSwitch } from '@/components/theme-switch'
+import { siteConfig } from '@/config/site'
 
-const LightLogo = '/assets/color-core-dark.png';
-const DarkLogo = '/assets/color-core-light.png';
+const LightLogo = '/assets/color-core-dark.png'
+const DarkLogo = '/assets/color-core-light.png'
 const Links = () => {
   return (
     <>
-      <Link
-        className={linkStyles({ color: 'foreground' })}
-        color='foreground'
-        href={siteConfig.links.github}>
+      <Link className={linkStyles({ color: 'foreground' })} color='foreground' href={siteConfig.links.github}>
         <GithubIcon className='text-default-500' />
       </Link>
       <p className='mx-2 text-default-500'>|</p>
-      <Link
-        className={linkStyles({ color: 'foreground' })}
-        color='foreground'
-        href={siteConfig.links.npm}>
+      <Link className={linkStyles({ color: 'foreground' })} color='foreground' href={siteConfig.links.npm}>
         <NPMIcon className='text-default-500' />
       </Link>
     </>
-  );
-};
+  )
+}
 
 export const Navbar = () => {
   return (
-    <NextUINavbar
-      maxWidth='xl'
-      position='sticky'>
+    <NextUINavbar maxWidth='xl' position='sticky'>
       {/* Start */}
-      <NavbarContent
-        justify='start'
-        className='basis-1/5 sm:basis-full'>
+      <NavbarContent className='basis-1/5 sm:basis-full' justify='start'>
         <Links />
       </NavbarContent>
 
       {/* Center */}
-      <NavbarContent
-        className='basis-1/5 sm:basis-full'
-        justify='center'>
+      <NavbarContent className='basis-1/5 sm:basis-full' justify='center'>
         <ul className='justify-start hidden gap-4 ml-2 lg:flex'>
-          {siteConfig.navItems.map((item) => (
+          {siteConfig.navItems.map(item => (
             <NavbarItem key={item.href}>
               <NextLink
                 className={clsx(
@@ -73,18 +61,14 @@ export const Navbar = () => {
       </NavbarContent>
 
       {/* End */}
-      <NavbarContent
-        className='hidden sm:flex basis-1/5 sm:basis-full'
-        justify='end'>
+      <NavbarContent className='hidden sm:flex basis-1/5 sm:basis-full' justify='end'>
         <NavbarItem className='hidden gap-2 sm:flex'>
           <ThemeSwitch />
         </NavbarItem>
       </NavbarContent>
 
       {/* Mobile */}
-      <NavbarContent
-        className='pl-4 sm:hidden basis-1'
-        justify='end'>
+      <NavbarContent className='pl-4 sm:hidden basis-1' justify='end'>
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
@@ -104,5 +88,5 @@ export const Navbar = () => {
         </div>
       </NavbarMenu>
     </NextUINavbar>
-  );
-};
+  )
+}

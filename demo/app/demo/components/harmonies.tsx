@@ -1,6 +1,7 @@
 import { Card, CardBody, CardHeader } from '@nextui-org/react'
 import { Color } from 'color-core'
 import React from 'react'
+
 import ColorSwatch from './color-swatch'
 
 interface ColorSectionProps {
@@ -30,17 +31,17 @@ const ColorHarmonies: React.FC<ColorHarmoniesProps> = ({ color }) => {
     <Card isBlurred className='w-full md:w-[40vw] my-2 px-4'>
       <CardHeader className='justify-center my-4 text-lg font-semibold'>Color Harmonies</CardHeader>
       <CardBody className='grid grid-cols-1 gap-4 md:grid-cols-2'>
-        <ColorSection title='Double Split Complementary' colors={color.doubleSplitComplementary()} />
-        <ColorSection title='Monochromatic' colors={color.monochromatic(5)} />
-        <ColorSection title='Shades' colors={color.shades()} />
-        <ColorSection title='Tints' colors={color.tints()} />
-        <ColorSection title='Tones' colors={color.tones()} />
-        <ColorSection title='Tetradic' colors={color.tetradic()} />
-        <ColorSection title='Square' colors={color.square()} />
-        <ColorSection title='Analogous' colors={color.analogous()} />
-        <ColorSection title='Triadic' colors={color.triadic()} />
-        <ColorSection title='Split Complementary' colors={color.splitComplementary()} />
-        <ColorSection title='Complementary' colors={color.complementary()} />
+        <ColorSection colors={color.doubleSplitComplementary()} title='Double Split Complementary' />
+        <ColorSection colors={color.monochromatic(5)} title='Monochromatic' />
+        <ColorSection colors={color.shades()} title='Shades' />
+        <ColorSection colors={color.tints()} title='Tints' />
+        <ColorSection colors={color.tones()} title='Tones' />
+        <ColorSection colors={color.tetradic()} title='Tetradic' />
+        <ColorSection colors={color.square()} title='Square' />
+        <ColorSection colors={color.analogous()} title='Analogous' />
+        <ColorSection colors={color.triadic()} title='Triadic' />
+        <ColorSection colors={color.splitComplementary()} title='Split Complementary' />
+        <ColorSection colors={color.complementary()} title='Complementary' />
       </CardBody>
     </Card>
   )

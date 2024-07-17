@@ -9,5 +9,6 @@
   "bracketSpacing": true,
   "endOfLine": "auto",
   "jsxSingleQuote": true,
-  "jsxBracketSameLine": true
+  "jsxBracketSameLine": true,
+  "parser": "typescript"
 }
