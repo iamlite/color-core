@@ -8,11 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
-## TO DOS
-
-- fix docs url
-- fix readme styling
-
 ## [1.3.1] - 2024-07-17
 
 ### Changed

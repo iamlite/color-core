@@ -86,6 +86,7 @@ The `Color` class is the heart of `color-core`.  It provides a unified way to cr
 See it in action ⤵️
 
 <br>
+<div align="left">
 
 ```typescript
 import { Color } from 'color-core';
@@ -133,6 +134,7 @@ console.log(red.getBrightness()); // 76.245
 console.log(red.isLight()); // false
 ```
 
+</div>
 <br>
 
 ### Color Conversion Functions
@@ -140,6 +142,7 @@ console.log(red.isLight()); // false
 For situations where you need quick, one-off color conversions, `color-core` offers standalone conversion functions. These can be useful when you don't need the full functionality of the `Color` class.
 
 <br>
+<div align="left">
 
 ```typescript
 import { hexToRgb, rgbToHsl, rgbToOklab } from 'color-core';
@@ -154,6 +157,7 @@ const oklab = rgbToOklab(rgb);
 console.log(oklab);  // { L: 0.866440, a: -0.233888, b: 0.179498 }
 ```
 
+</div>
 <br>
 
 ### ColorPicker Component
@@ -161,6 +165,7 @@ console.log(oklab);  // { L: 0.866440, a: -0.233888, b: 0.179498 }
 `color-core` includes a customizable ColorPicker component for typescript applications. This component provides a user-friendly interface for color selection while allowing extensive customization to fit your application's needs.
 
 <br>
+<div align="left">
 
 ```jsx
 import { ColorPicker } from 'color-core';
@@ -177,6 +182,7 @@ function MyComponent() {
 }
 ```
 
+</div>
 <br>
 
 ---
@@ -195,10 +201,13 @@ The `Color` class is the main entry point for color manipulations.
 
 #### Constructor
 
+<div align="left">
+
 ```typescript
 new Color(color: string | RGB | HSL | HSV | CMYK | LAB | LCH | XYZ | YUV | Oklab | Oklch | HSLuv | HPLuv | CIExyY | HSI | HWB | AdobeRGB)
 ```
 
+</div>
 Creates a new Color instance from various color formats.
 
 <br>
@@ -378,6 +387,7 @@ Creates a new Color instance from various color formats.
 ### Types
 
 <br>
+<div align="left">
 
 ```typescript
 type RGB = { r: number; g: number; b: number; a?: number };
@@ -400,6 +410,7 @@ type HWB = { h: number; w: number; b: number };
 type AdobeRGB = { r: number; g: number; b: number };
 ```
 
+</div>
 <br>
 
 ---
@@ -440,6 +451,7 @@ These practical examples demonstrate how to use various features of color-core t
 ### Color Manipulation
 
 <br>
+<div align="left">
 
 ```typescript
 import { Color } from 'color-core';
@@ -482,6 +494,7 @@ console.log(color.getBrightness()); // 76.245
 console.log(color.isLight()); // false
 ```
 
+</div>
 ---
 
 ## Advanced Usage
@@ -492,6 +505,7 @@ The advanced usage section covers more complex scenarios, including working with
 ### Working with Different Color Spaces
 
 <br>
+<div align="left">
 
 ```typescript
 import { Color } from 'color-core';
@@ -513,11 +527,13 @@ const adobeRGBColor = hsluvColor.toAdobeRGB();
 console.log(adobeRGBColor); // { r: 255, g: 0, b: 0 }
 ```
 
+</div>
 <br>
 
 ### Color Harmonies
 
 <br>
+<div align="left">
 
 ```typescript
 import { Color } from 'color-core';
@@ -555,6 +571,7 @@ tints.forEach(tint => console.log(tint.toHex()));
 // '#ff0000' '#ff3333' '#ff6666' '#ff9999' '#ffcccc'
 ```
 
+</div>
 <br>
 
 As you become more familiar with color-core, you'll likely discover additional ways to leverage its functionality in your projects. The library's extensive color space support and manipulation tools provide a robust foundation for a wide range of color-related tasks.
@@ -606,7 +623,9 @@ If you're having any problem, please [raise an issue](https://github.com/iamlite
 <br>
 
 [HSLuv & HPLuv Conversions](https://www.hsluv.org/) by [Alexei Boronine](https://github.com/boronine)
+
 [Oklab & Oklch Math Used](https://bottosson.github.io/posts/oklab/) by [Björn Ottosson](https://bottosson.github.io/posts/oklab/)
+
 [Color Name API](https://github.com/meodai/color-name-api) by [meodai](https://github.com/meodai)
 
 <br>
