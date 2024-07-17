@@ -187,9 +187,9 @@ export type CIExyY = {
  * Values are typically between 0 and 255.
  */
 export type SRGB = {
-    r: number;
-    g: number;
-    b: number;
+    sr: number;
+    sg: number;
+    sb: number;
 };
 
 /**

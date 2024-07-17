@@ -30,9 +30,9 @@ export function rgbToSrgb(rgb: RGB): SRGB {
     const gammaCorrect = (c: number) => (c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4));
 
     return {
-        r: gammaCorrect(rNorm),
-        g: gammaCorrect(gNorm),
-        b: gammaCorrect(bNorm),
+        sr: gammaCorrect(rNorm),
+        sg: gammaCorrect(gNorm),
+        sb: gammaCorrect(bNorm),
     };
 }
 
@@ -47,13 +47,13 @@ export function srgbToRgb(srgb: SRGB): RGB {
         throw new Error('Input must be an object');
     }
 
-    const { r, g, b } = srgb;
+    const { sr, sg, sb } = srgb;
 
-    if (typeof r !== 'number' || typeof g !== 'number' || typeof b !== 'number') {
+    if (typeof sr !== 'number' || typeof sg !== 'number' || typeof sb !== 'number') {
         throw new Error('sRGB values must be numbers');
     }
 
-    if (r < 0 || r > 1 || g < 0 || g > 1 || b < 0 || b > 1) {
+    if (sr < 0 || sr > 1 || sg < 0 || sg > 1 || sb < 0 || sb > 1) {
         throw new Error('sRGB values must be between 0 and 1');
     }
 
@@ -61,8 +61,8 @@ export function srgbToRgb(srgb: SRGB): RGB {
     const inverseGammaCorrect = (c: number) => (c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055);
 
     return {
-        r: Math.round(inverseGammaCorrect(r) * 255),
-        g: Math.round(inverseGammaCorrect(g) * 255),
-        b: Math.round(inverseGammaCorrect(b) * 255),
+        r: Math.round(inverseGammaCorrect(sr) * 255),
+        g: Math.round(inverseGammaCorrect(sg) * 255),
+        b: Math.round(inverseGammaCorrect(sb) * 255),
     };
 }

@@ -1,5 +1,6 @@
 import {
     adobeRGBToRGB, cieLuvToRgb, ciexyyToRgb, cmykToRgb, hexToRgb, hpluvToRgb, hsiToRgb, hslToRgb, hsluvToRgb, hsvToRgb, hwbToRgb, labToRgb, lchToRgb, oklabToRgb, oklchToRgb, rgbToAdobeRGB, rgbToCIELuv, rgbToCIExyY, rgbToCmyk, rgbToHex, rgbToHPLuv, rgbToHsi, rgbToHsl, rgbToHSLuv, rgbToHsv, rgbToHwb, rgbToLab, rgbToLabD50, rgbToLch, rgbToOklab, rgbToOklch, rgbToSrgb, rgbToXyz, rgbToXyzD50, rgbToYuv,
+    srgbToRgb,
     xyzToRgb, yuvToRgb
 } from './conversions';
 import {
@@ -32,12 +33,14 @@ export class Color {
      * Creates a new Color instance.
      * @param color - The color value to initialize with. Can be a string (hex) or an object representing various color spaces.
      */
-    constructor(color: string | RGB | HSL | HSV | CMYK | LAB | LCH | LUV | XYZ | YUV | Oklab | Oklch | HSLuv | HPLuv | CIExyY | HSI | HWB | AdobeRGB) {
+    constructor(color: string | RGB | SRGB | HSL | HSV | CMYK | LAB | LCH | LUV | XYZ | YUV | Oklab | Oklch | HSLuv | HPLuv | CIExyY | HSI | HWB | AdobeRGB) {
         if (typeof color === 'string') {
             this._rgb = hexToRgb(color);
 
         } else if ('r' in color && 'g' in color && 'b' in color) {
             this._rgb = { ...color, a: color.a ?? 1 };
+        } else if ('sr' in color && 'sg' in color && 'sb' in color) {
+            this._rgb = srgbToRgb(color as SRGB);
         } else if ('x' in color && 'y' in color && 'z' in color) {
             this._rgb = xyzToRgb(color as XYZ);
         } else if ('l' in color && 'a' in color && 'b' in color) {

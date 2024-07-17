@@ -53,7 +53,7 @@ jobs:
         if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
         run: |
           NEW_VERSION=${{ steps.package-version.outputs.current-version }}
-          sed -n "/## \[$NEW_VERSION\]/,/## \[/p" CHANGELOG.md | sed '$d' > RELEASE_CHANGELOG.md
+          sed -n "/## \[$NEW_VERSION\]/,/## \[/p" CHANGELOG.md | sed '$d' > RELEASE_NOTES.md
 
       - name: Create GitHub Release
         if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
@@ -63,6 +63,6 @@ jobs:
         with:
           name: Release ${{ steps.package-version.outputs.current-version }}
           tag_name: v${{ steps.package-version.outputs.current-version }}
-          files: RELEASE_CHANGELOG.md
+          body_path: RELEASE_NOTES.md
           draft: false
           prerelease: false
