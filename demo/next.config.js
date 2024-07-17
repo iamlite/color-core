@@ -1,18 +1,8 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+
   async rewrites() {
     return [
-      {
-        source: '/',
-        has: [
-          {
-            type: 'host',
-            value: 'docs.color-core.com'
-          }
-        ],
-        destination: '/docs'
-      },
       {
         source: '/:path*',
         has: [
@@ -22,30 +12,42 @@ const nextConfig = {
           }
         ],
         destination: '/docs/:path*'
-      },
-      {
-        source: '/docs',
-        destination: '/docs/index.html'
-      },
-      {
-        source: '/docs/:path*',
-        destination: '/docs/:path*.html'
       }
     ]
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'docs.color-core.com'
+          }
+        ],
+        destination: '/docs',
+        permanent: false
+      }
+    ]
+  },
+
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '*.githubusercontent.com',
-        port: '',
         pathname: '/iamlite/color-core/**'
       },
       {
         protocol: 'https',
         hostname: '*.github.com',
-        port: '',
         pathname: '/iamlite/color-core/**'
+      },
+      {
+        protocol: 'https',
+        hostname: '*.color-core.com',
+        pathname: '/**'
       }
     ]
   }
