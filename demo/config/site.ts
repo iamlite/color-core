@@ -15,7 +15,7 @@ export const siteConfig = {
     },
     {
       label: 'Docs',
-      href: '/docs'
+      href: 'https://docs.color-core.com'
     }
   ],
   navMenuItems: [
@@ -29,12 +29,12 @@ export const siteConfig = {
     },
     {
       label: 'Docs',
-      href: '/docs'
+      href: 'https://docs.color-core.com'
     }
   ],
   links: {
     github: 'https://github.com/iamlite/color-core',
-    docs: 'https://color-core.com/docs',
+    docs: 'https://docs.color-core.com',
     npm: 'https://www.npmjs.com/package/color-core'
   }
 }
