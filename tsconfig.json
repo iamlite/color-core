@@ -17,8 +17,8 @@
   "typedocOptions": {
     "entryPoints": ["src"],
     "out": "docs/docs",
-    // "hostedBaseUrl": "https://docs.color-core.com",
-    // "useHostedBaseUrlForAbsoluteLinks": true,
+    "hostedBaseUrl": "https://docs.color-core.com",
+    "useHostedBaseUrlForAbsoluteLinks": true,
     "titleLink": "https://color-core.com",
     "lang": "en",
     "hideGenerator": true,
@@ -39,8 +39,7 @@
       "Home": "_self",
       "Demo": "_self"
     },
-    "logoImage": "https://docs.color-core.com/media/color-core-light.png",
-    "logoTitle": " ",
+    "logoTitle": "color-core",
     "footerAlign": "center"
   }
 }
