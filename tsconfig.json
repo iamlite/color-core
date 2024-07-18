@@ -18,9 +18,10 @@
     "entryPoints": ["src"],
     // "plugin": ["typedoc-plugin-markdown"],
     // "out": "color-core-docs/docs/",
+
+    "plugin": ["./docs/doctheme/cjs/index.js"],
     "theme": "dumi",
     "out": "docs/docs",
-    "plugin": ["./docs/doctheme/cjs/index.js"],
     "hostedBaseUrl": "https://docs.color-core.com",
     "useHostedBaseUrlForAbsoluteLinks": false,
     "titleLink": "https://color-core.com",
@@ -28,7 +29,6 @@
     "hideGenerator": true,
     "includeVersion": false,
     "highlightLanguages": ["js", "ts", "jsx", "tsx", "bash"],
-
     "navigation": {
       "includeCategories": true,
       "includeGroups": false,
@@ -38,7 +38,6 @@
       "Home": "https://color-core.com",
       "Demo": "https://color-core.com/demo"
     },
-    "entryFileName": "README.md",
     "navigationLinkTargets": {
       "Home": "_self",
       "Demo": "_self"
