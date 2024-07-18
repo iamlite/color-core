@@ -18,10 +18,9 @@
     "entryPoints": ["src"],
     // "plugin": ["typedoc-plugin-markdown"],
     // "out": "color-core-docs/docs/",
-
-    "plugin": ["./docs/doctheme/cjs/index.js"],
+    "plugin": ["../../docs/doctheme/cjs/index.js"],
     "theme": "dumi",
-    "out": "docs/docs",
+    "out": "../docs/",
     "hostedBaseUrl": "https://docs.color-core.com",
     "useHostedBaseUrlForAbsoluteLinks": false,
     "titleLink": "https://color-core.com",
