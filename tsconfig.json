@@ -16,16 +16,19 @@
   "types": ["jest", "jest-dom"],
   "typedocOptions": {
     "entryPoints": ["src"],
+    // "plugin": ["typedoc-plugin-markdown"],
+    // "out": "color-core-docs/docs/",
+    "theme": "dumi",
     "out": "docs/docs",
-    // "hostedBaseUrl": "https://docs.color-core.com",
-    // "useHostedBaseUrlForAbsoluteLinks": true,
+    "plugin": ["./docs/doctheme/cjs/index.js"],
+    "hostedBaseUrl": "https://docs.color-core.com",
+    "useHostedBaseUrlForAbsoluteLinks": false,
     "titleLink": "https://color-core.com",
     "lang": "en",
     "hideGenerator": true,
-    "includeVersion": true,
+    "includeVersion": false,
     "highlightLanguages": ["js", "ts", "jsx", "tsx", "bash"],
-    "plugin": ["./docs/doctheme/cjs/index.js"],
-    "theme": "dumi",
+
     "navigation": {
       "includeCategories": true,
       "includeGroups": false,
@@ -35,6 +38,7 @@
       "Home": "https://color-core.com",
       "Demo": "https://color-core.com/demo"
     },
+    "entryFileName": "README.md",
     "navigationLinkTargets": {
       "Home": "_self",
       "Demo": "_self"

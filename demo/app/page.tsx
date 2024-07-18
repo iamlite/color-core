@@ -34,8 +34,8 @@ export default function Home() {
             <li className='flex items-start'>
               <span className='mr-2 text-xl text-primary'>✨</span>
               <div>
-                <strong>Comprehensive color spaces:</strong> Support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, and
-                YUV
+                <strong>Comprehensive color spaces:</strong> Support for RGB, HEX, HSL, HSV, CMYK, LAB, LCH, XYZ, YUV,
+                HPLuv, HSLuv, CIExyY, and more
               </div>
             </li>
             <li className='flex items-start'>

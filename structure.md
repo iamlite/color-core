@@ -1,3 +1,6 @@
+# Color Core
+
+```bash
 color-core/
 ├── src/
 │   ├── __tests__/
@@ -117,3 +120,4 @@ color-core/
 ├── structure.tree
 ├── tsconfig.json
 └── yarn.lock
+```
