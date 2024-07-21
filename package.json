@@ -17,8 +17,7 @@
     "webbuild": "yarn workspace website build",
     "alldev": "concurrently \"yarn docdev\" \"yarn webdev\"",
     "prep": "yarn corebuild && yarn coretest && yarn docbuild && yarn clean && yarn alldev",
-    "clean": "find . -name .DS_Store -type f -print0 | xargs -0 -I {} sh -c 'echo \"Removing {}\"; git rm -f --ignore-unmatch \"{}\"; rm \"{}\"'",
-    "prepublish:core": "yarn workspace color-core prepublishOnly"
+    "clean": "find . -name .DS_Store -type f -print0 | xargs -0 -I {} sh -c 'echo \"Removing {}\"; git rm -f --ignore-unmatch \"{}\"; rm \"{}\"'"
   },
   "dependencies": {
     "color-core": "^1.3.1"
