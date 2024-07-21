@@ -16,7 +16,19 @@ updates:
   - "iamlite"
 
 - package-ecosystem: "npm"
-  directory: "/demo"
+  directory: "/packages/color-core"
+  schedule:
+    interval: "daily"
+  groups:
+    all:
+      patterns:
+      - "*"
+  versioning-strategy: auto
+  assignees:
+  - "iamlite"
+
+- package-ecosystem: "npm"
+  directory: "/packages/website"
   schedule:
     interval: "weekly"
   groups:
@@ -24,3 +36,17 @@ updates:
       patterns:
       - "*"
   versioning-strategy: auto
+  assignees:
+  - "iamlite"
+
+- package-ecosystem: "npm"
+  directory: "/packages/docs"
+  schedule:
+    interval: "weekly"
+  groups:
+    all:
+      patterns:
+      - "*"
+  versioning-strategy: auto
+  assignees:
+  - "iamlite"

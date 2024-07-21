@@ -1,4 +1,13 @@
+---
+
+id: changelog
+title: Changelog
+sidebar_label: Changelog
+
+---
+
 <!-- markdownlint-disable MD024 -->
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -6,7 +15,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.3.2] - 2024-07-20
+
+### Added
+
+- New color scale functions:
+  - Sequential Scale
+  - Diverging Scale
+  - Multi-Hue Sequential Scale
+  - Perceptually Uniform Scale
+  - Qualitative Scale
+
+### Changed
+
+- New git structure using a monorepo setup with yarn workspaces
+- Updated demo site to showcase new color scale functions
 
 ## [1.3.1] - 2024-07-17
 
@@ -223,6 +246,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Basic error handling for invalid inputs
 - Test suite for verifying color conversions
 
-[Unreleased]: https://github.com/iamlite/color-core/compare/v0.2.0...HEAD
 [0.2.0]: https://github.com/iamlite/color-core/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/iamlite/color-core/releases/tag/v0.1.0

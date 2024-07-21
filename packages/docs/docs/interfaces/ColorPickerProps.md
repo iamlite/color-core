@@ -1,0 +1,23 @@
+# Interface: ColorPickerProps
+
+Props for the ColorPicker component.
+
+## Properties
+
+| Property | Type | Description | Defined in |
+| ------ | ------ | ------ | ------ |
+| `className?` | `string` | Custom class name for the main container | [packages/color-core/src/utils/components/color-picker.tsx:15](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L15) |
+| `containerClassName?` | `string` | Custom class name for the outer container | [packages/color-core/src/utils/components/color-picker.tsx:37](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L37) |
+| `containerStyle?` | `CSSProperties` | Custom inline styles for the outer container | [packages/color-core/src/utils/components/color-picker.tsx:39](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L39) |
+| `height?` | `string` \| `number` | Height of the color picker | [packages/color-core/src/utils/components/color-picker.tsx:21](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L21) |
+| `hueSliderClassName?` | `string` | Custom class name for the hue slider | [packages/color-core/src/utils/components/color-picker.tsx:29](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L29) |
+| `hueSliderCursorClassName?` | `string` | Custom class name for the hue slider cursor | [packages/color-core/src/utils/components/color-picker.tsx:31](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L31) |
+| `hueSliderHeight?` | `string` \| `number` | Height of the hue slider | [packages/color-core/src/utils/components/color-picker.tsx:23](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L23) |
+| `initialColor?` | [`RGB`](../type-aliases/RGB.md) | Initial color value in RGB format | [packages/color-core/src/utils/components/color-picker.tsx:11](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L11) |
+| `inputClassName?` | `string` | Custom class name for the hex input field | [packages/color-core/src/utils/components/color-picker.tsx:33](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L33) |
+| `onChange?` | (`color`: [`RGB`](../type-aliases/RGB.md)) => `void` | Callback function triggered when the color changes | [packages/color-core/src/utils/components/color-picker.tsx:13](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L13) |
+| `previewClassName?` | `string` | Custom class name for the color preview box | [packages/color-core/src/utils/components/color-picker.tsx:35](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L35) |
+| `saturationValueAreaClassName?` | `string` | Custom class name for the saturation-value area | [packages/color-core/src/utils/components/color-picker.tsx:25](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L25) |
+| `saturationValueCursorClassName?` | `string` | Custom class name for the saturation-value cursor | [packages/color-core/src/utils/components/color-picker.tsx:27](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L27) |
+| `style?` | `CSSProperties` | Custom inline styles for the main container | [packages/color-core/src/utils/components/color-picker.tsx:17](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L17) |
+| `width?` | `string` \| `number` | Width of the color picker | [packages/color-core/src/utils/components/color-picker.tsx:19](https://github.com/iamlite/color-core-mono-test/blob/d94d70fcd3b8bc32b54a8388048088ead1ff133f/packages/color-core/src/utils/components/color-picker.tsx#L19) |

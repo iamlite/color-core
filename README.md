@@ -3,26 +3,26 @@
 
 <div align="center">
 <a name="top"></a>
-<img alt=logo src="./assets/color-core-light.png">
+<img alt="logo" src="./assets/color-core-light.png"/>
 </div>
 
 <div align="center">
 
-<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/color-core?style=for-the-badge&logo=npm&color=purple">
+<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/color-core?style=for-the-badge&logo=npm&color=purple"/>
 
-<img alt="NPM Version" src="https://img.shields.io/npm/v/color-core?style=for-the-badge&logo=npm">
+<img alt="NPM Version" src="https://img.shields.io/npm/v/color-core?style=for-the-badge&logo=npm"/>
 
-<img alt="NPM License" src="https://img.shields.io/npm/l/color-core?style=for-the-badge&color=red" >
+<img alt="NPM License" src="https://img.shields.io/npm/l/color-core?style=for-the-badge&color=red"/>
 
 <img src="https://img.shields.io/github/last-commit/iamlite/color-core?display_timestamp=author&style=for-the-badge&logo=github" alt="last-commit" />
 
-<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/color-core?style=for-the-badge&logo=dependabot">
+<img alt="Libraries.io dependency status for latest release" src="https://img.shields.io/librariesio/release/npm/color-core?style=for-the-badge&logo=dependabot"/>
 
-<img alt="Codecov" src="https://img.shields.io/codecov/c/github/iamlite/color-core?style=for-the-badge&logo=codecov">
+<img alt="Codecov" src="https://img.shields.io/codecov/c/github/iamlite/color-core?style=for-the-badge&logo=codecov"/>
 
-<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/color-core?style=for-the-badge">
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/color-core?style=for-the-badge"/>
 <a href="https://iamlite.github.io/color-core/">
-<img alt="Static Badge" src="https://img.shields.io/badge/Docs-blue?style=for-the-badge&logo=github&logoColor=white&labelColor=gray" >
+<img alt="Static Badge" src="https://img.shields.io/badge/Docs-blue?style=for-the-badge&logo=github&logoColor=white&labelColor=gray"/>
 </a>
 
 </div>
@@ -31,10 +31,10 @@
 <div align="center">
 
 <a href="https://color-core.com">
-<img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray" >
+<img alt="Static Badge" src="https://img.shields.io/badge/Demo_Website-blue?style=for-the-badge&logo=vercel&logoColor=white&labelColor=gray"/>
 </a>
 <a href="https://www.npmjs.com/package/color-core">
-<img alt="Static Badge" src="https://img.shields.io/badge/NPM-URL%20-%20link?style=for-the-badge&logo=npm" >
+<img alt="Static Badge" src="https://img.shields.io/badge/NPM-URL%20-%20link?style=for-the-badge&logo=npm"/>
 </a>
 <a href="https://discord.gg/uYBuFXUmcU">
 <img src="https://img.shields.io/discord/640575167772491786?style=for-the-badge&logo=discord&label=Discord&color=gold" alt="Discord" />
@@ -636,7 +636,7 @@ If you're having any problem, please [raise an issue](https://github.com/iamlite
 
 <br>
 
-<img alt=codecov src="https://codecov.io/gh/iamlite/color-core/graphs/sunburst.svg?token=MBMKJU55OY">
+<img alt="codecov" src="https://codecov.io/gh/iamlite/color-core/graphs/sunburst.svg?token=MBMKJU55OY"></img>
 
 <br>
 

@@ -1,0 +1,58 @@
+---
+id: color-representation
+title: "How color-core Represents Colors"
+description: "Detailed explanation of color representation in color-core"
+sidebar_label: "Color Representation"
+slug: /core-concepts/color-representation
+keywords: [color representation, Color class, internal representation, color conversion]
+---
+
+# Color Representation in color-core
+
+Understanding how color-core represents colors internally is crucial for effective use of the library. This guide explains the core concepts of color representation in color-core.
+
+## The Color Class
+
+At the heart of color-core is the `Color` class. This class provides a unified way to work with colors across different color spaces.
+
+```typescript
+import { Color } from 'color-core';
+
+const myColor = new Color('#FF5733');
+```
+
+## Internal Representation
+
+Internally, the `Color` class stores colors in the RGB color space. This choice allows for efficient conversion between different color spaces.
+
+```typescript
+class Color {
+    private _rgb: RGB;
+    // ... other properties and methods
+}
+```
+
+The `_rgb` property is of type `RGB`, which is defined as:
+
+```typescript
+type RGB = {
+    r: number;
+    g: number;
+    b: number;
+    a?: number;
+};
+```
+
+## Color Creation
+
+The `Color` constructor is flexible and can accept various input formats:
+
+```typescript
+// From hex string
+const color1 = new Color('#FF5733');
+
+// From RGB object
+const color2 = new Color({ r: 255, g: 87, b: 51 });
+
+// From HSL object
+const color3 = new

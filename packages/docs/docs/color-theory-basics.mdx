@@ -1,0 +1,218 @@
+---
+id: color-theory
+title: "Understanding Color Theory"
+description: "Explore the fundamental concepts and principles of color theory and how they apply to design and color manipulation."
+sidebar_label: "Color Theory"
+slug: /color-theory
+keywords: [color theory, color wheel, primary colors, secondary colors, tertiary colors, color properties, color relationships]
+---
+
+import { Color } from 'color-core';
+
+# Understanding Color Theory
+
+Color theory is the conceptual framework that guides the use of color in art and design. It encompasses a set of principles for creating harmonious color combinations and understanding how colors interact with one another. This knowledge is crucial for effective color manipulation and creating visually appealing designs.
+
+## The Color Wheel
+
+At the heart of color theory is the color wheel, a visual representation of colors arranged according to their chromatic relationship. The most common version is a circle of 12 colors based on the RYB (Red, Yellow, Blue) color model.
+
+### Primary Colors
+
+Primary colors are the foundation of the color wheel and cannot be created by mixing other colors:
+
+- Red
+- Yellow
+- Blue
+
+export const PrimaryColorsDemo = () => {
+  const primaryColors = ['#FF0000', '#FFFF00', '#0000FF'];
+  return (
+    <div className="color-demo">
+      <div className="swatch-container">
+        {primaryColors.map((color, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: color }} />
+        ))}
+      </div>
+      <p>Primary Colors: Red, Yellow, Blue</p>
+    </div>
+  );
+};
+
+<PrimaryColorsDemo />
+
+### Secondary Colors
+
+Secondary colors are created by mixing two primary colors:
+
+- Green (Blue + Yellow)
+- Orange (Red + Yellow)
+- Purple (Red + Blue)
+
+export const SecondaryColorsDemo = () => {
+  const secondaryColors = ['#00FF00', '#FFA500', '#800080'];
+  return (
+    <div className="color-demo">
+      <div className="swatch-container">
+        {secondaryColors.map((color, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: color }} />
+        ))}
+      </div>
+      <p>Secondary Colors: Green, Orange, Purple</p>
+    </div>
+  );
+};
+
+<SecondaryColorsDemo />
+
+### Tertiary Colors
+
+Tertiary colors are created by mixing a primary color with an adjacent secondary color:
+
+- Yellow-Green, Blue-Green, Blue-Purple, Red-Purple, Red-Orange, Yellow-Orange
+
+export const TertiaryColorsDemo = () => {
+  const tertiaryColors = ['#9ACD32', '#00CED1', '#8A2BE2', '#FF1493', '#FF4500', '#FFD700'];
+  return (
+    <div className="color-demo">
+      <div className="swatch-container">
+        {tertiaryColors.map((color, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: color }} />
+        ))}
+      </div>
+      <p>Tertiary Colors: Yellow-Green, Blue-Green, Blue-Purple, Red-Purple, Red-Orange, Yellow-Orange</p>
+    </div>
+  );
+};
+
+<TertiaryColorsDemo />
+
+## Color Properties
+
+Understanding the properties of color is crucial for effective color manipulation:
+
+### Hue
+
+Hue is the pure color itself, represented on the color wheel. It's what we typically mean when we say "red," "blue," etc.
+
+### Saturation
+
+Saturation, also known as chroma, refers to the intensity or purity of a color. A highly saturated color is vivid, while a less saturated color appears more muted or gray.
+
+### Value (Brightness)
+
+Value refers to the lightness or darkness of a color. Adding white increases value and creates a tint, while adding black decreases value and creates a shade.
+
+export const ColorPropertiesDemo = () => {
+  const baseColor = new Color('#FF0000');
+  const desaturated = baseColor.adjustSaturation(-50);
+  const darkened = baseColor.adjustLightness(-30);
+  const lightened = baseColor.adjustLightness(30);
+
+  return (
+    <div className="color-demo">
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: baseColor.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: desaturated.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: darkened.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: lightened.toHex() }} />
+      </div>
+      <p>Base Color, Desaturated, Darkened, Lightened</p>
+    </div>
+  );
+};
+
+<ColorPropertiesDemo />
+
+## Color Relationships
+
+Color theory defines several key relationships between colors:
+
+### Complementary Colors
+
+Colors opposite each other on the color wheel. They create high contrast and vibrant looks.
+
+### Analogous Colors
+
+Colors that are next to each other on the color wheel. They create harmonious and comfortable designs.
+
+### Triadic Colors
+
+Three colors that are evenly spaced around the color wheel. They tend to be quite vibrant.
+
+### Tetradic Colors
+
+Four colors that are evenly spaced around the color wheel. They offer many possibilities for variation.
+
+(For demonstrations of these relationships, refer to the Color Harmonies page)
+
+## Color Temperature
+
+Colors are often described as having a temperature:
+
+- Warm colors: Reds, oranges, yellows
+- Cool colors: Blues, greens, purples
+
+Warm colors tend to advance in space, while cool colors tend to recede.
+
+export const ColorTemperatureDemo = () => {
+  const warmColors = ['#FF0000', '#FFA500', '#FFFF00'];
+  const coolColors = ['#0000FF', '#008000', '#800080'];
+  return (
+    <div className="color-demo">
+      <div className="swatch-container">
+        {warmColors.map((color, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: color }} />
+        ))}
+      </div>
+      <p>Warm Colors</p>
+      <div className="swatch-container">
+        {coolColors.map((color, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: color }} />
+        ))}
+      </div>
+      <p>Cool Colors</p>
+    </div>
+  );
+};
+
+<ColorTemperatureDemo />
+
+## Color Context
+
+The appearance of a color can change depending on its surrounding colors. This phenomenon is known as simultaneous contrast.
+
+export const ColorContextDemo = () => {
+  const centerColor = '#808080';
+  const bgColors = ['#FFFFFF', '#000000'];
+  return (
+    <div className="color-demo">
+      {bgColors.map((bgColor, index) => (
+        <div key={index} style={{ backgroundColor: bgColor, padding: '20px', margin: '10px' }}>
+          <div className="color-swatch" style={{ backgroundColor: centerColor }} />
+        </div>
+      ))}
+      <p>The center color is the same in both examples, but appears different due to the background.</p>
+    </div>
+  );
+};
+
+<ColorContextDemo />
+
+## Practical Applications of Color Theory
+
+Understanding color theory has numerous practical applications:
+
+1. **Branding**: Choosing appropriate colors for logos and brand identity.
+2. **Web Design**: Creating visually appealing and user-friendly websites.
+3. **User Interface Design**: Enhancing usability through strategic color use.
+4. **Art and Illustration**: Creating balanced and impactful visual compositions.
+5. **Fashion**: Designing cohesive and attractive clothing collections.
+6. **Interior Design**: Creating harmonious and functional living spaces.
+7. **Marketing**: Using color psychology to influence consumer behavior.
+
+## Conclusion
+
+Color theory provides a solid foundation for understanding how colors work together and how they can be effectively used in various applications. By mastering these principles, you can enhance your ability to manipulate and use color effectively in your projects.
+
+Remember, while color theory provides guidelines, creativity often involves bending or breaking these rules. Use this knowledge as a starting point, but don't be afraid to experiment and develop your own unique color sensibilities.

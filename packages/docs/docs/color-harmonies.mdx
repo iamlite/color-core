@@ -1,0 +1,386 @@
+---
+id: color-harmonies
+title: "Color Harmonies with color-core"
+description: "Learn about different color harmonies and how to generate them using color-core."
+sidebar_label: "Color Harmonies"
+slug: /color-harmonies
+keywords: [color harmonies, complementary, analogous, triadic, tetradic, color schemes]
+---
+
+import { useState } from 'react';
+import { Color } from 'color-core';
+
+# Color Harmonies with color-core
+
+Color harmonies are combinations of colors that are visually appealing and work well together. They are based on the arrangement of colors on a color wheel. color-core provides methods to easily generate various color harmonies. Let's explore these harmonies and how to create them.
+
+## Supported Color Harmonies
+
+color-core supports the following color harmonies:
+
+1. Complementary
+2. Analogous
+3. Triadic
+4. Tetradic (Rectangle)
+5. Split-Complementary
+6. Double Split-Complementary
+7. Square
+8. Monochromatic
+9. Shades
+10. Tints
+11. Tones
+
+Let's examine each of these in detail:
+
+## Complementary Colors
+
+Complementary colors are pairs of colors that are opposite each other on the color wheel. They create a high contrast and vibrant look when used together.
+
+```typescript
+const color = new Color('#ff0000');
+const [base, complement] = color.complementary();
+```
+
+export const ComplementaryDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const [base, complement] = color.complementary();
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: base.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: complement.toHex() }} />
+      </div>
+      <p>Base: {base.toHex()}</p>
+      <p>Complement: {complement.toHex()}</p>
+    </div>
+  );
+};
+
+<ComplementaryDemo />
+
+## Analogous Colors
+
+Analogous colors are groups of three colors that are next to each other on the color wheel. They usually match well and create serene and comfortable designs.
+
+```typescript
+const color = new Color('#ff0000');
+const [base, analog1, analog2] = color.analogous();
+```
+
+export const AnalogousDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const [base, analog1, analog2] = color.analogous();
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: analog1.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: base.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: analog2.toHex() }} />
+      </div>
+      <p>Analogous colors: {analog1.toHex()}, {base.toHex()}, {analog2.toHex()}</p>
+    </div>
+  );
+};
+
+<AnalogousDemo />
+
+## Triadic Colors
+
+Triadic colors are three colors equally spaced around the color wheel. They tend to be quite vibrant, even if you use pale or unsaturated versions of your hues.
+
+```typescript
+const color = new Color('#ff0000');
+const [base, triad1, triad2] = color.triadic();
+```
+
+export const TriadicDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const [base, triad1, triad2] = color.triadic();
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: base.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: triad1.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: triad2.toHex() }} />
+      </div>
+      <p>Triadic colors: {base.toHex()}, {triad1.toHex()}, {triad2.toHex()}</p>
+    </div>
+  );
+};
+
+<TriadicDemo />
+
+## Tetradic Colors (Rectangle)
+
+Tetradic color harmony uses four colors arranged into two complementary pairs. This scheme is rich and offers many possibilities for variation.
+
+```typescript
+const color = new Color('#ff0000');
+const [base, tetra1, tetra2, tetra3] = color.tetradic();
+```
+
+export const TetradicDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const [base, tetra1, tetra2, tetra3] = color.tetradic();
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: base.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: tetra1.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: tetra2.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: tetra3.toHex() }} />
+      </div>
+      <p>Tetradic colors: {base.toHex()}, {tetra1.toHex()}, {tetra2.toHex()}, {tetra3.toHex()}</p>
+    </div>
+  );
+};
+
+<TetradicDemo />
+
+## Split-Complementary Colors
+
+Split-complementary color harmony uses a base color and the two colors adjacent to its complement. This provides high contrast while being more nuanced than a complementary scheme.
+
+```typescript
+const color = new Color('#ff0000');
+const [base, split1, split2] = color.splitComplementary();
+```
+
+export const SplitComplementaryDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const [base, split1, split2] = color.splitComplementary();
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: base.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: split1.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: split2.toHex() }} />
+      </div>
+      <p>Split-complementary colors: {base.toHex()}, {split1.toHex()}, {split2.toHex()}</p>
+    </div>
+  );
+};
+
+<SplitComplementaryDemo />
+
+## Double Split-Complementary Colors
+
+Double split-complementary harmony uses four colors: a base color, its complement, and the colors on either side of the complement. This creates a rich, vibrant palette.
+
+```typescript
+const color = new Color('#ff0000');
+const [base, doubleSplit1, doubleSplit2, doubleSplit3, doubleSplit4] = color.doubleSplitComplementary();
+```
+
+export const DoubleSplitComplementaryDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const [base, doubleSplit1, doubleSplit2, doubleSplit3, doubleSplit4] = color.doubleSplitComplementary();
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: base.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: doubleSplit1.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: doubleSplit2.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: doubleSplit3.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: doubleSplit4.toHex() }} />
+      </div>
+      <p>Double split-complementary colors: {base.toHex()}, {doubleSplit1.toHex()}, {doubleSplit2.toHex()}, {doubleSplit3.toHex()}, {doubleSplit4.toHex()}</p>
+    </div>
+  );
+};
+
+<DoubleSplitComplementaryDemo />
+
+## Square Colors
+
+Square color harmony uses four colors evenly spaced around the color wheel. This creates a balanced, dynamic color scheme.
+
+```typescript
+const color = new Color('#ff0000');
+const [base, square1, square2, square3] = color.square();
+```
+
+export const SquareDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const [base, square1, square2, square3] = color.square();
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: base.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: square1.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: square2.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: square3.toHex() }} />
+      </div>
+      <p>Square colors: {base.toHex()}, {square1.toHex()}, {square2.toHex()}, {square3.toHex()}</p>
+    </div>
+  );
+};
+
+<SquareDemo />
+
+## Monochromatic Colors
+
+Monochromatic color harmony uses variations in lightness and saturation of a single color. This creates a cohesive and sophisticated look.
+
+```typescript
+const color = new Color('#ff0000');
+const monochromaticColors = color.monochromatic(5); // generates 5 monochromatic colors
+```
+
+export const MonochromaticDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const monochromaticColors = color.monochromatic(5);
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        {monochromaticColors.map((c, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: c.toHex() }} />
+        ))}
+      </div>
+      <p>Monochromatic colors: {monochromaticColors.map(c => c.toHex()).join(', ')}</p>
+    </div>
+  );
+};
+
+<MonochromaticDemo />
+
+## Shades, Tints, and Tones
+
+color-core also provides methods to generate shades (darker versions), tints (lighter versions), and tones (less saturated versions) of a color.
+
+```typescript
+const color = new Color('#ff0000');
+const shades = color.shades(10);
+const tints = color.tints(10);
+const tones = color.tones(10);
+```
+
+export const ShadesDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const shades = color.shades(10);
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color for shades:</p>
+      <inpu10
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        {shades.map((c, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: c.toHex() }} />
+        ))}
+      </div>
+      <p>Shades: {shades.map(c => c.toHex()).join(', ')}</p>
+    </div>
+  );
+};
+
+<ShadesDemo />
+
+export const TintsDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const tints = color.tints(10);
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color for tints:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        {tints.map((c, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: c.toHex() }} />
+        ))}
+      </div>
+      <p>Tints: {tints.map(c => c.toHex()).join(', ')}</p>
+    </div>
+  );
+};
+
+<TintsDemo />
+
+export const TonesDemo = () => {
+  const [color, setColor] = useState(new Color('#ff0000'));
+  const tones = color.tones(10);
+
+  return (
+    <div className="color-demo">
+      <p className="color-instruction">Choose a base color for tones:</p>
+      <input
+        type="color"
+        value={color.toHex()}
+        onChange={(e) => setColor(new Color(e.target.value))}
+      />
+      <div className="swatch-container">
+        {tones.map((c, index) => (
+          <div key={index} className="color-swatch" style={{ backgroundColor: c.toHex() }} />
+        ))}
+      </div>
+      <p>Tones: {tones.map(c => c.toHex()).join(', ')}</p>
+    </div>
+  );
+};
+
+<TonesDemo />
+
+These color harmony methods provide a powerful toolkit for creating visually appealing color schemes in your projects. Experiment with different base colors and harmony types to find the perfect combination for your needs.

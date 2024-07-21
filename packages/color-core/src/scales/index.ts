@@ -1,0 +1,5 @@
+export { createDivergingScale } from './components/diverging-scale'
+export { createSequentialScale } from './components/sequential-scale'
+export { createMultiHueSequentialScale } from './components/multi-hue-sequential-scale'
+export { createPerceptuallyUniformScale } from './components/perceptually-uniform-scale'
+export { createQualitativeScale } from './components/qualitative-scale'
