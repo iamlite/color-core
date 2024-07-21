@@ -38,7 +38,7 @@ export default function DemoPage() {
           setColor={setColor}
         />
       </div>
-      {/* <ColorScalesDemo /> */}
+      <ColorScalesDemo />
     </div>
   )
 }
