@@ -5,6 +5,6 @@
       "use": "@vercel/next"
     }
   ],
-  "buildCommand": "yarn build",
+  "buildCommand": "yarn workspace color-core build && yarn workspace website build",
   "outputDirectory": ".next"
 }

@@ -8,5 +8,5 @@
       }
     }
   ],
-  "buildCommand": "yarn build"
+  "buildCommand": "yarn workspace docs build && yarn workspace website build"
 }
