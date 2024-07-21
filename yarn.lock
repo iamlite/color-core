@@ -8333,9 +8333,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"color-core@link:../../node_modules/color-core::locator=website%40workspace%3Apackages%2Fwebsite":
+"color-core@link:../../../../node_modules/color-core::locator=website%40workspace%3Apackages%2Fwebsite":
   version: 0.0.0-use.local
-  resolution: "color-core@link:../../node_modules/color-core::locator=website%40workspace%3Apackages%2Fwebsite"
+  resolution: "color-core@link:../../../../node_modules/color-core::locator=website%40workspace%3Apackages%2Fwebsite"
   languageName: node
   linkType: soft
 
@@ -20913,7 +20913,7 @@ __metadata:
     "@vercel/speed-insights": "npm:^1.0.12"
     autoprefixer: "npm:10.4.19"
     clsx: "npm:2.1.1"
-    color-core: "link:../../node_modules/color-core"
+    color-core: "link:../../../../node_modules/color-core"
     eslint: "npm:^8.57.0"
     eslint-config-next: "npm:14.2.5"
     eslint-config-prettier: "npm:^8.2.0"
