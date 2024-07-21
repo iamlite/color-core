@@ -86,3 +86,4 @@ structure.md
 *.pem
 .lock-wscript
 .yarn-integrity
+.vercel

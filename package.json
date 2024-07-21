@@ -39,5 +39,8 @@
     "type": "git",
     "url": "git+https://github.com/iamlite/color-core.git"
   },
-  "packageManager": "yarn@4.3.1"
+  "packageManager": "yarn@4.3.1",
+  "dependencies": {
+    "vercel": "^35.1.0"
+  }
 }
