@@ -1,0 +1,357 @@
+---
+id: color-schemes-for-branding
+title: "Color Schemes for Branding"
+description: "Learn how to use color-core to create effective and consistent color schemes for branding"
+sidebar_label: "Branding Color Schemes"
+keywords: [color-core, branding, color schemes, color harmony, React]
+---
+
+import { Color } from 'color-core';
+import { useState } from 'react';
+
+# Color Schemes for Branding
+
+A well-designed color scheme is crucial for establishing a strong brand identity. It helps in creating recognition, conveying the right message, and ensuring consistency across various platforms and mediums. This guide will show you how to use color-core to create and maintain effective color schemes for branding.
+
+## Creating a Brand Color Palette
+
+Let's walk through the process of creating a brand color palette using color-core:
+
+### 1. Choosing Primary Colors
+
+Start by selecting your primary brand color. This could be based on your logo or other existing brand elements:
+
+```typescript
+import { Color } from 'color-core';
+
+const primaryColor = new Color('#3498db');  // A vibrant blue
+console.log(primaryColor.toHex());  // '#3498db'
+```
+
+Here's an interactive example to choose and display your primary color:
+
+export const PrimaryColorDemo = () => {
+  const [primaryColor, setPrimaryColor] = useState('#3498db');
+
+  return (
+    <div className="color-demo">
+      <label>
+        Primary Color:
+        <input type="color" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} />
+      </label>
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: primaryColor }} />
+      </div>
+      <div>{new Color(primaryColor).toHex()}</div>
+    </div>
+  );
+};
+
+<PrimaryColorDemo />
+
+### 2. Generating Complementary Colors
+
+Use color-core's harmony functions to generate complementary colors:
+
+```typescript
+const primaryColor = new Color('#3498db');
+const [complement] = primaryColor.complementary();
+console.log(`Complementary color: ${complement.toHex()}`);
+```
+
+Here's an interactive example to generate and display complementary colors:
+
+export const ComplementaryDemo = () => {
+  const [primaryColor, setPrimaryColor] = useState('#3498db');
+  const complementColor = new Color(primaryColor).complementary()[0];
+
+  return (
+    <div className="color-demo">
+      <label>
+        Primary Color:
+        <input type="color" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} />
+      </label>
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: primaryColor }} />
+        <div className="color-swatch" style={{ backgroundColor: complementColor.toHex() }} />
+      </div>
+      <div>Primary: {new Color(primaryColor).toHex()}</div>
+      <div>Complement: {complementColor.toHex()}</div>
+    </div>
+  );
+};
+
+<ComplementaryDemo />
+
+### 3. Creating a Color Scheme
+
+Let's create an analogous color scheme to expand our palette:
+
+```typescript
+const primaryColor = new Color('#3498db');
+const [analogous1, analogous2] = primaryColor.analogous();
+console.log(`Analogous colors: ${analogous1.toHex()}, ${analogous2.toHex()}`);
+```
+
+Here's an interactive example to generate and display an analogous color scheme:
+
+export const AnalogousDemo = () => {
+  const [primaryColor, setPrimaryColor] = useState('#3498db');
+  const [analogous1, analogous2] = new Color(primaryColor).analogous();
+
+  return (
+    <div className="color-demo">
+      <label>
+        Primary Color:
+        <input type="color" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} />
+      </label>
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: analogous1.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: primaryColor }} />
+        <div className="color-swatch" style={{ backgroundColor: analogous2.toHex() }} />
+      </div>
+      <div>Analogous 1: {analogous1.toHex()}</div>
+      <div>Primary: {new Color(primaryColor).toHex()}</div>
+      <div>Analogous 2: {analogous2.toHex()}</div>
+    </div>
+  );
+};
+
+<AnalogousDemo />
+
+### 4. Generating Accent Colors
+
+For accent colors, we can use the split-complementary harmony:
+
+```typescript
+const primaryColor = new Color('#3498db');
+const [splitComplement1, splitComplement2] = primaryColor.splitComplementary();
+console.log(`Accent colors: ${splitComplement1.toHex()}, ${splitComplement2.toHex()}`);
+```
+
+Here's an interactive example to generate and display split-complementary colors:
+
+export const SplitComplementaryDemo = () => {
+  const [primaryColor, setPrimaryColor] = useState('#3498db');
+  const [splitComplement1, splitComplement2] = new Color(primaryColor).splitComplementary();
+
+  return (
+    <div className="color-demo">
+      <label>
+        Primary Color:
+        <input type="color" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} />
+      </label>
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: splitComplement1.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: primaryColor }} />
+        <div className="color-swatch" style={{ backgroundColor: splitComplement2.toHex() }} />
+      </div>
+      <div>Split Complement 1: {splitComplement1.toHex()}</div>
+      <div>Primary: {new Color(primaryColor).toHex()}</div>
+      <div>Split Complement 2: {splitComplement2.toHex()}</div>
+    </div>
+  );
+};
+
+<SplitComplementaryDemo />
+
+### 5. Creating Color Variations
+
+For each of your brand colors, you might want to create lighter and darker variations:
+
+```typescript
+const primaryColor = new Color('#3498db');
+const darkerShade = primaryColor.adjustLightness(-15);
+const lighterTint = primaryColor.adjustLightness(15);
+
+console.log(`Darker shade: ${darkerShade.toHex()}`);
+console.log(`Primary color: ${primaryColor.toHex()}`);
+console.log(`Lighter tint: ${lighterTint.toHex()}`);
+```
+
+Here's an interactive example to generate and display color variations:
+
+export const ColorVariationsDemo = () => {
+  const [primaryColor, setPrimaryColor] = useState('#3498db');
+  const color = new Color(primaryColor);
+  const darkerShade = color.adjustLightness(-15);
+  const lighterTint = color.adjustLightness(15);
+
+  return (
+    <div className="color-demo">
+      <label>
+        Primary Color:
+        <input type="color" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} />
+      </label>
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: darkerShade.toHex() }} />
+        <div className="color-swatch" style={{ backgroundColor: primaryColor }} />
+        <div className="color-swatch" style={{ backgroundColor: lighterTint.toHex() }} />
+      </div>
+      <div>Darker: {darkerShade.toHex()}</div>
+      <div>Primary: {color.toHex()}</div>
+      <div>Lighter: {lighterTint.toHex()}</div>
+    </div>
+  );
+};
+
+<ColorVariationsDemo />
+
+## Ensuring Color Consistency
+
+To maintain brand consistency, it's important to be able to represent your colors accurately across different color spaces and mediums.
+
+### Converting Between Color Spaces
+
+color-core allows easy conversion between different color spaces:
+
+```typescript
+const primaryColor = new Color('#3498db');
+const rgb = primaryColor.toRgb();
+const hsl = primaryColor.toHsl();
+const cmyk = primaryColor.toCmyk();
+
+console.log('Primary color in different formats:');
+console.log(`RGB: ${JSON.stringify(rgb)}`);
+console.log(`HSL: ${JSON.stringify(hsl)}`);
+console.log(`CMYK: ${JSON.stringify(cmyk)}`);
+```
+
+Here's an interactive example to display a color in different formats:
+
+export const ColorSpacesDemo = () => {
+  const [primaryColor, setPrimaryColor] = useState('#3498db');
+  const color = new Color(primaryColor);
+
+  return (
+    <div className="color-demo">
+      <label>
+        Color:
+        <input type="color" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} />
+      </label>
+      <div className="swatch-container">
+        <div className="color-swatch" style={{ backgroundColor: primaryColor }} />
+      </div>
+      <div>HEX: {color.toHex()}</div>
+      <div>RGB: {JSON.stringify(color.toRgb())}</div>
+      <div>HSL: {JSON.stringify(color.toHsl())}</div>
+      <div>CMYK: {JSON.stringify(color.toCmyk())}</div>
+    </div>
+  );
+};
+
+<ColorSpacesDemo />
+
+## Practical Example: Creating a Full Brand Color Scheme
+
+Let's put it all together to create a comprehensive brand color scheme:
+
+```typescript
+import { Color } from 'color-core';
+
+function createBrandColorScheme(primaryColor: Color) {
+  const [complement] = primaryColor.complementary();
+  const [analogous1, analogous2] = primaryColor.analogous();
+  const [accent1, accent2] = primaryColor.splitComplementary();
+
+  return {
+    primary: {
+      main: primaryColor,
+      light: primaryColor.adjustLightness(15),
+      dark: primaryColor.adjustLightness(-15),
+    },
+    secondary: complement,
+    tertiary1: analogous1,
+    tertiary2: analogous2,
+    accent1: accent1,
+    accent2: accent2,
+  };
+}
+
+const brandColors = createBrandColorScheme(new Color('#3498db'));
+
+Object.entries(brandColors).forEach(([key, value]) => {
+  if (value instanceof Color) {
+    console.log(`${key}: ${value.toHex()}`);
+  } else {
+    console.log(`${key}:`);
+    Object.entries(value).forEach(([subKey, subValue]) => {
+      console.log(`  ${subKey}: ${(subValue as Color).toHex()}`);
+    });
+  }
+});
+```
+
+Here's an interactive example to generate and display a full brand color scheme:
+
+export const BrandColorSchemeDemo = () => {
+  const [primaryColor, setPrimaryColor] = useState('#3498db');
+
+  const createBrandColorScheme = (color) => {
+    const primary = new Color(color);
+    const [complement] = primary.complementary();
+    const [analogous1, analogous2] = primary.analogous();
+    const [accent1, accent2] = primary.splitComplementary();
+
+    return {
+      primary: {
+        main: primary,
+        light: primary.adjustLightness(15),
+        dark: primary.adjustLightness(-15),
+      },
+      secondary: complement,
+      tertiary1: analogous1,
+      tertiary2: analogous2,
+      accent1: accent1,
+      accent2: accent2,
+    };
+  };
+
+  const brandColors = createBrandColorScheme(primaryColor);
+
+  const isColor = (value) => value instanceof Color;
+
+  return (
+    <div className="color-demo">
+      <label>
+        Primary Color:
+        <input type="color" value={primaryColor} onChange={(e) => setPrimaryColor(e.target.value)} />
+      </label>
+      <div className="swatch-container">
+        {Object.entries(brandColors).flatMap(([key, value]) => {
+          if (isColor(value)) {
+            return <div key={key} className="color-swatch" style={{ backgroundColor: value.toHex() }} />;
+          } else if (typeof value === 'object') {
+            return Object.values(value).map((subValue, index) =>
+              isColor(subValue) ? (
+                <div key={`${key}-${index}`} className="color-swatch" style={{ backgroundColor: subValue.toHex() }} />
+              ) : null
+            );
+          }
+          return null;
+        })}
+      </div>
+      {Object.entries(brandColors).map(([key, value]) => {
+        if (isColor(value)) {
+          return <div key={key}>{key}: {value.toHex()}</div>;
+        } else if (typeof value === 'object') {
+          return (
+            <div key={key}>
+              {key}:
+              {Object.entries(value).map(([subKey, subValue]) =>
+                isColor(subValue) ? (
+                  <div key={subKey}>&nbsp;&nbsp;{subKey}: {subValue.toHex()}</div>
+                ) : null
+              )}
+            </div>
+          );
+        }
+        return null;
+      })}
+    </div>
+  );
+};
+
+<BrandColorSchemeDemo />
+
+By using color-core's various functions, you can create sophisticated, consistent color schemes for your brand. Remember to test your color scheme in different contexts and mediums to ensure it maintains its impact and readability across all use cases.

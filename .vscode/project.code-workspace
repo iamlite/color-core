@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "name": "ROOT",
+      "path": ".."
+    },
+    {
+      "name": "packages/color-core",
+      "path": "../packages/color-core"
+    },
+    {
+      "name": "packages/website",
+      "path": "../packages/website"
+    },
+    {
+      "name": "packages/docs",
+      "path": "../packages/docs"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "packages/": true
+    },
+    "jest.disabledWorkspaceFolders": ["packages/color-core", "packages/website", "packages/docs"],
+    "jest.jestCommandLine": "yarn test"
+  }
+}

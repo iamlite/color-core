@@ -13,35 +13,5 @@
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/.color.ts"],
   "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/__tests__/*"],
   "typeRoots": ["../node_modules/@types", "./node_modules/@types", "../node_modules/@testing-library"],
-  "types": ["jest", "jest-dom"],
-  "typedocOptions": {
-    "entryPoints": ["src"],
-    // "plugin": ["typedoc-plugin-markdown"],
-    // "out": "color-core-docs/docs/",
-    "plugin": ["../../docs/doctheme/cjs/index.js"],
-    "theme": "dumi",
-    "out": "../docs/",
-    "hostedBaseUrl": "https://docs.color-core.com",
-    "useHostedBaseUrlForAbsoluteLinks": false,
-    "titleLink": "https://color-core.com",
-    "lang": "en",
-    "hideGenerator": true,
-    "includeVersion": false,
-    "highlightLanguages": ["js", "ts", "jsx", "tsx", "bash"],
-    "navigation": {
-      "includeCategories": true,
-      "includeGroups": false,
-      "includeFolders": true
-    },
-    "navigationLinks": {
-      "Home": "https://color-core.com",
-      "Demo": "https://color-core.com/demo"
-    },
-    "navigationLinkTargets": {
-      "Home": "_self",
-      "Demo": "_self"
-    },
-    "logoTitle": "color-core",
-    "footerAlign": "center"
-  }
+  "types": ["jest", "jest-dom"]
 }

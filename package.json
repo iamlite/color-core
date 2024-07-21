@@ -6,16 +6,28 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces run build",
+    "buildall": "yarn workspaces run build",
     "test": "yarn workspace color-core test",
-    "dev:website": "yarn workspace website dev",
-    "build:website": "yarn workspace website build",
-    "dev:docs": "yarn workspace docs dev",
-    "build:docs": "yarn workspace docs build",
-    "clean": "yarn workspace color-core clean",
+    "corebuild": "yarn workspace color-core build",
+    "coretest": "yarn workspace color-core test",
+    "docbuild": "yarn workspace docs build",
+    "docserve": "yarn workspace docs serve",
+    "docdev": "yarn workspace docs start",
+    "webdev": "yarn workspace website dev",
+    "alldev": "concurrently \"yarn docdev\" \"yarn webdev\"",
+    "prep": "yarn corebuild && yarn coretest && yarn docbuild && yarn clean && yarn alldev",
+    "clean": "find . -name .DS_Store -type f -print0 | xargs -0 -I {} sh -c 'echo \"Removing {}\"; git rm -f --ignore-unmatch \"{}\"; rm \"{}\"'",
     "prepublish:core": "yarn workspace color-core prepublishOnly"
   },
+  "dependencies": {
+    "color-core": "workspace:*"
+  },
   "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^9.7.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
     "typedoc": "^0.26.4",
     "typescript": "5.5.3"
   },
@@ -24,5 +36,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iamlite/color-core.git"
-  }
+  },
+  "packageManager": "yarn@4.3.1"
 }

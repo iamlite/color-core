@@ -15,16 +15,16 @@ import { calculateBrightness, isLightColor } from './utils';
 import { getColorInfo, getColorName } from './utils/components/color-naming';
 
 /**
-+ * The Color class represents a color with various color space representations and manipulation methods.
-+ * 
-+ * The class supports multiple color spaces, including RGB, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV.
-+ * It also provides methods for converting between color spaces and generating harmony colors.
-+ * 
-+ * The class offers various color manipulation methods, such as adjusting lightness, saturation, hue, and alpha.
-+ * It also provides methods for converting colors to different string representations and retrieving information about the color.
-+ * 
-+ * The class also includes utility methods for determining the perceived brightness of the color and checking if it is light or dark.
-+ */
+ * The Color class represents a color with various color space representations and manipulation methods.
+ *
+ * The class supports multiple color spaces, including RGB, HSL, HSV, CMYK, LAB, LCH, XYZ, and YUV.
+ * It also provides methods for converting between color spaces and generating harmony colors.
+ *
+ * The class offers various color manipulation methods, such as adjusting lightness, saturation, hue, and alpha.
+ * It also provides methods for converting colors to different string representations and retrieving information about the color.
+ *
+ * The class also includes utility methods for determining the perceived brightness of the color and checking if it is light or dark.
+ */
 export class Color {
     private _rgb: RGB;
     private static PRECISION = 6;
