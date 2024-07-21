@@ -10381,7 +10381,7 @@ __metadata:
     prism-react-renderer: "npm:^2.3.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    typedoc: "npm:^0.26.4"
+    typedoc: "npm:^0.26.5"
     typedoc-plugin-markdown: "npm:^4.2.1"
     typescript: "npm:^5.5.3"
     url-loader: "npm:^4.1.1"
@@ -21375,7 +21375,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.26.4, typedoc@npm:^0.26.5":
+"typedoc@npm:^0.26.5":
   version: 0.26.5
   resolution: "typedoc@npm:0.26.5"
   dependencies:
