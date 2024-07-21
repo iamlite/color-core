@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "docs": {
+      "source": "packages/docs",
+      "buildCommand": "yarn workspace docs build",
+      "outputDirectory": "packages/docs/build"
+    },
+    "website": {
+      "source": "packages/website",
+      "buildCommand": "yarn workspace website build",
+      "outputDirectory": "packages/website/.next"
+    }
+  }
+}
