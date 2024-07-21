@@ -1,10 +1,12 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/next"
     }
   ],
-  "buildCommand": "yarn workspace color-core build && yarn workspace website build",
+  "buildCommand": "yarn workspace website build",
+  "installCommand": "yarn workspace color-core build && yarn workspace website install",
   "outputDirectory": ".next"
 }
