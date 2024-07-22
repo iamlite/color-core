@@ -1,6 +1,6 @@
 {
   "name": "color-core",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "`color-core` is a comprehensive, type-safe color manipulation library for TypeScript and JavaScript applications. It provides a powerful toolkit for working with colors across multiple color spaces, making it an essential tool for developers working on projects that require advanced color handling.",
   "author": "Tariel Davidashvili <hello@tariel.me> (http://tariel.me/)",
   "license": "MIT",
@@ -44,14 +44,16 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "../../README.md"
   ],
   "scripts": {
     "build": "tsc",
     "lb": "npm-run-all test build clean",
     "test": "jest",
     "clean": "find . -name .DS_Store -type f -print0 | xargs -0 -I {} sh -c 'echo \"Removing {}\"; git rm -f --ignore-unmatch \"{}\"; rm \"{}\"'",
-    "prepublishOnly": "npm-run-all test build"
+    "prepublishOnly": "npm-run-all test build",
+    "readme": "cp ../../README.md ./README.md"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
