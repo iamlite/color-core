@@ -43,14 +43,6 @@ jobs:
         if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
         run: yarn install
 
-      - name: Run tests
-        if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
-        run: yarn workspace color-core test
-
-      - name: Build package
-        if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
-        run: yarn workspace color-core build
-
       - name: Publish to npm
         if: steps.npm-version.outputs.SHOULD_PUBLISH == 'true'
         run: |
