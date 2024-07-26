@@ -77,10 +77,10 @@ export { adjustAlpha, adjustHue, adjustLightness, adjustSaturation, grayscale, i
  */
 export {
   createDivergingScale,
-  createSequentialScale,
   createMultiHueSequentialScale,
   createPerceptuallyUniformScale,
-  createQualitativeScale
+  createQualitativeScale,
+  createSequentialScale
 } from './scales'
 
 /**
@@ -118,20 +118,11 @@ export {
 export { Color } from './color'
 
 /**
- * Color Picker Props Type
- * Type definition for the props of the ColorPicker component
- */
-export type { ColorPickerProps } from './utils'
-
-/**
  * @description getColorInfo and getColorName
  * Axios functions for color name and information
  * These functions can be used to fetch color name and information from the Color.pizza API
  *
- * React Color Picker Component:
- * A customizable color picker component for React applications
- *
- * Default styles for the Color Picker component:
- * These styles can be customized or overridden as neede
  */
-export { ColorPicker, defaultColorPickerStyles, getColorInfo, getColorName } from './utils'
+export { getColorInfo, getColorName } from './utils'
+
+export { getContrastRatio, getRelativeLuminance, getWCAGCompliance } from './accessability'

@@ -1,12 +1,12 @@
 'use client'
-import { Button, Card, CardHeader, Link } from '@nextui-org/react'
+import { Card, CardHeader } from '@nextui-org/react'
 
-import InstallSnippet from '@/components/install-snippet'
 import ThemeAwareLogo from '@/components/theme-logo'
+import InstallSnippet from '@/components/ui/install-snippet'
 
 export default function Home() {
   return (
-    <section className='flex flex-col items-center justify-center h-full px-4 space-y-6'>
+    <section className='flex flex-col items-center justify-center h-full px-4 py-10 space-y-6'>
       <Card isBlurred className='p-10 w-full md:w-[40vw] opacity-80'>
         <ThemeAwareLogo
           alt='Color Core Logo'
@@ -72,13 +72,19 @@ export default function Home() {
           </ul>
         </div>
       </Card>
-      <Card isBlurred className='p-6'>
+      {/* <Card
+        isBlurred
+        className='p-6'>
         <h3 className='mb-2 text-xl font-semibold'>See it in Action</h3>
         <p className='mb-4'>Experience the power and flexibility of color-core in our interactive demo.</p>
-        <Button as={Link} href='/demo' size='lg' variant='solid'>
+        <Button
+          as={Link}
+          href='/demo'
+          size='lg'
+          variant='solid'>
           Try the Demo
         </Button>
-      </Card>
+      </Card> */}
     </section>
   )
 }

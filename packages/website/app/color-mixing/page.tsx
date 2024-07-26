@@ -1,8 +1,9 @@
+'use client'
+
+import ColorInput from '@/components/ui/color-input'
 import { Card, CardBody, CardFooter, CardHeader, Chip, Divider, Slider, Snippet } from '@nextui-org/react'
 import { Color } from 'color-core'
-import React, { useEffect, useState } from 'react'
-
-import ColorInput from './color-input'
+import { useEffect, useState } from 'react'
 
 const ColorMixer: React.FC = () => {
   const [color1, setColor1] = useState(new Color('#00D0FF'))
@@ -24,11 +25,14 @@ const ColorMixer: React.FC = () => {
 
     fetchColorName()
   }, [mixedColor])
-
   return (
-    <Card isBlurred className='w-full md:w-[40vw] my-2 px-4'>
-      <CardHeader className='justify-center my-4 text-lg font-semibold'>Color Mixer</CardHeader>
-      <CardBody className='grid grid-cols-1 md:grid-cols-2'>
+    <Card isBlurred className='flex-grow w-full p-6 my-4 max-w-7xl'>
+      <CardHeader className='flex flex-col justify-center my-4'>
+        <h2 className='py-4 text-4xl font-bold'>Color Mixer</h2>
+        <p className='text-center'>Mix and blend colors using the color mixing formula</p>
+        <p className='text-center'>Use the slider to adjust the amount of mixing</p>
+      </CardHeader>
+      <CardBody className='grid grid-cols-1 gap-4 md:grid-cols-2 place-content-center'>
         <div className='flex flex-col items-center justify-center align-middle'>
           <ColorInput color={color1} onColorChange={setColor1} />
           <div className='flex items-center justify-center my-4'>

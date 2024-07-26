@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { Color } from 'color-core'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
-import { AnimatedBackground } from '@/components/animated-background'
+import { AnimatedBackground } from '@/components/ui/animated-background'
 
 interface ColorContextType {
   color: Color
@@ -20,51 +20,78 @@ interface ColorContextProviderProps {
   initialColor?: string
 }
 
-/**
- * ColorContextProvider component that provides color context, applies animated background,
- * and updates the viewport color.
- * @param {ColorContextProviderProps} props - The props for the ColorContextProvider.
- * @returns A Provider component for the ColorContext with animated background and viewport color updating.
- */
-export function ColorContextProvider({ children, className, initialColor = '#387ED3' }: ColorContextProviderProps) {
-  const [color, setColor] = useState(new Color(initialColor))
+const LOCAL_STORAGE_KEY = 'savedColor'
 
-  /**
-   * Updates the viewport color meta tag.
-   */
+export function ColorContextProvider({ children, className, initialColor = '#94e3fe' }: ColorContextProviderProps) {
+  const [isClient, setIsClient] = useState(false)
+  const [color, setColor] = useState(() => new Color(initialColor))
+
+  useEffect(() => {
+    setIsClient(true)
+    const savedColor = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if (savedColor) {
+      try {
+        setColor(new Color(savedColor))
+      } catch (error) {
+        console.error('Error parsing saved color:', error)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isClient) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, color.toHex())
+    }
+  }, [color, isClient])
+
   const updateViewportColor = () => {
-    const metaThemeColor = document.querySelector('meta[name=theme-color]')
-
-    if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', color.toHex())
+    if (isClient) {
+      const metaThemeColor = document.querySelector('meta[name=theme-color]')
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', color.toHex())
+      }
     }
   }
 
   useEffect(() => {
-    updateViewportColor()
-  }, [color])
+    if (isClient) {
+      updateViewportColor()
+    }
+  }, [color, isClient])
+
+  const contextValue = React.useMemo(
+    () => ({
+      color,
+      setColor,
+      updateViewportColor
+    }),
+    [color]
+  )
 
   return (
-    <ColorContext.Provider value={{ color, setColor, updateViewportColor }}>
+    <ColorContext.Provider value={contextValue}>
       <div className={clsx(className, 'relative overflow-hidden')}>
-        <AnimatedBackground color={color} lightCount={30} />
+        {isClient && (
+          <AnimatedBackground
+            color={color}
+            lightCount={30}
+          />
+        )}
         <div className='relative z-10'>{children}</div>
       </div>
     </ColorContext.Provider>
   )
 }
 
-/**
- * Custom hook to use the color context.
- * @returns The current color context value.
- * @throws {Error} If used outside of a ColorContextProvider.
- */
 export function useColor() {
   const context = useContext(ColorContext)
-
-  if (context === undefined) {
-    throw new Error('useColor must be used within a ColorContextProvider')
+  if (!context) {
+    console.error('useColor must be used within a ColorContextProvider')
+    return {
+      color: new Color('#94e3fe'),
+      setColor: () => {},
+      updateViewportColor: () => {}
+    }
   }
-
   return context
 }

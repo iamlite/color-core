@@ -415,34 +415,6 @@ type AdobeRGB = { r: number; g: number; b: number };
 
 ---
 
-## ColorPicker Component Props
-
-The `ColorPicker` component accepts the following props:
-
-<br>
-
-| Prop Name                        | Type                 | Description                                        |
-|----------------------------------|:--------------------:|:--------------------------------------------------:|
-| `initialColor`                   | RGB                  | Initial color value in RGB format                  |
-| `onChange`                       | (color: RGB) => void | Callback function triggered when the color changes |
-| `className`                      | string               | Custom class name for the main container           |
-| `style`                          | React.CSSProperties  | Custom inline styles for the main container        |
-| `width`                          | number \| string     | Width of the color picker                          |
-| `height`                         | number \| string     | Height of the color picker                         |
-| `hueSliderHeight`                | number \| string     | Height of the hue slider                           |
-| `saturationValueAreaClassName`   | string               | Custom class name for the saturation-value area    |
-| `saturationValueCursorClassName` | string               | Custom class name for the saturation-value cursor  |
-| `hueSliderClassName`             | string               | Custom class name for the hue slider               |
-| `hueSliderCursorClassName`       | string               | Custom class name for the hue slider cursor        |
-| `inputClassName`                 | string               | Custom class name for the hex input field          |
-| `previewClassName`               | string               | Custom class name for the color preview box        |
-| `containerClassName`             | string               | Custom class name for the outer container          |
-| `containerStyle`                 | React.CSSProperties  | Custom inline styles for the outer container       |
-
-<br>
-
----
-
 ## Examples
 
 These practical examples demonstrate how to use various features of color-core to solve common color-related tasks. Feel free to adapt these examples to your specific needs.

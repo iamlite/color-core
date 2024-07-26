@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-
-  /**
-   * Configures allowed remote image sources
-   */
   images: {
     remotePatterns: [
       {

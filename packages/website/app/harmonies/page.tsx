@@ -1,20 +1,17 @@
+'use client'
+import { useColor } from '@/components/color-context'
+import ColorInput from '@/components/ui/color-input'
+import ColorSwatch from '@/components/ui/color-swatch'
 import { Card, CardBody, CardHeader } from '@nextui-org/react'
 import { Color } from 'color-core'
-import React from 'react'
-
-import ColorSwatch from './color-swatch'
 
 interface ColorSectionProps {
   title: string
   colors: Color[]
 }
 
-interface ColorHarmoniesProps {
-  color: Color
-}
-
 const ColorSection: React.FC<ColorSectionProps> = ({ title, colors }) => (
-  <Card isFooterBlurred>
+  <Card isFooterBlurred className='flex'>
     <CardBody className='flex flex-row items-center justify-between'>
       <p className='text-sm'>{title}</p>
       <div className='flex flex-row '>
@@ -26,11 +23,17 @@ const ColorSection: React.FC<ColorSectionProps> = ({ title, colors }) => (
   </Card>
 )
 
-const ColorHarmonies: React.FC<ColorHarmoniesProps> = ({ color }) => {
+export default function HarmonyPage() {
+  const { color, setColor } = useColor()
+
   return (
-    <Card isBlurred className='w-full md:w-[40vw] my-2 px-4'>
+    <Card isBlurred className='flex-grow w-full p-6 my-4 max-w-7xl'>
       <CardHeader className='justify-center my-4 text-lg font-semibold'>Color Harmonies</CardHeader>
-      <CardBody className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+      <div className='flex flex-col items-center '>
+        <ColorInput color={color} onColorChange={setColor} />
+      </div>
+
+      <CardBody className='grid grid-cols-1 gap-4 md:grid-cols-2 place-content-center'>
         <ColorSection colors={color.doubleSplitComplementary()} title='Double Split Complementary' />
         <ColorSection colors={color.monochromatic(5)} title='Monochromatic' />
         <ColorSection colors={color.shades()} title='Shades' />
@@ -46,5 +49,3 @@ const ColorHarmonies: React.FC<ColorHarmoniesProps> = ({ color }) => {
     </Card>
   )
 }
-
-export default ColorHarmonies

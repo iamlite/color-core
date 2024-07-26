@@ -1,13 +1,13 @@
+'use client'
+
+import { useColor } from '@/components/color-context'
+import ColorInput from '@/components/ui/color-input'
 import { Button, Card, CardBody, CardHeader, Slider } from '@nextui-org/react'
 import { Color } from 'color-core'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-interface ManipulationSectionProps {
-  color: Color
-  setColor: (color: Color) => void
-}
-
-const ManipulationSection: React.FC<ManipulationSectionProps> = ({ color, setColor }) => {
+const ManipulationSection = () => {
+  const { color, setColor } = useColor()
   const [lightnessAmount, setLightnessAmount] = useState(50)
   const [saturationAmount, setSaturationAmount] = useState(100)
   const [hueAmount, setHueAmount] = useState(0)
@@ -51,14 +51,20 @@ const ManipulationSection: React.FC<ManipulationSectionProps> = ({ color, setCol
   const resetColor = () => {
     const hsl = color.toHsl()
 
+    setColor(new Color({ ...hsl, h: 195, s: 98, l: 79 }))
     setLightnessAmount(hsl.l)
     setSaturationAmount(hsl.s)
     setHueAmount(hsl.h)
   }
 
   return (
-    <Card isBlurred className='w-full md:w-[40vw] my-2'>
-      <CardHeader className='justify-center my-4 text-lg font-semibold'>Color Manipulations</CardHeader>
+    <Card isBlurred className='flex-grow w-full p-6 my-4 max-w-7xl'>
+      <CardHeader className='flex flex-col items-center justify-center'>
+        <h1 className='mb-2 text-2xl font-bold'>Color Manipulator</h1>
+        <p className='py-4 text-center'>Manipulate the color values</p>
+        <ColorInput />
+      </CardHeader>
+
       <CardBody className='flex flex-col items-center justify-center h-full md:flex-row'>
         <div className='w-full px-10 space-y-4 md:w-1/2'>
           <Slider
@@ -95,13 +101,13 @@ const ManipulationSection: React.FC<ManipulationSectionProps> = ({ color, setCol
           />
         </div>
         <div className='flex flex-col items-center justify-center w-full px-10 mt-4 space-y-4 md:w-1/2 md:mt-0'>
-          <Button fullWidth variant='faded' onClick={resetColor}>
+          <Button fullWidth variant='faded' onPress={resetColor}>
             Reset
           </Button>
-          <Button fullWidth variant='light' onClick={() => setColor(color.invert())}>
+          <Button fullWidth variant='light' onPress={() => setColor(color.invert())}>
             Invert
           </Button>
-          <Button fullWidth variant='flat' onClick={() => setColor(color.grayscale())}>
+          <Button fullWidth variant='flat' onPress={() => setColor(color.grayscale())}>
             Grayscale
           </Button>
         </div>

@@ -1,6 +1,6 @@
 {
   "name": "color-core-monorepo",
-  "version": "1.3.4",
+  "version": "1.4.0",
   "workspaces": {
     "packages": [
       "packages/color-core",
@@ -41,7 +41,7 @@
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "typedoc": "^0.26.5",
-    "typescript": "5.5.3"
+    "typescript": "5.5.4"
   },
   "author": "Tariel Davidashvili <hello@tariel.me> (http://tariel.me/)",
   "license": "MIT",
@@ -49,8 +49,5 @@
     "type": "git",
     "url": "git+https://github.com/iamlite/color-core.git"
   },
-  "packageManager": "yarn@4.3.1",
-  "dependencies": {
-    "vercel": "^35.1.0"
-  }
+  "packageManager": "yarn@4.3.1"
 }

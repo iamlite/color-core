@@ -9,10 +9,10 @@
   "bracketSpacing": true,
   "endOfLine": "auto",
   "jsxSingleQuote": true,
-  "jsxBracketSameLine": true,
+  "jsxBracketSameLine": false,
   "htmlWhitespaceSensitivity": "css",
   "proseWrap": "always",
   "quoteProps": "as-needed",
   "bracketSameLine": true,
-  "singleAttributePerLine": true
+  "singleAttributePerLine": false
 }

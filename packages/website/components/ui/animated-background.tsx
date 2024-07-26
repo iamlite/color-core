@@ -177,7 +177,7 @@ export const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ color, l
         left: 0,
         zIndex: -1,
         filter: 'blur(128px)',
-        opacity: 0.7
+        opacity: 0.99
       }}
     />
   )

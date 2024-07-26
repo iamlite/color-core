@@ -15,6 +15,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### TODO
+
+- more parsers for CSS color strings
+
+## [1.4.0] - 2024-07-25
+
+### Added
+
+- New accessibility features:
+  - `getRelativeLuminance`: Calculate the relative luminance of a color
+  - `getContrastRatio`: Calculate the contrast ratio between two colors
+  - `getWCAGCompliance`: Determine WCAG compliance level for color contrast
+- New methods in Color class: `getRelativeLuminance()`, `getContrastRatio()`, `getWCAGCompliance()`
+- Partial implementation of parsers for CSS color strings. More coming soon.
+
+### Changed
+
+- Clarified behavior of `rgbToHex` function for alpha values:
+  - Alpha values of 0.995 and above now consistently produce 'ff'
+  - Other alpha values are rounded to the nearest integer
+- Updated documentation with new accessibility features and examples.
+- Improved test coverage for new accessibility features.
+
+### Attention
+
+- Deprecated the color picker component in favor of a new color picker package to be released soon.
+- Removed dependencies for React & React DOM since those are no longer needed.
+
+### Fixed
+
+- [#22](https://github.com/iamlite/color-core/issues/22)
+
 ## [1.3.3] - 2024-07-21
 
 ### Added

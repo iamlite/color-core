@@ -79,7 +79,7 @@ export type LCH = {
  * with an optional white point.
  */
 
-export interface XYZ {
+export type XYZ = {
   x: number
   y: number
   z: number
@@ -342,3 +342,19 @@ export type PerceptuallyUniformScaleOptions = {
   endColor: Color
   steps: number
 }
+
+/**
+ * Represents the perceived brightness of a color.
+ */
+export type ColorLuminance = 'light' | 'dark'
+
+/**
+ * Represents the level of WCAG compliance.
+ */
+
+export type WCAGComplianceLevel = 'AAA' | 'AA' | 'A' | 'Fail' | 'Poor'
+
+/**
+ * Represents the size of text for WCAG compliance checking.
+ */
+export type TextSize = 'Normal' | 'Large'

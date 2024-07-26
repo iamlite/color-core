@@ -14,6 +14,14 @@ export const siteConfig = {
       href: '/demo'
     },
     {
+      label: 'Conversions',
+      href: '/conversions'
+    },
+    {
+      label: 'Harmonies',
+      href: '/harmonies'
+    },
+    {
       label: 'Docs',
       href: 'https://docs.color-core.com'
     }
