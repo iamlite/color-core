@@ -14311,12 +14311,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.414.0":
-  version: 0.414.0
-  resolution: "lucide-react@npm:0.414.0"
+"lucide-react@npm:^0.416.0":
+  version: 0.416.0
+  resolution: "lucide-react@npm:0.416.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/280123f5f43cad653aa74f519ad2294fdc82c32028c780e3228c2a92997e987e4708a20527af64731882a9dedc6117f98ba0582946e86751a8f02f8297f8f815
+  checksum: 10c0/4aa583d251f3286ec86bdce95b63e3f58428ad6df509cdd9dd453f9eaa845a3188283726915ddbd1fdc6c49548bb31325038e2e96cb31d2eac000beb97b22c26
   languageName: node
   linkType: hard
 
@@ -15854,7 +15854,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-themes@npm:^0.2.1":
+"next-themes@npm:0.2.1":
   version: 0.2.1
   resolution: "next-themes@npm:0.2.1"
   peerDependencies:
@@ -19605,9 +19605,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:3.4.6":
-  version: 3.4.6
-  resolution: "tailwindcss@npm:3.4.6"
+"tailwindcss@npm:3.4.7":
+  version: 3.4.7
+  resolution: "tailwindcss@npm:3.4.7"
   dependencies:
     "@alloc/quick-lru": "npm:^5.2.0"
     arg: "npm:^5.0.2"
@@ -19634,7 +19634,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 10c0/8d82b697ecf41d8cd100ab3369e3cbcb30e350afc5b595a000b201ba666628a68543154297f96c5b2a3f2614f37bb981af4766556ebaae832079fa9a436e8563
+  checksum: 10c0/dd74c29ae0ec314d46300a1163b106b84d3ca58d71e4e16c2c8ad9ee3d7ba6cfeab4a97176c0e9bfeebc5e9cd9636531648a3f3874ede376751a572d230dd979
   languageName: node
   linkType: hard
 
@@ -20854,15 +20854,15 @@ __metadata:
     color-core: "workspace:*"
     framer-motion: "npm:^11.3.17"
     intl-messageformat: "npm:^10.5.14"
-    lucide-react: "npm:^0.414.0"
+    lucide-react: "npm:^0.416.0"
     next: "npm:14.2.5"
-    next-themes: "npm:^0.2.1"
+    next-themes: "npm:0.2.1"
     postcss: "npm:8.4.40"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     styled-components: "npm:^6.1.12"
     tailwind-variants: "npm:0.2.1"
-    tailwindcss: "npm:3.4.6"
+    tailwindcss: "npm:3.4.7"
     typescript: "npm:5.5.4"
   languageName: unknown
   linkType: soft
