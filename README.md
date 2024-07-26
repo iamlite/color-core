@@ -1,6 +1,3 @@
-<!-- markdownlint-disable MD033 -->
-<!-- markdownlint-disable MD041 -->
-
 <div align="center">
 <a name="top"></a>
 <img alt="logo" src="./assets/color-core-light.png"/>
@@ -54,7 +51,6 @@
 - 🔄 Easy color conversions between all supported formats
 - 🌈 Generate color harmonies (complementary, analogous, triadic, tetradic, split-complementary, and more)
 - 🛠 Powerful color manipulation tools (adjust lightness, saturation, hue, alpha, and more)
-- 🎛 Customizable, unopinionated ColorPicker component
 - 💪 Full TypeScript support with type safety
 - 🔌 Seamless IDE integration
 - 🧠 Color naming and information retrieval
@@ -160,36 +156,11 @@ console.log(oklab);  // { L: 0.866440, a: -0.233888, b: 0.179498 }
 </div>
 <br>
 
-### ColorPicker Component
-
-`color-core` includes a customizable ColorPicker component for typescript applications. This component provides a user-friendly interface for color selection while allowing extensive customization to fit your application's needs.
-
-<br>
-<div align="left">
-
-```jsx
-import { ColorPicker } from 'color-core';
-
-function MyComponent() {
-  return (
-    <ColorPicker
-      initialColor={{ r: 255, g: 0, b: 0 }}
-      onChange={(color) => console.log('Selected color:', color)}
-      width={300}
-      height={200}
-    />
-  );
-}
-```
-
-</div>
-<br>
-
 ---
 
 ## API Reference
 
-The following section provides a comprehensive overview of color-core's API. Each method and function is documented to help you understand its purpose and usage within your color manipulation workflows.You can find more detailed information in the [official documentation](https://color-core.com/docs).
+The following section provides a comprehensive overview of color-core's API. Each method and function is documented to help you understand its purpose and usage within your color manipulation workflows.You can find more detailed information in the [official documentation](https://docs.color-core.com).
 
 <br>
 
