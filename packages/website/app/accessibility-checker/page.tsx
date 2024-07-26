@@ -1,7 +1,6 @@
 'use client'
 
 import { useColor } from '@/components/color-context'
-import { UpDownIcon } from '@/components/icons'
 import ColorInput from '@/components/ui/color-input'
 import {
   Accordion,
@@ -19,7 +18,7 @@ import {
   TableRow
 } from '@nextui-org/react'
 import { Color } from 'color-core'
-import { BadgeInfoIcon } from 'lucide-react'
+import { ArrowUpDown, BadgeInfoIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export default function AccessibilityDemo() {
@@ -201,8 +200,8 @@ export default function AccessibilityDemo() {
 
             <div className='flex items-center justify-center my-4'>
               <Divider className='mx-5 my-4' />
-              <Button isIconOnly onClick={flipColors}>
-                <UpDownIcon stroke='currentColor' className='flex-shrink-0 pointer-events-none text-default-400' />
+              <Button isIconOnly onClick={flipColors} variant='flat'>
+                <ArrowUpDown className='flex-shrink-0 pointer-events-none text-default-900' />
               </Button>
               <Divider className='mx-5 my-4' />
             </div>

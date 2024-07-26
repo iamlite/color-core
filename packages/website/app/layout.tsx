@@ -26,27 +26,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      suppressHydrationWarning
-      lang='en'>
+    <html suppressHydrationWarning lang='en'>
       <head>
-        <meta
-          content='#94e3fe'
-          name='theme-color'
-        />
+        <meta content='#94e3fe' name='theme-color' />
       </head>
 
       <body className={clsx('min-h-screen flex flex-col font-sans antialiased', fontSans.variable)}>
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark', children }}>
-          <ColorContextProvider
-            initialColor='#94e3fe'
-            className='flex flex-col flex-grow'>
+          <ColorContextProvider initialColor='#94e3fe' className='flex flex-col flex-grow'>
             <Navbar />
+            {/* <PageTransition> */}
             <main className='flex justify-center mx-auto max-w-[90vw] min-h-[90vh] transition-transform-opacity ease-soft-spring duration-500 '>
               {children}
               <Analytics />
               <SpeedInsights />
             </main>
+            {/* </PageTransition> */}
             <Footer />
           </ColorContextProvider>
         </Providers>

@@ -1,7 +1,7 @@
 import { useColor } from '@/components/color-context'
-import { SwatchIcon } from '@/components/icons'
 import { button as buttonStyles, Input } from '@nextui-org/react'
 import { Color } from 'color-core'
+import { SwatchBook } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 
 interface ColorInputProps {
@@ -61,7 +61,7 @@ const ColorInput: React.FC<ColorInputProps> = ({ color: propColor, onColorChange
         labelPlacement='inside'
         placeholder='Enter a color (e.g., #FF0000, rgb(255,0,0), hsl(0,100%,50%))'
         size='lg'
-        startContent={<SwatchIcon className='flex-shrink-0 pointer-events-none text-default-400' />}
+        startContent={<SwatchBook className='flex-shrink-0 pointer-events-none text-default-400' />}
         type='text'
         value={inputValue}
         variant='flat'

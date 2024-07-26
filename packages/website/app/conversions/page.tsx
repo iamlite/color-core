@@ -1,7 +1,7 @@
 'use client'
 import { useColor } from '@/components/color-context'
-import { InfoIcon } from '@/components/icons'
 import { Button, Card, CardBody, CardHeader, Input, Snippet, Tooltip } from '@nextui-org/react'
+import { Info } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import ColorInput from '../../components/ui/color-input'
 
@@ -83,7 +83,7 @@ export default function ConversionsPage() {
           </Card>
         }>
         <Button isIconOnly variant='light' className='absolute z-50 top-4 right-4'>
-          <InfoIcon />
+          <Info />
         </Button>
       </Tooltip>
 

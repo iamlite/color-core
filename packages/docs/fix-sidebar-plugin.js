@@ -19,7 +19,7 @@ function copyFiles(src, dest) {
   }
 }
 
-module.exports = function (context, options) {
+module.exports = function (context) {
   return {
     name: 'docusaurus-fix-sidebar-plugin',
     async loadContent() {
