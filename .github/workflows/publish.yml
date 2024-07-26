@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - 'packages/color-core/**'
-
+  workflow_dispatch:
 jobs:
   publish:
     runs-on: ubuntu-latest
