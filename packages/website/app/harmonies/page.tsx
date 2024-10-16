@@ -1,8 +1,8 @@
 'use client'
-import { useColor } from '@/components/color-context'
+import { useColor } from '@/components/context/color-context'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import ColorInput from '@/components/ui/color-input'
 import ColorSwatch from '@/components/ui/color-swatch'
-import { Card, CardBody, CardHeader } from '@nextui-org/react'
 import { Color } from 'color-core'
 
 interface ColorSectionProps {
@@ -11,15 +11,17 @@ interface ColorSectionProps {
 }
 
 const ColorSection: React.FC<ColorSectionProps> = ({ title, colors }) => (
-  <Card isFooterBlurred className='flex'>
-    <CardBody className='flex flex-row items-center justify-between'>
-      <p className='text-sm'>{title}</p>
-      <div className='flex flex-row '>
-        {colors.map((color, index) => (
-          <ColorSwatch key={index} color={color} />
-        ))}
+  <Card className='flex items-stretch h-full'>
+    <CardContent className='flex flex-col justify-center w-full py-4'>
+      <div className='flex flex-row items-center w-full'>
+        <p className='flex-shrink-0 mr-4 text-sm'>{title}</p>
+        <div className='flex flex-row justify-end flex-grow'>
+          {colors.map((color, index) => (
+            <ColorSwatch key={index} color={color} />
+          ))}
+        </div>
       </div>
-    </CardBody>
+    </CardContent>
   </Card>
 )
 
@@ -27,13 +29,14 @@ export default function HarmonyPage() {
   const { color, setColor } = useColor()
 
   return (
-    <Card isBlurred className='flex-grow w-full p-6 my-4 max-w-7xl'>
-      <CardHeader className='justify-center my-4 text-lg font-semibold'>Color Harmonies</CardHeader>
-      <div className='flex flex-col items-center '>
-        <ColorInput color={color} onColorChange={setColor} />
-      </div>
-
-      <CardBody className='grid grid-cols-1 gap-4 md:grid-cols-2 place-content-center'>
+    <Card blurred className='flex-grow w-full p-6 mx-auto my-4 max-w-7xl'>
+      <CardHeader className='justify-center'>
+        <p className='mb-4 text-lg font-semibold'>Color Harmonies</p>
+        <div className='flex flex-col items-center'>
+          <ColorInput color={color} onColorChange={setColor} />
+        </div>
+      </CardHeader>
+      <CardContent className='grid grid-cols-1 gap-4 md:grid-cols-2 place-content-center'>
         <ColorSection colors={color.doubleSplitComplementary()} title='Double Split Complementary' />
         <ColorSection colors={color.monochromatic(5)} title='Monochromatic' />
         <ColorSection colors={color.shades()} title='Shades' />
@@ -45,7 +48,7 @@ export default function HarmonyPage() {
         <ColorSection colors={color.triadic()} title='Triadic' />
         <ColorSection colors={color.splitComplementary()} title='Split Complementary' />
         <ColorSection colors={color.complementary()} title='Complementary' />
-      </CardBody>
+      </CardContent>
     </Card>
   )
 }

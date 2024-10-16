@@ -1,7 +1,9 @@
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react'
-import { Snippet } from '@nextui-org/snippet'
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Color } from 'color-core'
+import { ChevronDown } from 'lucide-react'
 import React, { useState } from 'react'
+import Snippet from './snippet'
 
 /**
  * Interface for package manager options
@@ -29,7 +31,7 @@ interface InstallSnippetProps {
  * @param {InstallSnippetProps} props - The component props
  * @returns {React.ReactElement} The rendered InstallSnippet component
  */
-const InstallSnippet: React.FC<InstallSnippetProps> = ({ packageName }) => {
+const InstallSnippet: React.FC<InstallSnippetProps> = ({ packageName, color }) => {
   const packageManagers: PackageManager[] = [
     { name: 'npm', command: 'npm i' },
     { name: 'yarn', command: 'yarn add' },
@@ -42,23 +44,22 @@ const InstallSnippet: React.FC<InstallSnippetProps> = ({ packageName }) => {
   return (
     <div className='flex flex-col gap-4'>
       <div className='flex items-center gap-2'>
-        <Dropdown>
-          <DropdownTrigger>
-            <Button className='capitalize'>{selectedManager.name}</Button>
-          </DropdownTrigger>
-          <DropdownMenu
-            aria-label='Package manager selection'
-            onAction={key => {
-              const manager = packageManagers.find(pm => pm.name === key)
-
-              if (manager) setSelectedManager(manager)
-            }}>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant='outline' className='flex items-center gap-2 capitalize'>
+              {selectedManager.name}
+              <ChevronDown className='w-4 h-4' />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
             {packageManagers.map(pm => (
-              <DropdownItem key={pm.name}>{pm.name}</DropdownItem>
+              <DropdownMenuItem key={pm.name} onSelect={() => setSelectedManager(pm)}>
+                {pm.name}
+              </DropdownMenuItem>
             ))}
-          </DropdownMenu>
-        </Dropdown>
-        <Snippet className='flex-grow' variant='shadow'>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <Snippet className='flex-grow' variant='outline'>
           {`${selectedManager.command} ${packageName}`}
         </Snippet>
       </div>

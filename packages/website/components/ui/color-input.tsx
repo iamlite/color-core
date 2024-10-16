@@ -1,15 +1,17 @@
-import { useColor } from '@/components/color-context'
-import { button as buttonStyles, Input } from '@nextui-org/react'
+'use client'
+
+import { useColor } from '@/components/context/color-context'
+import { Input } from '@/components/ui/input'
 import { Color } from 'color-core'
 import { SwatchBook } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface ColorInputProps {
   color?: Color
   onColorChange?: (color: Color) => void
 }
 
-const ColorInput: React.FC<ColorInputProps> = ({ color: propColor, onColorChange: propOnColorChange }) => {
+export default function ColorInput({ color: propColor, onColorChange: propOnColorChange }: ColorInputProps) {
   const contextColor = useColor()
   const [inputValue, setInputValue] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -34,42 +36,32 @@ const ColorInput: React.FC<ColorInputProps> = ({ color: propColor, onColorChange
   }
 
   return (
-    <div>
-      <Input
-        className='max-w-sm py-4'
-        classNames={{
-          input: 'mx-2',
-          inputWrapper: error ? 'border-red-500' : ''
-        }}
-        endContent={
+    <div className='relative max-w-sm'>
+      <div className='relative flex items-center'>
+        <SwatchBook className='absolute left-3 text-muted-foreground' />
+        <Input
+          className='pl-10 pr-16'
+          placeholder='Enter a color (e.g., #FF0000, rgb(255,0,0))'
+          type='text'
+          value={inputValue}
+          onChange={e => handleInputChange(e.target.value)}
+        />
+        <div className='absolute -translate-y-1/2 right-1 top-1/2'>
           <div
-            className={`${buttonStyles({
-              radius: 'lg'
-            })} absolute -right-3 top-[50%] h-[200%] hover:scale-110 active:scale-125 transition-transform duration-500`}
+            className='w-12 h-12 overflow-hidden transition-transform duration-300 rounded-md shadow-md hover:scale-110 active:scale-125'
             style={{
               backgroundColor: color.toHex()
             }}>
-            <input
+            <Input
               className='w-full h-full opacity-0 cursor-pointer'
               type='color'
               value={color.toHex()}
               onChange={e => handleInputChange(e.target.value)}
             />
           </div>
-        }
-        label='Color Code'
-        labelPlacement='inside'
-        placeholder='Enter a color (e.g., #FF0000, rgb(255,0,0), hsl(0,100%,50%))'
-        size='lg'
-        startContent={<SwatchBook className='flex-shrink-0 pointer-events-none text-default-400' />}
-        type='text'
-        value={inputValue}
-        variant='flat'
-        onChange={e => handleInputChange(e.target.value)}
-      />
-      {error && <p className='mt-1 text-sm text-red-500'>{error}</p>}
+        </div>
+      </div>
+      {error && <p className='mt-1 text-sm text-destructive'>{error}</p>}
     </div>
   )
 }
-
-export default ColorInput

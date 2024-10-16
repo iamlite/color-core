@@ -1,8 +1,8 @@
 'use client'
 
+import { ButtonGroup, ButtonGroupItem, Card, CardContent, CardHeader } from '@/components/ui'
 import ColorInput from '@/components/ui/color-input'
 import ColorSwatch from '@/components/ui/color-swatch'
-import { Button, ButtonGroup, Card, CardBody, CardHeader } from '@nextui-org/react'
 import {
   Color,
   createDivergingScale,
@@ -21,9 +21,9 @@ interface ScaleSectionProps {
 }
 
 const ScaleSection: React.FC<ScaleSectionProps> = ({ title, scale, usedColors, description }) => (
-  <Card isFooterBlurred className='w-full mb-6'>
+  <Card className='w-full mb-6'>
     <CardHeader className='justify-center mt-6 text-lg font-semibold'>{title}</CardHeader>
-    <CardBody className='flex flex-col items-center justify-center p-4'>
+    <CardContent className='flex flex-col items-center justify-center p-4'>
       <p className='mb-6 text-sm text-center text-wrap opacity-70'>{description}</p>
       <div className='flex mb-6 gap-x-6'>
         {usedColors.map((color, index) => (
@@ -38,7 +38,7 @@ const ScaleSection: React.FC<ScaleSectionProps> = ({ title, scale, usedColors, d
           <ColorSwatch key={index} color={color} />
         ))}
       </div>
-    </CardBody>
+    </CardContent>
   </Card>
 )
 
@@ -70,7 +70,7 @@ const ColorScalesDemo: React.FC = () => {
   const qualitativeScale = createQualitativeScale(steps)
 
   return (
-    <Card isBlurred className='flex-grow w-full p-6 my-4 max-w-7xl'>
+    <Card blurred className='flex-grow w-full p-6 mx-auto my-4 max-w-7xl'>
       <CardHeader className='flex flex-col items-center justify-center'>
         <h1 className='mb-2 text-2xl font-bold'>Color Scales</h1>
         <p className='py-4 text-center'>
@@ -85,16 +85,26 @@ const ColorScalesDemo: React.FC = () => {
         </div>
         <div className='flex flex-col justify-center gap-4'>
           <p className='text-lg font-semibold text-center'>Number of steps:</p>
-          <ButtonGroup variant='flat'>
-            <Button onPress={() => setSteps(20)}>20</Button>
-            <Button onPress={() => setSteps(40)}>40</Button>
-            <Button onPress={() => setSteps(80)}>80</Button>
-            <Button onPress={() => setSteps(100)}>100</Button>
-            <Button onPress={() => setSteps(200)}>200</Button>
+          <ButtonGroup variant='outline'>
+            <ButtonGroupItem variant='outline' isFirstItem onClick={() => setSteps(20)}>
+              20
+            </ButtonGroupItem>
+            <ButtonGroupItem variant='outline' onClick={() => setSteps(40)}>
+              40
+            </ButtonGroupItem>
+            <ButtonGroupItem variant='outline' onClick={() => setSteps(80)}>
+              80
+            </ButtonGroupItem>
+            <ButtonGroupItem variant='outline' onClick={() => setSteps(100)}>
+              100
+            </ButtonGroupItem>
+            <ButtonGroupItem variant='outline' isLastItem onClick={() => setSteps(200)}>
+              200
+            </ButtonGroupItem>
           </ButtonGroup>
         </div>
       </CardHeader>
-      <CardBody className='flex flex-col items-center gap-y-4'>
+      <CardContent className='flex flex-col items-center gap-y-4'>
         <ScaleSection
           title='Sequential Scale'
           scale={sequentialScale}
@@ -125,7 +135,7 @@ const ColorScalesDemo: React.FC = () => {
           usedColors={[]}
           description='A set of distinct colors suitable for representing categorical data. This scale is generated automatically.'
         />
-      </CardBody>
+      </CardContent>
     </Card>
   )
 }

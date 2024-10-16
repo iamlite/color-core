@@ -1,74 +1,65 @@
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, NavbarItem } from '@nextui-org/react'
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { BarChart3, ChevronDown, Droplet, Eye, Music, Palette, Sliders } from 'lucide-react'
 
 export default function UtilDropdown() {
   const icons = {
-    chevron: <ChevronDown size={12} color='currentColor' />,
-    conversions: <Palette />,
-    harmonies: <Music />,
-    mixing: <Droplet />,
-    manipulation: <Sliders />,
-    scales: <BarChart3 />,
-    accessibility: <Eye />
+    chevron: <ChevronDown className='w-5 h-5' />,
+    conversions: <Palette className='w-6 h-6' />,
+    harmonies: <Music className='w-6 h-6' />,
+    mixing: <Droplet className='w-6 h-6' />,
+    manipulation: <Sliders className='w-6 h-6' />,
+    scales: <BarChart3 className='w-6 h-6' />,
+    accessibility: <Eye className='w-6 h-6' />
+  }
+
+  const getTitleText = (key: string): string => {
+    if (key === 'mixing') return 'Color Mixing'
+    if (key === 'accessibility') return 'Accessibility Checker'
+    return key.charAt(0).toUpperCase() + key.slice(1)
+  }
+
+  const getPath = (key: string): string => {
+    if (key === 'mixing') return '/color-mixing'
+    if (key === 'accessibility') return '/accessibility-checker'
+    return `/${key}`
   }
 
   return (
-    <Dropdown backdrop='blur'>
-      <NavbarItem>
-        <DropdownTrigger>
-          <Button
-            className='bg-transparent data-[hover=true]:bg-transparent'
-            endContent={icons.chevron}
-            radius='md'
-            variant='light'>
-            Color Utilities
-          </Button>
-        </DropdownTrigger>
-      </NavbarItem>
-      <DropdownMenu aria-label='Color Utilities' className='w-[340px]' itemClasses={{ base: 'gap-4' }}>
-        <DropdownItem
-          key='conversions'
-          description='Convert colors between different color spaces'
-          startContent={icons.conversions}
-          href='/conversions'>
-          Conversions
-        </DropdownItem>
-        <DropdownItem
-          key='harmonies'
-          description='Generate color harmonies based on color theory'
-          startContent={icons.harmonies}
-          href='/harmonies'>
-          Harmonies
-        </DropdownItem>
-        <DropdownItem
-          key='mixing'
-          description='Mix and blend different colors'
-          startContent={icons.mixing}
-          href='/color-mixing'>
-          Color Mixing
-        </DropdownItem>
-        <DropdownItem
-          key='manipulation'
-          description='Adjust hue, saturation, lightness, and more'
-          startContent={icons.manipulation}
-          href='/manipulation'>
-          Color Manipulation
-        </DropdownItem>
-        <DropdownItem
-          key='scales'
-          description='Generate color scales for data visualization'
-          startContent={icons.scales}
-          href='/scales'>
-          Color Scales
-        </DropdownItem>
-        <DropdownItem
-          key='accessibility'
-          description='Check color contrast and accessibility'
-          startContent={icons.accessibility}
-          href='/accessibility-checker'>
-          Accessibility Checker
-        </DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant='ghost' className='flex items-center'>
+          Color Utilities
+          {icons.chevron}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className='w-[340px]'>
+        {Object.entries(icons)
+          .slice(1)
+          .map(([key, icon]) => (
+            <DropdownMenuItem key={key} className='p-0'>
+              <a href={getPath(key)} className='flex items-center w-full p-2'>
+                <div className='flex items-center justify-center w-10 h-10 mr-3'>{icon}</div>
+                <div className='flex-1'>
+                  <div className='font-medium'>{getTitleText(key)}</div>
+                  <p className='text-sm text-muted-foreground'>{getDescription(key)}</p>
+                </div>
+              </a>
+            </DropdownMenuItem>
+          ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
+}
+
+function getDescription(key: string): string {
+  const descriptions: { [key: string]: string } = {
+    conversions: 'Convert colors between different color spaces',
+    harmonies: 'Generate color harmonies based on color theory',
+    mixing: 'Mix and blend different colors',
+    manipulation: 'Adjust hue, saturation, lightness, and more',
+    scales: 'Generate color scales for data visualization',
+    accessibility: 'Check color contrast and accessibility'
+  }
+  return descriptions[key]?.trim() || ''
 }

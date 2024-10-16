@@ -1,6 +1,5 @@
 'use client'
 
-import clsx from 'clsx'
 import { Color } from 'color-core'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
@@ -70,15 +69,8 @@ export function ColorContextProvider({ children, className, initialColor = '#94e
 
   return (
     <ColorContext.Provider value={contextValue}>
-      <div className={clsx(className, 'relative overflow-hidden')}>
-        {isClient && (
-          <AnimatedBackground
-            color={color}
-            lightCount={30}
-          />
-        )}
-        <div className='relative z-10'>{children}</div>
-      </div>
+      {isClient && <AnimatedBackground color={color} lightCount={30} />}
+      {children}
     </ColorContext.Provider>
   )
 }
